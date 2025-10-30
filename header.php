@@ -247,6 +247,67 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu hidden md:hidden bg-white shadow-lg">
         <div class="px-6 py-4">
+            
+            <!-- Hesabım ve Sepet (Mobil) -->
+            <div class="pb-4 mb-4 border-b border-gray-200">
+                <div class="flex items-center justify-between gap-4">
+                    <!-- Hesabım -->
+                    <?php if (is_user_logged_in()) : ?>
+                        <?php if (class_exists('WooCommerce')) : ?>
+                            <a href="<?php echo esc_url(wc_get_account_endpoint_url('dashboard')); ?>" class="flex-1 flex items-center gap-2 text-gray-700 hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gray-50">
+                                <i class="ri-user-line text-2xl"></i>
+                                <div class="text-left">
+                                    <div class="text-xs text-gray-500">Hoşgeldin</div>
+                                    <div class="text-sm font-semibold -mt-1"><?php echo wp_get_current_user()->display_name; ?></div>
+                                </div>
+                            </a>
+                        <?php else : ?>
+                            <a href="<?php echo esc_url(admin_url('profile.php')); ?>" class="flex-1 flex items-center gap-2 text-gray-700 hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gray-50">
+                                <i class="ri-user-line text-2xl"></i>
+                                <span class="text-sm font-semibold">Profilim</span>
+                            </a>
+                        <?php endif; ?>
+                    <?php else : ?>
+                        <?php if (class_exists('WooCommerce')) : ?>
+                            <a href="<?php echo esc_url(wc_get_page_permalink('myaccount')); ?>" class="flex-1 flex items-center gap-2 text-gray-700 hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gray-50">
+                                <i class="ri-user-line text-2xl"></i>
+                                <div class="text-left">
+                                    <div class="text-xs text-gray-500">Giriş Yap</div>
+                                    <div class="text-sm font-semibold -mt-1">veya Üye Ol</div>
+                                </div>
+                            </a>
+                        <?php else : ?>
+                            <a href="<?php echo esc_url(wp_login_url()); ?>" class="flex-1 flex items-center gap-2 text-gray-700 hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gray-50">
+                                <i class="ri-user-line text-2xl"></i>
+                                <span class="text-sm font-semibold">Giriş Yap</span>
+                            </a>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    
+                    <!-- Sepet -->
+                    <?php if (class_exists('WooCommerce')) : ?>
+                        <a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="flex-1 flex items-center gap-2 text-gray-700 hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gray-50 relative">
+                            <i class="ri-shopping-cart-line text-2xl"></i>
+                            <div class="text-left">
+                                <div class="text-xs text-gray-500">Sepetim</div>
+                                <div class="text-sm font-semibold -mt-1">
+                                    <?php
+                                    $cart_count = WC()->cart->get_cart_contents_count();
+                                    echo $cart_count > 0 ? $cart_count . ' Ürün' : 'Boş';
+                                    ?>
+                                </div>
+                            </div>
+                            <?php if ($cart_count > 0) : ?>
+                                <span class="cart-count absolute top-1 right-1 bg-primary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                                    <?php echo $cart_count; ?>
+                                </span>
+                            <?php endif; ?>
+                        </a>
+                    <?php endif; ?>
+                </div>
+            </div>
+            
+            <!-- Menü Linkleri -->
             <?php
             if (has_nav_menu('primary')) {
                 wp_nav_menu(array(
@@ -278,6 +339,17 @@
                 <?php
             }
             ?>
+            
+            <!-- Çıkış Yap (Giriş Yaptıysa) -->
+            <?php if (is_user_logged_in()) : ?>
+                <div class="pt-4 mt-4 border-t border-gray-200">
+                    <a href="<?php echo esc_url(wp_logout_url(home_url())); ?>" class="flex items-center gap-2 text-red-600 hover:text-red-700 transition-colors duration-300 font-medium py-2">
+                        <i class="ri-logout-box-line text-xl"></i>
+                        Çıkış Yap
+                    </a>
+                </div>
+            <?php endif; ?>
+            
         </div>
     </div>
 
