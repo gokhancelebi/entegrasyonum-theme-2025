@@ -203,6 +203,13 @@ get_header();
             endif;
             ?>
         </div>
+        
+        <div class="text-center mt-12">
+            <a href="<?php echo esc_url(get_permalink(wc_get_page_id('shop'))); ?>" 
+               class="inline-block bg-primary hover:bg-blue-700 text-white px-8 py-4 rounded-button font-semibold transition-all duration-300">
+                <i class="ri-shopping-bag-line mr-2"></i>Tüm Ürünler
+            </a>
+        </div>
     </div>
 </section>
 <?php endif; ?>
@@ -338,6 +345,15 @@ get_header();
             endif;
             ?>
         </div>
+        
+        <?php if ($blog_query->found_posts > 0) : ?>
+            <div class="text-center mt-12">
+                <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" 
+                   class="inline-block bg-primary hover:bg-blue-700 text-white px-8 py-4 rounded-button font-semibold transition-all duration-300">
+                    <i class="ri-article-line mr-2"></i>Tüm Yazılar
+                </a>
+            </div>
+        <?php endif; ?>
     </div>
 </section>
 
