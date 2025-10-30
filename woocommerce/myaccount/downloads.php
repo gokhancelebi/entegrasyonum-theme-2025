@@ -9,6 +9,9 @@
 
 defined( 'ABSPATH' ) || exit;
 
+$downloads     = WC()->customer->get_downloadable_products();
+$has_downloads = (bool) $downloads;
+
 do_action( 'woocommerce_before_account_downloads', $has_downloads ); ?>
 
 <div class="bg-white rounded-lg shadow-md p-6 lg:p-8">
