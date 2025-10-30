@@ -5,3 +5,20 @@ sepet sayfası ödemeye git butonu stili tasarımımız ile uyumlu değil, ve bi
 temaya özel boyutlandırılmıyor resimle, gerekli boyut desteği eklenmeli
 ürün detayında açıklama vs tabların buton tasarımları güzel değil, buton gibi görünmemeli onlar tab sonuçta.
 masaüstünde aramayı göremiyorum
+
+
+Hata alıyorum:
+Temanız (Entegrasyonum) bazı WooCommerce şablon dosyalarının eski kopyalarını içeriyor. Bu dosyaların, WooCommerce'in geçerli sürümü ile uyumlu olmasını sağlamak üzere güncellenmesi gerekebilir. Bunun düzeltilmesi için öneriler:
+
+Temanızı en son sürüme yükseltin. Eğer yükseltme mevcut değilse tema yazarınızla iletişime geçin ve güncel WooCommerce sürümü ile tema uyumunu sorun.
+Şablon dosyada değişiklik yapmak için kopyalama yaptıysanız şablonun yeni versiyonunu kopyalayarak değişikliklerinizi yeniden uygulamanız gerekir.
+Şablonlar hakkında daha fazlasını öğren Etkilenen şablonları görüntüle
+
+performansi etkileyen şeyler var:
+https://entegrasyonum.com/undefined gibi consolda 404 istekelr var
+
+canlıda iletişim sayfası bozulmuş
+
+dropdown da hover da giriş  yap üye ol butonları düzgün görünmüyor..
+
+tailwind css kısmını derlememiz lazım
