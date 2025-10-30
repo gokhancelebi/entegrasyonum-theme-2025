@@ -2478,6 +2478,13 @@ ul.products {
     color: #991B1B;
 }
 
+/* WooCommerce Shop Sidebar */
+.woocommerce aside.lg\:col-span-1 {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+}
+
 /* Responsive Sidebar */
 @media (max-width: 1024px) {
     .sidebar {
@@ -2486,6 +2493,12 @@ ul.products {
     
     .widget {
         padding: 1.25rem;
+    }
+    
+    .woocommerce aside.lg\:col-span-1 {
+        position: relative;
+        top: 0;
+        margin-bottom: 2rem;
     }
 }
 
@@ -2858,22 +2871,32 @@ nav a,
 
 /* Product Grid - Single Item Fix */
 .woocommerce ul.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    display: grid !important;
+    grid-template-columns: repeat(1, 1fr);
     gap: 1.5rem;
-    justify-items: stretch;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
     .woocommerce ul.products {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Ensure single product doesn't center */
+@media (min-width: 1024px) {
+    .woocommerce ul.products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Product Items */
 .woocommerce ul.products li.product {
     width: 100%;
-    max-width: 400px;
+    max-width: none;
+    margin: 0 !important;
+    float: none !important;
 }
 
 /* Messages & Notices */
@@ -3036,6 +3059,11 @@ nav a,
 /* ============================================
    17. WOOCOMMERCE SINGLE PRODUCT
    ============================================ */
+
+/* Single Product Page Spacing */
+.single-product .woocommerce div.product {
+    padding-top: 2rem;
+}
 
 /* Product Gallery */
 .woocommerce div.product div.images {
@@ -3353,9 +3381,10 @@ nav a,
     display: grid;
     grid-template-columns: 280px 1fr;
     gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: var(--spacing-lg) 0;
+}
+
+.woocommerce-account .site-content {
+    padding: 0;
 }
 
 @media (max-width: 1024px) {
