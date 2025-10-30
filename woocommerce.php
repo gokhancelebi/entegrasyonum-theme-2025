@@ -10,32 +10,46 @@ get_header();
 
 <?php if (!is_product()) : ?>
 <!-- WooCommerce Page Header -->
-<div class="py-16 bg-gray-50" style="background: linear-gradient(135deg, #0A2540 0%, #122B55 100%);">
+<?php 
+// Light header for account and cart pages
+$is_light_header = is_account_page() || is_cart() || is_checkout();
+$header_bg = $is_light_header ? 'bg-gradient-to-r from-blue-50 to-indigo-50' : 'bg-gradient-to-r from-white to-gray-50';
+$text_color = $is_light_header ? 'text-gray-900' : 'text-gray-900';
+$subtitle_color = $is_light_header ? 'text-gray-600' : 'text-gray-700';
+$breadcrumb_color = $is_light_header ? 'text-gray-500' : 'text-gray-600';
+?>
+<div class="py-12 <?php echo $header_bg; ?> border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center text-white">
+        <div class="<?php echo is_account_page() || is_cart() || is_checkout() ? 'text-left' : 'text-center'; ?>">
             <?php if (is_shop()) : ?>
-                <h1 class="text-4xl md:text-5xl font-bold mb-4"><?php woocommerce_page_title(); ?></h1>
-                <p class="text-xl text-blue-100">Profesyonel entegrasyon hizmetlerimizi keşfedin</p>
+                <h1 class="text-3xl md:text-4xl font-bold mb-3 <?php echo $text_color; ?>"><?php woocommerce_page_title(); ?></h1>
+                <p class="text-lg <?php echo $subtitle_color; ?>">Profesyonel entegrasyon hizmetlerimizi keşfedin</p>
             <?php elseif (is_product_category() || is_product_tag()) : ?>
-                <h1 class="text-4xl md:text-5xl font-bold mb-4"><?php single_term_title(); ?></h1>
+                <h1 class="text-3xl md:text-4xl font-bold mb-3 <?php echo $text_color; ?>"><?php single_term_title(); ?></h1>
                 <?php
                 $term_description = term_description();
                 if (!empty($term_description)) :
                     ?>
-                    <div class="text-xl text-blue-100"><?php echo wp_kses_post($term_description); ?></div>
+                    <div class="text-lg <?php echo $subtitle_color; ?>"><?php echo wp_kses_post($term_description); ?></div>
                 <?php endif; ?>
             <?php elseif (is_account_page()) : ?>
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Hesabım</h1>
-                <p class="text-xl text-blue-100">Siparişlerinizi görüntüleyin ve hesap bilgilerinizi yönetin</p>
+                <h1 class="text-3xl md:text-4xl font-bold mb-3 <?php echo $text_color; ?>">Hesabım</h1>
+                <p class="text-lg <?php echo $subtitle_color; ?>">Siparişlerinizi görüntüleyin ve hesap bilgilerinizi yönetin</p>
+            <?php elseif (is_cart()) : ?>
+                <h1 class="text-3xl md:text-4xl font-bold mb-3 <?php echo $text_color; ?>">Alışveriş Sepeti</h1>
+                <p class="text-lg <?php echo $subtitle_color; ?>">Sepetinizdeki ürünleri gözden geçirin</p>
+            <?php elseif (is_checkout()) : ?>
+                <h1 class="text-3xl md:text-4xl font-bold mb-3 <?php echo $text_color; ?>">Ödeme</h1>
+                <p class="text-lg <?php echo $subtitle_color; ?>">Siparişinizi tamamlayın</p>
             <?php else : ?>
-                <h1 class="text-4xl md:text-5xl font-bold"><?php the_title(); ?></h1>
+                <h1 class="text-3xl md:text-4xl font-bold <?php echo $text_color; ?>"><?php the_title(); ?></h1>
             <?php endif; ?>
             
             <!-- Breadcrumbs -->
             <div class="mt-4">
                 <?php woocommerce_breadcrumb(array(
-                    'delimiter'   => ' <span class="text-blue-200 mx-2">/</span> ',
-                    'wrap_before' => '<nav class="text-blue-200 text-sm">',
+                    'delimiter'   => ' <span class="' . $breadcrumb_color . ' mx-2">/</span> ',
+                    'wrap_before' => '<nav class="' . $breadcrumb_color . ' text-sm">',
                     'wrap_after'  => '</nav>',
                     'before'      => '',
                     'after'       => '',
