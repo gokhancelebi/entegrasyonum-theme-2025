@@ -480,5 +480,43 @@
         $('html').css('scroll-behavior', 'auto');
     }
     
+    /**
+     * Fix Product Grid Direction - SOLDAN BAŞLA
+     * Ürün grid'ini kesinlikle LTR yap
+     */
+    function fixProductGridDirection() {
+        // Tüm products listelerini bul
+        $('.woocommerce ul.products').each(function() {
+            // Direction'ı LTR yap
+            $(this).css({
+                'direction': 'ltr',
+                'text-align': 'left'
+            });
+            
+            // Her product item'ı kontrol et
+            $(this).find('li.product').each(function(index) {
+                $(this).css({
+                    'direction': 'ltr',
+                    'text-align': 'left',
+                    'float': 'none',
+                    'clear': 'none'
+                });
+                
+                // Grid order'ı düzelt
+                $(this).css('order', index);
+            });
+        });
+    }
+    
+    // Sayfa yüklendiğinde çalıştır
+    $(document).ready(function() {
+        fixProductGridDirection();
+    });
+    
+    // AJAX ile ürün yüklendiğinde de çalıştır
+    $(document.body).on('updated_wc_div', function() {
+        fixProductGridDirection();
+    });
+    
 })(jQuery);
 
