@@ -443,19 +443,31 @@ img {
    ============================================ */
 
 .site-content {
-    margin-top: var(--header-height);
+    margin-top: 0;
     min-height: calc(100vh - var(--header-height) - 300px);
+    padding-top: var(--header-height);
 }
 
 /* Admin bar varken main content padding */
 .admin-bar .site-content {
-    margin-top: calc(var(--header-height) + 32px);
+    padding-top: calc(var(--header-height) + 32px);
 }
 
 @media screen and (max-width: 782px) {
     .admin-bar .site-content {
-        margin-top: calc(var(--header-height) + 46px);
+        padding-top: calc(var(--header-height) + 46px);
     }
+}
+
+/* Front page için padding yok - hero section kendi yönetir */
+.home .site-content,
+.page-template-default .site-content {
+    padding-top: 0;
+}
+
+.admin-bar.home .site-content,
+.admin-bar.page-template-default .site-content {
+    padding-top: 0;
 }
 
 /* Hero Section */

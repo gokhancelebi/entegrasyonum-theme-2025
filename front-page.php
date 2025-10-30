@@ -58,35 +58,92 @@ get_header();
                 İş operasyonlarınızı kolaylaştırmak ve gelişmiş otomasyon teknolojileri ile verimliliği artırmak için tasarlanmış kapsamlı dijital entegrasyon çözümleri.
             </p>
         </div>
+        
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-xl shadow-lg card-hover fade-in">
-                <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-xl mb-6">
-                    <i class="ri-code-s-slash-line text-2xl text-primary"></i>
+            <?php
+            // Hizmetleri getir
+            $services_args = array(
+                'post_type'      => 'service',
+                'posts_per_page' => 6,
+                'orderby'        => 'menu_order',
+                'order'          => 'ASC',
+            );
+            
+            $services_query = new WP_Query($services_args);
+            
+            if ($services_query->have_posts()) :
+                while ($services_query->have_posts()) :
+                    $services_query->the_post();
+                    
+                    // Icon meta field varsa kullan, yoksa default
+                    $icon = get_post_meta(get_the_ID(), 'service_icon', true);
+                    if (empty($icon)) {
+                        $icon = 'ri-tools-line';
+                    }
+                    ?>
+                    <div class="bg-white p-8 rounded-xl shadow-lg card-hover fade-in">
+                        <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-xl mb-6">
+                            <i class="<?php echo esc_attr($icon); ?> text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-secondary mb-4">
+                            <a href="<?php the_permalink(); ?>" class="hover:text-primary transition-colors duration-300">
+                                <?php the_title(); ?>
+                            </a>
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            <?php echo wp_trim_words(get_the_excerpt(), 25); ?>
+                        </p>
+                        <a href="<?php the_permalink(); ?>" 
+                           class="inline-flex items-center text-primary hover:text-secondary font-semibold transition-colors duration-300">
+                            Detaylı Bilgi
+                            <i class="ri-arrow-right-line ml-2"></i>
+                        </a>
+                    </div>
+                    <?php
+                endwhile;
+                wp_reset_postdata();
+            else :
+                // Hizmet yoksa varsayılan statik içerik göster
+                ?>
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover fade-in">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-xl mb-6">
+                        <i class="ri-code-s-slash-line text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-secondary mb-4">API Entegrasyonu</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Güçlü API entegrasyon hizmetlerimizle farklı sistemleri ve uygulamaları sorunsuz bir şekilde bağlayın.
+                    </p>
                 </div>
-                <h3 class="text-xl font-semibold text-secondary mb-4">API Entegrasyonu</h3>
-                <p class="text-gray-600 leading-relaxed">
-                    Güçlü API entegrasyon hizmetlerimizle farklı sistemleri ve uygulamaları sorunsuz bir şekilde bağlayın. Gerçek zamanlı veri senkronizasyonu ve otomatik iş akışları sağlayın.
-                </p>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-lg card-hover fade-in">
-                <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-xl mb-6">
-                    <i class="ri-shopping-cart-line text-2xl text-primary"></i>
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover fade-in">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-xl mb-6">
+                        <i class="ri-shopping-cart-line text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-secondary mb-4">WooCommerce Çözümleri</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Özel WooCommerce entegrasyonları, ödeme ağ geçitleri ve envanter yönetim sistemleri ile e-ticaret platformunuzu optimize edin.
+                    </p>
                 </div>
-                <h3 class="text-xl font-semibold text-secondary mb-4">WooCommerce Çözümleri</h3>
-                <p class="text-gray-600 leading-relaxed">
-                    Özel WooCommerce entegrasyonları, ödeme ağ geçitleri ve envanter yönetim sistemleri ile e-ticaret platformunuzu optimize edin.
-                </p>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-lg card-hover fade-in">
-                <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-xl mb-6">
-                    <i class="ri-file-code-line text-2xl text-primary"></i>
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover fade-in">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-xl mb-6">
+                        <i class="ri-file-code-line text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-secondary mb-4">XML Veri İşleme</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Otomatik ayrıştırma çözümlerimizle XML verilerini verimli bir şekilde dönüştürün ve işleyin.
+                    </p>
                 </div>
-                <h3 class="text-xl font-semibold text-secondary mb-4">XML Veri İşleme</h3>
-                <p class="text-gray-600 leading-relaxed">
-                    Otomatik ayrıştırma çözümlerimizle XML verilerini verimli bir şekilde dönüştürün ve işleyin. Karmaşık veri yapılarını yönetin.
-                </p>
-            </div>
+            <?php endif; ?>
         </div>
+        
+        <?php if ($services_query->found_posts > 0) : ?>
+            <div class="text-center mt-12">
+                <a href="<?php echo get_post_type_archive_link('service'); ?>" 
+                   class="inline-block bg-primary hover:bg-blue-700 text-white px-8 py-4 rounded-button font-semibold transition-all duration-300">
+                    Tüm Hizmetleri Görüntüle
+                </a>
+            </div>
+        <?php endif; ?>
+        
     </div>
 </section>
 

@@ -33,14 +33,35 @@
                 <!-- Navigation Menu (Desktop) -->
                 <nav class="hidden md:flex items-center space-x-8">
                     <?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'primary',
-                        'menu_class'     => 'flex items-center space-x-8',
-                        'container'      => false,
-                        'fallback_cb'    => false,
-                        'items_wrap'     => '%3$s',
-                        'walker'         => new Entegrasyonum_Walker_Nav_Menu(),
-                    ));
+                    if (has_nav_menu('primary')) {
+                        wp_nav_menu(array(
+                            'theme_location' => 'primary',
+                            'menu_class'     => 'flex items-center space-x-8',
+                            'container'      => false,
+                            'fallback_cb'    => false,
+                            'items_wrap'     => '%3$s',
+                            'walker'         => new Entegrasyonum_Walker_Nav_Menu(),
+                        ));
+                    } else {
+                        // Menü yoksa otomatik linkler göster
+                        ?>
+                        <a href="<?php echo esc_url(home_url('/')); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Ana Sayfa</a>
+                        
+                        <?php if (post_type_exists('service')) : ?>
+                            <a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Hizmetler</a>
+                        <?php endif; ?>
+                        
+                        <?php if (class_exists('WooCommerce')) : ?>
+                            <a href="<?php echo esc_url(get_permalink(wc_get_page_id('shop'))); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Ürünler</a>
+                        <?php endif; ?>
+                        
+                        <?php if (get_option('page_for_posts')) : ?>
+                            <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Blog</a>
+                        <?php endif; ?>
+                        
+                        <a href="#contact" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">İletişim</a>
+                        <?php
+                    }
                     ?>
                 </nav>
                 
@@ -56,12 +77,35 @@
     <div class="mobile-menu hidden md:hidden bg-white shadow-lg">
         <div class="px-6 py-4">
             <?php
-            wp_nav_menu(array(
-                'theme_location' => 'primary',
-                'menu_class'     => 'flex flex-col space-y-4',
-                'container'      => false,
-                'fallback_cb'    => false,
-            ));
+            if (has_nav_menu('primary')) {
+                wp_nav_menu(array(
+                    'theme_location' => 'primary',
+                    'menu_class'     => 'flex flex-col space-y-4',
+                    'container'      => false,
+                    'fallback_cb'    => false,
+                ));
+            } else {
+                // Menü yoksa otomatik linkler göster
+                ?>
+                <div class="flex flex-col space-y-4">
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium py-2">Ana Sayfa</a>
+                    
+                    <?php if (post_type_exists('service')) : ?>
+                        <a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium py-2">Hizmetler</a>
+                    <?php endif; ?>
+                    
+                    <?php if (class_exists('WooCommerce')) : ?>
+                        <a href="<?php echo esc_url(get_permalink(wc_get_page_id('shop'))); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium py-2">Ürünler</a>
+                    <?php endif; ?>
+                    
+                    <?php if (get_option('page_for_posts')) : ?>
+                        <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium py-2">Blog</a>
+                    <?php endif; ?>
+                    
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium py-2">İletişim</a>
+                </div>
+                <?php
+            }
             ?>
         </div>
     </div>

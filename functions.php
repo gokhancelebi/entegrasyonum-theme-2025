@@ -12,6 +12,98 @@ if (!defined('ABSPATH')) {
 }
 
 /**
+ * Custom Post Type - Hizmetler
+ * Hizmetler için özel post type
+ */
+function entegrasyonum_register_services_post_type() {
+    $labels = array(
+        'name'                  => _x('Hizmetler', 'Post type genel adı', 'entegrasyonum'),
+        'singular_name'         => _x('Hizmet', 'Post type tekil adı', 'entegrasyonum'),
+        'menu_name'             => _x('Hizmetler', 'Admin menü', 'entegrasyonum'),
+        'name_admin_bar'        => _x('Hizmet', 'Admin bar ekle', 'entegrasyonum'),
+        'add_new'               => _x('Yeni Ekle', 'hizmet', 'entegrasyonum'),
+        'add_new_item'          => __('Yeni Hizmet Ekle', 'entegrasyonum'),
+        'new_item'              => __('Yeni Hizmet', 'entegrasyonum'),
+        'edit_item'             => __('Hizmeti Düzenle', 'entegrasyonum'),
+        'view_item'             => __('Hizmeti Görüntüle', 'entegrasyonum'),
+        'all_items'             => __('Tüm Hizmetler', 'entegrasyonum'),
+        'search_items'          => __('Hizmet Ara', 'entegrasyonum'),
+        'parent_item_colon'     => __('Üst Hizmet:', 'entegrasyonum'),
+        'not_found'             => __('Hizmet bulunamadı.', 'entegrasyonum'),
+        'not_found_in_trash'    => __('Çöp kutusunda hizmet bulunamadı.', 'entegrasyonum'),
+        'featured_image'        => _x('Hizmet Görseli', 'Overrides the "Featured Image" phrase', 'entegrasyonum'),
+        'set_featured_image'    => _x('Hizmet görseli seç', 'Overrides the "Set featured image" phrase', 'entegrasyonum'),
+        'remove_featured_image' => _x('Hizmet görselini kaldır', 'Overrides the "Remove featured image" phrase', 'entegrasyonum'),
+        'use_featured_image'    => _x('Hizmet görseli olarak kullan', 'Overrides the "Use as featured image" phrase', 'entegrasyonum'),
+        'archives'              => _x('Hizmet arşivleri', 'The post type archive label used in nav menus', 'entegrasyonum'),
+        'insert_into_item'      => _x('Hizmete ekle', 'Overrides the "Insert into post"/"Insert into page" phrase', 'entegrasyonum'),
+        'uploaded_to_this_item' => _x('Bu hizmete yüklendi', 'Overrides the "Uploaded to this post"/"Uploaded to this page" phrase', 'entegrasyonum'),
+        'filter_items_list'     => _x('Hizmet listesini filtrele', 'Screen reader text for the filter links', 'entegrasyonum'),
+        'items_list_navigation' => _x('Hizmet listesi navigasyonu', 'Screen reader text for the pagination', 'entegrasyonum'),
+        'items_list'            => _x('Hizmet listesi', 'Screen reader text for the items list', 'entegrasyonum'),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'description'        => __('Şirket hizmetleri', 'entegrasyonum'),
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array('slug' => 'hizmetler'),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 5,
+        'menu_icon'          => 'dashicons-admin-tools',
+        'supports'           => array('title', 'editor', 'excerpt', 'thumbnail', 'custom-fields'),
+        'show_in_rest'       => true, // Gutenberg desteği
+    );
+
+    register_post_type('service', $args);
+}
+add_action('init', 'entegrasyonum_register_services_post_type');
+
+/**
+ * Custom Taxonomy - Hizmet Kategorileri
+ * Hizmetler için kategori taxonomy
+ */
+function entegrasyonum_register_service_taxonomy() {
+    $labels = array(
+        'name'                       => _x('Hizmet Kategorileri', 'taxonomy genel adı', 'entegrasyonum'),
+        'singular_name'              => _x('Hizmet Kategorisi', 'taxonomy tekil adı', 'entegrasyonum'),
+        'search_items'               => __('Kategori Ara', 'entegrasyonum'),
+        'popular_items'              => __('Popüler Kategoriler', 'entegrasyonum'),
+        'all_items'                  => __('Tüm Kategoriler', 'entegrasyonum'),
+        'parent_item'                => __('Üst Kategori', 'entegrasyonum'),
+        'parent_item_colon'          => __('Üst Kategori:', 'entegrasyonum'),
+        'edit_item'                  => __('Kategoriyi Düzenle', 'entegrasyonum'),
+        'update_item'                => __('Kategoriyi Güncelle', 'entegrasyonum'),
+        'add_new_item'               => __('Yeni Kategori Ekle', 'entegrasyonum'),
+        'new_item_name'              => __('Yeni Kategori Adı', 'entegrasyonum'),
+        'separate_items_with_commas' => __('Kategorileri virgülle ayırın', 'entegrasyonum'),
+        'add_or_remove_items'        => __('Kategori ekle veya kaldır', 'entegrasyonum'),
+        'choose_from_most_used'      => __('En çok kullanılanlardan seç', 'entegrasyonum'),
+        'not_found'                  => __('Kategori bulunamadı.', 'entegrasyonum'),
+        'menu_name'                  => __('Kategoriler', 'entegrasyonum'),
+    );
+
+    $args = array(
+        'hierarchical'          => true, // Kategoriler gibi (parent-child)
+        'labels'                => $labels,
+        'show_ui'               => true,
+        'show_admin_column'     => true,
+        'query_var'             => true,
+        'rewrite'               => array('slug' => 'hizmet-kategorisi'),
+        'show_in_rest'          => true,
+    );
+
+    register_taxonomy('service_category', array('service'), $args);
+}
+add_action('init', 'entegrasyonum_register_service_taxonomy');
+
+/**
  * Theme Setup
  * Temel tema özelliklerini ve destekleri tanımla
  */
