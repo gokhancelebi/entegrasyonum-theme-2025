@@ -1,0 +1,557 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="https://static.readdy.ai/static/e.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entegrasyonum - Digital Integration & Automation Services</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1D4ED8',
+                        secondary: '#0A2540'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #0A2540 0%, #122B55 100%);
+        }
+        .particle-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
+            50% { transform: translateY(-20px) translateX(10px); opacity: 0.8; }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="font-['Pacifico'] text-2xl text-secondary">entegrasyonum.com</div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Home</a>
+                    <a href="#services" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Services</a>
+                    <a href="#products" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Products</a>
+                    <a href="#blog" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Blog</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Contact</a>
+                </nav>
+                <button class="md:hidden w-8 h-8 flex items-center justify-center">
+                    <i class="ri-menu-line text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-bg relative min-h-screen flex items-center overflow-hidden">
+        <div class="particle-bg">
+            <div class="particle" style="left: 10%; top: 20%; animation-delay: 0s;"></div>
+            <div class="particle" style="left: 20%; top: 60%; animation-delay: 1s;"></div>
+            <div class="particle" style="left: 30%; top: 40%; animation-delay: 2s;"></div>
+            <div class="particle" style="left: 40%; top: 80%; animation-delay: 3s;"></div>
+            <div class="particle" style="left: 60%; top: 30%; animation-delay: 4s;"></div>
+            <div class="particle" style="left: 70%; top: 70%; animation-delay: 5s;"></div>
+            <div class="particle" style="left: 80%; top: 50%; animation-delay: 6s;"></div>
+            <div class="particle" style="left: 90%; top: 20%; animation-delay: 7s;"></div>
+        </div>
+        <div class="w-full max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-white">
+                    <h1 class="text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                        Digital Integration <span class="text-blue-400">Made Simple</span>
+                    </h1>
+                    <p class="text-xl text-blue-100 mb-8 leading-relaxed">
+                        Transform your business with our cutting-edge API integration, WooCommerce solutions, and XML-based automation tools. Streamline operations and boost efficiency with professional digital integration services.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-primary hover:bg-blue-700 text-white px-8 py-4 !rounded-button font-semibold transition-all duration-300 whitespace-nowrap">
+                            Explore Services
+                        </button>
+                        <button class="border-2 border-white text-white hover:bg-white hover:text-secondary px-8 py-4 !rounded-button font-semibold transition-all duration-300 whitespace-nowrap">
+                            Contact Us
+                        </button>
+                    </div>
+                </div>
+                <div class="hidden lg:block">
+                    <img src="https://readdy.ai/api/search-image?query=Modern%20digital%20integration%20dashboard%20with%20API%20connections%2C%20data%20flow%20visualization%2C%20clean%20interface%20with%20blue%20and%20navy%20color%20scheme%2C%20professional%20technology%20illustration%2C%20minimalist%20design%20with%20geometric%20patterns%20and%20network%20connections%2C%20high-tech%20atmosphere%20with%20subtle%20lighting%20effects&width=600&height=500&seq=hero1&orientation=landscape" 
+                         alt="Digital Integration Services" 
+                         class="w-full h-auto object-cover object-top rounded-xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-secondary mb-4">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Comprehensive digital integration solutions designed to streamline your business operations and enhance productivity through advanced automation technologies.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover fade-in">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-xl mb-6">
+                        <i class="ri-code-s-slash-line text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-secondary mb-4">API Integration</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Seamlessly connect different systems and applications with our robust API integration services. Enable real-time data synchronization and automated workflows.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover fade-in">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-xl mb-6">
+                        <i class="ri-shopping-cart-line text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-secondary mb-4">WooCommerce Solutions</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Optimize your e-commerce platform with custom WooCommerce integrations, payment gateways, and inventory management systems for enhanced performance.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover fade-in">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-xl mb-6">
+                        <i class="ri-file-code-line text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-secondary mb-4">XML Data Processing</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Transform and process XML data efficiently with our automated parsing solutions. Handle complex data structures and ensure seamless data migration.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-secondary mb-4">Featured Products</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Discover our suite of digital products designed to accelerate your integration projects and streamline complex automation workflows.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-lg card-hover fade-in">
+                    <img src="https://readdy.ai/api/search-image?query=API%20integration%20tool%20interface%20screenshot%2C%20clean%20dashboard%20with%20connection%20nodes%2C%20data%20flow%20diagrams%2C%20modern%20UI%20design%20with%20blue%20accents%2C%20professional%20software%20interface%2C%20technical%20documentation%20display&width=400&height=250&seq=product1&orientation=landscape" 
+                         alt="API Integration Tool" 
+                         class="w-full h-48 object-cover object-top">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-secondary mb-3">API Integration Toolkit</h3>
+                        <p class="text-gray-600 mb-4">
+                            Complete toolkit for building and managing API integrations with pre-built connectors and real-time monitoring capabilities.
+                        </p>
+                        <button class="bg-primary hover:bg-blue-700 text-white px-6 py-2 !rounded-button font-medium transition-all duration-300 whitespace-nowrap">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-lg card-hover fade-in">
+                    <img src="https://readdy.ai/api/search-image?query=WooCommerce%20plugin%20interface%2C%20e-commerce%20dashboard%20with%20product%20management%2C%20order%20processing%20system%2C%20clean%20modern%20design%20with%20shopping%20cart%20elements%2C%20professional%20commerce%20platform&width=400&height=250&seq=product2&orientation=landscape" 
+                         alt="WooCommerce Plugin" 
+                         class="w-full h-48 object-cover object-top">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-secondary mb-3">WooCommerce Plugin Suite</h3>
+                        <p class="text-gray-600 mb-4">
+                            Advanced WooCommerce plugins for inventory management, automated pricing, and multi-channel synchronization across platforms.
+                        </p>
+                        <button class="bg-primary hover:bg-blue-700 text-white px-6 py-2 !rounded-button font-medium transition-all duration-300 whitespace-nowrap">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-lg card-hover fade-in">
+                    <img src="https://readdy.ai/api/search-image?query=XML%20data%20processing%20software%20interface%2C%20code%20editor%20with%20XML%20structure%2C%20data%20transformation%20pipeline%2C%20technical%20software%20with%20syntax%20highlighting%2C%20professional%20development%20environment&width=400&height=250&seq=product3&orientation=landscape" 
+                         alt="XML Processor" 
+                         class="w-full h-48 object-cover object-top">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-secondary mb-3">XML Data Processor</h3>
+                        <p class="text-gray-600 mb-4">
+                            Powerful XML processing engine with automated validation, transformation, and batch processing capabilities for enterprise data.
+                        </p>
+                        <button class="bg-primary hover:bg-blue-700 text-white px-6 py-2 !rounded-button font-medium transition-all duration-300 whitespace-nowrap">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <h2 class="text-4xl font-bold text-secondary mb-6">About Entegrasyonum</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        We are a leading digital integration company specializing in automation solutions that connect disparate systems and streamline business processes. Our expertise spans across API development, e-commerce integrations, and data processing technologies.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        With years of experience in enterprise integration, we help businesses reduce manual work, eliminate data silos, and create seamless digital workflows that drive growth and efficiency.
+                    </p>
+                    <div class="flex items-center space-x-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary">500+</div>
+                            <div class="text-gray-600">Projects Completed</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary">150+</div>
+                            <div class="text-gray-600">Happy Clients</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary">5+</div>
+                            <div class="text-gray-600">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <img src="https://readdy.ai/api/search-image?query=Professional%20team%20working%20on%20digital%20integration%20projects%2C%20modern%20office%20environment%20with%20multiple%20monitors%20showing%20code%20and%20data%20flows%2C%20collaborative%20workspace%20with%20technology%20focus%2C%20clean%20business%20atmosphere&width=600&height=500&seq=about1&orientation=landscape" 
+                         alt="About Entegrasyonum" 
+                         class="w-full h-auto object-cover object-top rounded-xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-secondary mb-4">Why Choose Us</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    We deliver exceptional integration solutions backed by technical expertise, proven methodologies, and unwavering commitment to client success.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-8 fade-in">
+                    <div class="w-20 h-20 flex items-center justify-center bg-primary/10 rounded-full mx-auto mb-6">
+                        <i class="ri-rocket-line text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-secondary mb-4">Fast Implementation</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Rapid deployment of integration solutions with minimal downtime. Our agile approach ensures quick time-to-market for your digital transformation projects.
+                    </p>
+                </div>
+                <div class="text-center p-8 fade-in">
+                    <div class="w-20 h-20 flex items-center justify-center bg-primary/10 rounded-full mx-auto mb-6">
+                        <i class="ri-shield-check-line text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-secondary mb-4">Enterprise Security</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Bank-level security protocols and compliance standards ensure your data remains protected throughout all integration processes and workflows.
+                    </p>
+                </div>
+                <div class="text-center p-8 fade-in">
+                    <div class="w-20 h-20 flex items-center justify-center bg-primary/10 rounded-full mx-auto mb-6">
+                        <i class="ri-customer-service-2-line text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-secondary mb-4">24/7 Support</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Round-the-clock technical support and monitoring services to ensure your integrations run smoothly and efficiently at all times.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-secondary mb-4">Blog Highlights</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Stay updated with the latest insights on e-commerce technologies, integration best practices, and digital transformation strategies.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="bg-white rounded-xl overflow-hidden shadow-lg card-hover fade-in">
+                    <img src="https://readdy.ai/api/search-image?query=API%20integration%20best%20practices%20illustration%2C%20technical%20diagram%20showing%20data%20connections%20between%20systems%2C%20modern%20infographic%20style%20with%20clean%20design%20and%20professional%20color%20scheme&width=400&height=250&seq=blog1&orientation=landscape" 
+                         alt="API Integration Best Practices" 
+                         class="w-full h-48 object-cover object-top">
+                    <div class="p-6">
+                        <div class="text-sm text-primary font-medium mb-2">Integration Guide</div>
+                        <h3 class="text-xl font-semibold text-secondary mb-3">API Integration Best Practices for E-commerce</h3>
+                        <p class="text-gray-600 mb-4">
+                            Discover essential strategies for implementing robust API integrations that scale with your e-commerce business growth and ensure reliable data synchronization.
+                        </p>
+                        <div class="text-sm text-gray-500">December 15, 2024</div>
+                    </div>
+                </article>
+                <article class="bg-white rounded-xl overflow-hidden shadow-lg card-hover fade-in">
+                    <img src="https://readdy.ai/api/search-image?query=WooCommerce%20automation%20workflow%20diagram%2C%20e-commerce%20process%20optimization%20illustration%2C%20modern%20business%20process%20visualization%20with%20arrows%20and%20connected%20elements&width=400&height=250&seq=blog2&orientation=landscape" 
+                         alt="WooCommerce Automation" 
+                         class="w-full h-48 object-cover object-top">
+                    <div class="p-6">
+                        <div class="text-sm text-primary font-medium mb-2">Automation</div>
+                        <h3 class="text-xl font-semibold text-secondary mb-3">Automating WooCommerce Workflows</h3>
+                        <p class="text-gray-600 mb-4">
+                            Learn how to streamline your WooCommerce operations with automated inventory management, order processing, and customer communication systems.
+                        </p>
+                        <div class="text-sm text-gray-500">December 12, 2024</div>
+                    </div>
+                </article>
+                <article class="bg-white rounded-xl overflow-hidden shadow-lg card-hover fade-in">
+                    <img src="https://readdy.ai/api/search-image?query=XML%20data%20transformation%20process%20visualization%2C%20technical%20flowchart%20showing%20data%20conversion%20steps%2C%20professional%20software%20development%20illustration%20with%20clean%20modern%20design&width=400&height=250&seq=blog3&orientation=landscape" 
+                         alt="XML Data Processing" 
+                         class="w-full h-48 object-cover object-top">
+                    <div class="p-6">
+                        <div class="text-sm text-primary font-medium mb-2">Data Processing</div>
+                        <h3 class="text-xl font-semibold text-secondary mb-3">Efficient XML Data Processing Techniques</h3>
+                        <p class="text-gray-600 mb-4">
+                            Master advanced XML processing methods for handling large datasets, improving performance, and ensuring data integrity in enterprise environments.
+                        </p>
+                        <div class="text-sm text-gray-500">December 10, 2024</div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-secondary mb-4">Get In Touch</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Ready to transform your business with digital integration? Contact us today to discuss your project requirements and discover how we can help.
+                </p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="fade-in">
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all duration-300">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all duration-300">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                            <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all duration-300">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Service Interest</label>
+                            <div class="relative">
+                                <button type="button" class="w-full px-4 py-3 border border-gray-300 rounded-lg text-left bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all duration-300 flex items-center justify-between">
+                                    <span>Select a service</span>
+                                    <div class="w-5 h-5 flex items-center justify-center">
+                                        <i class="ri-arrow-down-s-line"></i>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all duration-300 resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-blue-700 text-white py-3 !rounded-button font-semibold transition-all duration-300 whitespace-nowrap">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                <div class="fade-in">
+                    <div class="bg-gray-100 rounded-xl h-96 flex items-center justify-center" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-size: cover; background-position: center;">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="font-semibold text-secondary mb-2">Our Location</h3>
+                            <p class="text-gray-600">Istanbul, Turkey</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg">
+                                <i class="ri-mail-line text-primary"></i>
+                            </div>
+                            <div>
+                                <div class="font-medium text-secondary">Email</div>
+                                <div class="text-gray-600">info@entegrasyonum.com</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg">
+                                <i class="ri-phone-line text-primary"></i>
+                            </div>
+                            <div>
+                                <div class="font-medium text-secondary">Phone</div>
+                                <div class="text-gray-600">+90 555 123 4567</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-secondary text-white py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="font-['Pacifico'] text-2xl mb-4">entegrasyonum.com</div>
+                    <p class="text-blue-200 leading-relaxed mb-6">
+                        Leading digital integration company specializing in API solutions, WooCommerce integrations, and XML processing for modern businesses.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-lg hover:bg-white/20 transition-colors duration-300">
+                            <i class="ri-linkedin-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-lg hover:bg-white/20 transition-colors duration-300">
+                            <i class="ri-twitter-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-lg hover:bg-white/20 transition-colors duration-300">
+                            <i class="ri-github-line"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Services</h3>
+                    <ul class="space-y-2 text-blue-200">
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">API Integration</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">WooCommerce Solutions</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">XML Processing</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Custom Development</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Company</h3>
+                    <ul class="space-y-2 text-blue-200">
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Our Team</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Newsletter</h3>
+                    <p class="text-blue-200 mb-4">Stay updated with our latest insights and integration tips.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 rounded-l-lg bg-white/10 border border-white/20 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-primary">
+                        <button class="bg-primary hover:bg-blue-700 px-6 py-2 rounded-r-lg transition-colors duration-300 whitespace-nowrap">
+                            Subscribe
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/20 pt-8 text-center text-blue-200">
+                <p>&copy; 2024 Entegrasyonum. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/905551234567" class="w-14 h-14 flex items-center justify-center bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+            <i class="ri-whatsapp-line text-2xl"></i>
+        </a>
+    </div>
+
+    <script id="scroll-animations">
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+    <script id="smooth-scrolling">
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+<script>
+    !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
+    posthog.init('phc_t9tkQZJiyi2ps9zUYm8TDsL6qXo4YmZx0Ot5rBlAlEd', {
+        api_host: 'https://us.i.posthog.com',
+        autocapture: false,
+        capture_pageview: false,
+        capture_pageleave: false,
+        capture_performance: {
+            web_vitals: false,
+        },
+        rageclick: false,
+    })
+    window.shareKey = 'L4urrf5k7mrW0ZdcPTj-Kg';
+    window.host = 'readdy.ai';
+</script>
+<script src="https://static.readdy.ai/static/share.js"></script></body>
+</html>

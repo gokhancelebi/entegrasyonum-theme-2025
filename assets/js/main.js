@@ -307,19 +307,60 @@
         var observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                    observer.unobserve(entry.target);
+                    entry.target.classList.add('visible');
                 }
             });
         }, {
-            threshold: 0.1
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         });
         
-        // .post-card ve .product-card elementlerini gözlemle
-        document.querySelectorAll('.post-card, .product-card').forEach(function(element) {
+        // .fade-in elementlerini gözlemle
+        document.querySelectorAll('.fade-in').forEach(function(element) {
             observer.observe(element);
         });
     }
+    
+    /**
+     * Mobile Menu Toggle - Yeni Tasarım
+     * Mobil menü açma/kapama - Remix Icon ile
+     */
+    $('.mobile-menu-toggle').on('click', function(e) {
+        e.preventDefault();
+        var mobileMenu = $('.mobile-menu');
+        var icon = $(this).find('i');
+        
+        mobileMenu.toggleClass('active');
+        
+        // İkon değiştir
+        if (mobileMenu.hasClass('active')) {
+            icon.removeClass('ri-menu-line').addClass('ri-close-line');
+            mobileMenu.slideDown(300);
+        } else {
+            icon.removeClass('ri-close-line').addClass('ri-menu-line');
+            mobileMenu.slideUp(300);
+        }
+    });
+    
+    /**
+     * Smooth Scrolling - Yeni Tasarım
+     * Anchor linklerde yumuşak kaydırma
+     */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href && href !== '#') {
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
     
 })(jQuery);
 

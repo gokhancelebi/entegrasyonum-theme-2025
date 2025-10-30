@@ -25,20 +25,20 @@ Tags: e-commerce, blog, two-columns, right-sidebar, custom-menu, featured-images
 }
 
 :root {
-    /* Ana renkler - Kurumsal kimlik */
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --success-color: #27ae60;
-    --dark-color: #1a252f;
-    --light-color: #ecf0f1;
+    /* Ana renkler - Yeni tasarım */
+    --primary-color: #1D4ED8;
+    --secondary-color: #0A2540;
+    --accent-color: #3B82F6;
+    --success-color: #10B981;
+    --dark-color: #0A2540;
+    --light-color: #F3F4F6;
     --white-color: #ffffff;
-    --gray-color: #95a5a6;
-    --border-color: #dcdde1;
+    --gray-color: #6B7280;
+    --border-color: #E5E7EB;
     
     /* Typography */
-    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --font-secondary: Georgia, 'Times New Roman', serif;
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Pacifico', cursive;
     
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -60,7 +60,7 @@ html {
 }
 
 body {
-    font-family: var(--font-primary);
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
     line-height: 1.6;
     color: var(--dark-color);
@@ -1345,5 +1345,279 @@ textarea:focus {
     .mobile-only {
         display: none !important;
     }
+}
+
+/* ============================================
+   18. YENİ TASARIM ÖZELLEŞTİRMELERİ
+   ============================================ */
+
+/* Hero Background - Gradient */
+.hero-bg {
+    background: linear-gradient(135deg, #0A2540 0%, #122B55 100%);
+}
+
+/* Particle Animation Background */
+.particle-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0px) translateX(0px); 
+        opacity: 0.3; 
+    }
+    50% { 
+        transform: translateY(-20px) translateX(10px); 
+        opacity: 0.8; 
+    }
+}
+
+/* Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Card Hover Effect */
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Rounded Button */
+.rounded-button {
+    border-radius: 8px !important;
+}
+
+/* Primary Color */
+.bg-primary {
+    background-color: #1D4ED8 !important;
+}
+
+.text-primary {
+    color: #1D4ED8 !important;
+}
+
+.hover\:bg-primary:hover {
+    background-color: #1D4ED8 !important;
+}
+
+.hover\:text-primary:hover {
+    color: #1D4ED8 !important;
+}
+
+/* Secondary Color */
+.bg-secondary {
+    background-color: #0A2540 !important;
+}
+
+.text-secondary {
+    color: #0A2540 !important;
+}
+
+.hover\:text-secondary:hover {
+    color: #0A2540 !important;
+}
+
+/* Remix Icon Compatibility */
+:where([class^="ri-"])::before {
+    content: "\f3c2";
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+    transition: all 0.3s ease;
+}
+
+.mobile-menu.active {
+    display: block !important;
+}
+
+/* Custom Logo - Pacifico Font */
+.custom-logo-link {
+    font-family: 'Pacifico', cursive !important;
+    font-size: 1.5rem;
+    color: #0A2540;
+}
+
+/* Footer Widget Styles */
+.footer-widget h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-widget ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-widget ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-widget a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease;
+}
+
+.footer-widget a:hover {
+    color: #ffffff;
+}
+
+/* Section Spacing */
+section {
+    padding: 4rem 0;
+}
+
+/* Text Colors */
+.text-blue-100 {
+    color: #DBEAFE;
+}
+
+.text-blue-200 {
+    color: #BFDBFE;
+}
+
+.text-blue-400 {
+    color: #60A5FA;
+}
+
+.text-gray-600 {
+    color: #4B5563;
+}
+
+.text-gray-700 {
+    color: #374151;
+}
+
+/* Background Colors */
+.bg-gray-50 {
+    background-color: #F9FAFB;
+}
+
+.bg-gray-100 {
+    background-color: #F3F4F6;
+}
+
+.bg-green-500 {
+    background-color: #10B981;
+}
+
+.bg-green-600 {
+    background-color: #059669;
+}
+
+/* Border Utilities */
+.border-white\/20 {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.border-white\/10 {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Shadow Utilities */
+.shadow-sm {
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.shadow-xl {
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* Hover Shadow */
+.hover\:shadow-xl:hover {
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* Contact Form 7 Styling */
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"],
+.wpcf7-form input[type="tel"],
+.wpcf7-form textarea,
+.wpcf7-form select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #E5E7EB;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.wpcf7-form input:focus,
+.wpcf7-form textarea:focus,
+.wpcf7-form select:focus {
+    outline: none;
+    border-color: #1D4ED8;
+    box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
+}
+
+.wpcf7-form input[type="submit"] {
+    width: 100%;
+    background-color: #1D4ED8;
+    color: white;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.wpcf7-form input[type="submit"]:hover {
+    background-color: #1E40AF;
+    transform: translateY(-2px);
+}
+
+/* WordPress Core Alignment */
+.alignnone {
+    margin: 1.5rem 0;
+}
+
+.aligncenter {
+    display: block;
+    margin: 1.5rem auto;
+}
+
+.alignleft {
+    float: left;
+    margin: 0.5rem 1.5rem 1.5rem 0;
+}
+
+.alignright {
+    float: right;
+    margin: 0.5rem 0 1.5rem 1.5rem;
 }
 

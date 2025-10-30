@@ -91,14 +91,23 @@ add_action('after_setup_theme', 'entegrasyonum_content_width', 0);
  * CSS ve JavaScript dosyalarını yükle
  */
 function entegrasyonum_scripts() {
-    // Ana stil dosyası
-    wp_enqueue_style('entegrasyonum-style', get_stylesheet_uri(), array(), '1.0.0');
+    // Tailwind CSS
+    wp_enqueue_script('tailwindcss', 'https://cdn.tailwindcss.com/3.4.16', array(), '3.4.16', false);
+    
+    // Google Fonts - Poppins ve Pacifico
+    wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap', array(), null);
+    
+    // Remix Icon
+    wp_enqueue_style('remixicon', 'https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css', array(), '4.6.0');
     
     // Font Awesome (ikonlar için)
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css', array(), '6.4.0');
     
+    // Ana stil dosyası
+    wp_enqueue_style('entegrasyonum-style', get_stylesheet_uri(), array(), '1.0.1');
+    
     // Ana JavaScript dosyası
-    wp_enqueue_script('entegrasyonum-main', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), '1.0.0', true);
+    wp_enqueue_script('entegrasyonum-main', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), '1.0.1', true);
     
     // Comment reply script
     if (is_singular() && comments_open() && get_option('thread_comments')) {
@@ -110,6 +119,23 @@ function entegrasyonum_scripts() {
         'ajaxUrl' => admin_url('admin-ajax.php'),
         'nonce'   => wp_create_nonce('entegrasyonum-nonce'),
     ));
+    
+    // Tailwind Config inline script
+    wp_add_inline_script('tailwindcss', '
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1D4ED8",
+                        secondary: "#0A2540"
+                    },
+                    borderRadius: {
+                        "button": "8px"
+                    }
+                }
+            }
+        }
+    ', 'before');
 }
 add_action('wp_enqueue_scripts', 'entegrasyonum_scripts');
 
@@ -451,4 +477,50 @@ function entegrasyonum_comment_callback($comment, $args, $depth) {
         </article>
     <?php
 }
+
+/**
+ * Custom Navigation Menu Walker
+ * Menü için özel walker class - Tailwind için
+ */
+class Entegrasyonum_Walker_Nav_Menu extends Walker_Nav_Menu {
+    // Start Level - ul açılışı
+    function start_lvl(&$output, $depth = 0, $args = null) {
+        $output .= '';
+    }
+    
+    // End Level - ul kapanışı
+    function end_lvl(&$output, $depth = 0, $args = null) {
+        $output .= '';
+    }
+    
+    // Start Element - li ve a açılışı
+    function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+        $classes = empty($item->classes) ? array() : (array) $item->classes;
+        $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
+        $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
+        
+        $output .= '<a href="' . esc_url($item->url) . '" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">';
+        $output .= apply_filters('the_title', $item->title, $item->ID);
+        $output .= '</a>';
+    }
+}
+
+/**
+ * Theme Customizer - Hero Section
+ * Hero bölümü için özelleştirici ayarları güncelleme
+ */
+function entegrasyonum_customize_hero($wp_customize) {
+    // Hero Subtitle
+    $wp_customize->add_setting('hero_subtitle', array(
+        'default'           => 'Made Simple',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    
+    $wp_customize->add_control('hero_subtitle', array(
+        'label'   => __('Hero Alt Başlık', 'entegrasyonum'),
+        'section' => 'entegrasyonum_hero',
+        'type'    => 'text',
+    ));
+}
+add_action('customize_register', 'entegrasyonum_customize_hero');
 

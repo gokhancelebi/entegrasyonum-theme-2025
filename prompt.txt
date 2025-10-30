@@ -1,0 +1,29 @@
+Create a modern, professional and responsive website design for entegrasyonum.com — a digital integration and automation services brand that offers API, WooCommerce and XML-based integration tools, digital products, and blog content about e-commerce technologies.
+
+⚙️ Structure:
+- Header with logo on the left, main navigation on the right (Home, Services, Products, Blog, Contact).
+- Hero section with headline, subtext, and CTA buttons (“Explore Services” and “Contact Us”), background in dark navy gradient (#0A2540 → #122B55) with subtle particle or line animation.
+- “Our Services” section in grid layout (3 or 4 cards) with icons, hover animation (scale + shadow).
+- “Featured Products” carousel with product cards (image, name, short description, “Learn More” button).
+- “About Entegrasyonum” section with text and minimal illustration explaining automation and integration focus.
+- “Why Choose Us” section with 3 highlighted features in cards, each with icon and fade-in on scroll.
+- “Blog Highlights” section: 3 recent posts with image, title, and preview text.
+- “Contact” section with short form, Google Maps embed, and WhatsApp contact icon fixed bottom-right.
+- Footer with newsletter signup, quick links, and copyright.
+
+🎨 Design & Style:
+- Primary color: #0A2540 (dark navy)
+- Secondary: #1D4ED8 (royal blue accents)
+- Backgrounds: light gray #F8FAFC for contrast.
+- Typography: “Poppins” or “Montserrat” (Google Font)
+- Border-radius: 12px for buttons and cards.
+- Padding: 24px default, 64px for section spacing.
+- Box-shadows: soft rgba(0,0,0,0.1).
+- Animations: smooth fade/slide-in on scroll, button hover transitions (0.3s ease).
+- Responsive breakpoints: 1280px / 1024px / 768px / 480px.
+
+🌍 Optional:
+Ask user preference: menu top or left sidebar.
+Ask if multilingual support is required (TR / EN).
+
+Overall feel: trustworthy, tech-focused, minimal yet bold with clear hierarchy and whitespace balance.
