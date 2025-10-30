@@ -60,7 +60,7 @@
                         if (has_nav_menu('primary')) {
                             wp_nav_menu(array(
                                 'theme_location' => 'primary',
-                                'menu_class'     => 'flex items-center space-x-6',
+                                'menu_class'     => 'flex items-center space-x-4 xl:space-x-6',
                                 'container'      => false,
                                 'fallback_cb'    => false,
                                 'items_wrap'     => '%3$s',
@@ -68,21 +68,21 @@
                             ));
                         } else {
                             ?>
-                            <a href="<?php echo esc_url(home_url('/')); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium text-sm">Ana Sayfa</a>
+                            <a href="<?php echo esc_url(home_url('/')); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium text-sm whitespace-nowrap">Ana Sayfa</a>
                             
                             <?php if (post_type_exists('service')) : ?>
-                                <a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium text-sm">Hizmetler</a>
+                                <a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium text-sm whitespace-nowrap">Hizmetler</a>
                             <?php endif; ?>
                             
                             <?php if (class_exists('WooCommerce')) : ?>
-                                <a href="<?php echo esc_url(get_permalink(wc_get_page_id('shop'))); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium text-sm">Ürünler</a>
+                                <a href="<?php echo esc_url(get_permalink(wc_get_page_id('shop'))); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium text-sm whitespace-nowrap">Ürünler</a>
                             <?php endif; ?>
                             
                             <?php if (get_option('page_for_posts')) : ?>
-                                <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium text-sm">Blog</a>
+                                <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium text-sm whitespace-nowrap">Blog</a>
                             <?php endif; ?>
                             
-                            <a href="#contact" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium text-sm">İletişim</a>
+                            <a href="#contact" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium text-sm whitespace-nowrap">İletişim</a>
                             <?php
                         }
                         ?>
