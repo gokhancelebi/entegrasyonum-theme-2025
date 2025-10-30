@@ -391,10 +391,15 @@
     
     /**
      * Smooth Scrolling - Yeni Tasarım
-     * Anchor linklerde yumuşak kaydırma
+     * Anchor linklerde yumuşak kaydırma (WooCommerce tab'ları hariç)
      */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+            // WooCommerce tab linklerini atla
+            if (this.closest('.woocommerce-tabs ul.tabs')) {
+                return;
+            }
+            
             const href = this.getAttribute('href');
             if (href && href !== '#') {
                 const target = document.querySelector(href);
@@ -408,6 +413,44 @@
             }
         });
     });
+    
+    /**
+     * WooCommerce Product Tabs - Fix Scroll Jump
+     * Tab değişiminde sayfa atlama sorununu çöz
+     */
+    if ($('.woocommerce-tabs').length) {
+        $('.woocommerce-tabs ul.tabs li a').on('click', function(e) {
+            e.preventDefault();
+            
+            var $this = $(this);
+            var $tabs = $this.closest('ul.tabs');
+            var $panels = $this.closest('.woocommerce-tabs').find('.panel');
+            var target = $this.attr('href');
+            
+            // Remove active class from all tabs
+            $tabs.find('li').removeClass('active');
+            
+            // Add active class to clicked tab
+            $this.parent().addClass('active');
+            
+            // Hide all panels
+            $panels.hide();
+            
+            // Show target panel
+            $(target).show();
+            
+            // Scroll to tabs without jumping
+            var tabsOffset = $('.woocommerce-tabs').offset().top - 100;
+            var currentScroll = $(window).scrollTop();
+            
+            // Only scroll if we're not already near the tabs
+            if (Math.abs(currentScroll - tabsOffset) > 200) {
+                $('html, body').animate({
+                    scrollTop: tabsOffset
+                }, 300);
+            }
+        });
+    }
     
 })(jQuery);
 

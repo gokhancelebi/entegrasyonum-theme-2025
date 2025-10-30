@@ -11,6 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+$current_user = wp_get_current_user();
+
 $allowed_html = array(
 	'a' => array(
 		'href' => array(),
@@ -37,27 +39,6 @@ $allowed_html = array(
 	</div>
 
 	<?php
-	/**
-	 * My Account dashboard.
-	 *
-	 * @since 2.6.0
-	 */
-	do_action( 'woocommerce_account_dashboard' );
-
-	/**
-	 * Deprecated woocommerce_before_my_account action.
-	 *
-	 * @deprecated 2.6.0
-	 */
-	do_action( 'woocommerce_before_my_account' );
-
-	/**
-	 * Deprecated woocommerce_after_my_account action.
-	 *
-	 * @deprecated 2.6.0
-	 */
-	do_action( 'woocommerce_after_my_account' );
-
 	/* Translators: 1: Orders link 2: Address link 3: Account link. */
 	$dashboard_desc = __( 'Hesap kontrol panelinizden <a href="%1$s">son siparişlerinizi</a> görüntüleyebilir, <a href="%2$s">teslimat ve fatura adreslerinizi</a> yönetebilir ve <a href="%3$s">şifreniz ile hesap detaylarınızı</a> düzenleyebilirsiniz.', 'woocommerce' );
 	$dashboard_desc = sprintf( $dashboard_desc, esc_url( wc_get_endpoint_url( 'orders' ) ), esc_url( wc_get_endpoint_url( 'edit-address' ) ), esc_url( wc_get_endpoint_url( 'edit-account' ) ) );
@@ -74,11 +55,11 @@ $allowed_html = array(
 
 	<?php
 		/**
-		 * My Account dashboard content.
+		 * My Account dashboard.
 		 *
 		 * @since 2.6.0
 		 */
-		do_action( 'woocommerce_account_content' );
+		do_action( 'woocommerce_account_dashboard' );
 	?>
 </div>
 
