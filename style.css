@@ -2807,3 +2807,419 @@ nav a,
     }
 }
 
+/* ============================================
+   16. WOOCOMMERCE MY ACCOUNT PAGES
+   ============================================ */
+
+/* My Account Layout */
+.woocommerce-account .woocommerce {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) 0;
+}
+
+@media (max-width: 1024px) {
+    .woocommerce-account .woocommerce {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Account Navigation */
+.woocommerce-MyAccount-navigation {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+}
+
+.woocommerce-MyAccount-navigation-list li a {
+    position: relative;
+}
+
+.woocommerce-MyAccount-navigation-list li.is-active a {
+    background-color: #EFF6FF;
+    color: #1D4ED8;
+    font-weight: 600;
+}
+
+.woocommerce-MyAccount-navigation-list li.is-active a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, #1D4ED8, #2563EB);
+}
+
+/* Account Content */
+.woocommerce-MyAccount-content {
+    min-height: 400px;
+}
+
+.woocommerce-MyAccount-content > div:not(.woocommerce-message):not(.woocommerce-error):not(.woocommerce-info),
+.woocommerce-MyAccount-content > form:not(.woocommerce-form-login):not(.woocommerce-form-register) {
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.woocommerce-MyAccount-content h2,
+.woocommerce-MyAccount-content h3 {
+    color: #111827;
+    margin-bottom: 1.5rem;
+}
+
+/* Account Tables */
+.woocommerce-account table.my_account_orders,
+.woocommerce-account table.account-orders-table,
+.woocommerce-account table.shop_table {
+    width: 100%;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.woocommerce-account table.my_account_orders thead,
+.woocommerce-account table.account-orders-table thead,
+.woocommerce-account table.shop_table thead {
+    background: linear-gradient(to right, #1D4ED8, #2563EB);
+    color: white;
+}
+
+.woocommerce-account table thead th {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: left;
+    border: none;
+    color: white;
+}
+
+.woocommerce-account table tbody tr {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.woocommerce-account table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.woocommerce-account table tbody td {
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+.woocommerce-account table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+/* Order Status Badges */
+.woocommerce-account .woocommerce-orders-table__cell-order-status mark,
+.woocommerce-account mark {
+    background: none;
+    color: inherit;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.woocommerce-account mark.status-completed,
+.woocommerce-account mark.completed {
+    background-color: #D1FAE5;
+    color: #065F46;
+}
+
+.woocommerce-account mark.status-processing,
+.woocommerce-account mark.processing {
+    background-color: #DBEAFE;
+    color: #1E40AF;
+}
+
+.woocommerce-account mark.status-on-hold,
+.woocommerce-account mark.on-hold {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+.woocommerce-account mark.status-cancelled,
+.woocommerce-account mark.status-failed,
+.woocommerce-account mark.cancelled,
+.woocommerce-account mark.failed {
+    background-color: #FEE2E2;
+    color: #991B1B;
+}
+
+/* Account Actions Buttons */
+.woocommerce-account .woocommerce-button,
+.woocommerce-account .button,
+.woocommerce-account button[type="submit"] {
+    background: linear-gradient(to right, #1D4ED8, #2563EB);
+    color: white;
+    border: none;
+    padding: 0.625rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    text-decoration: none;
+}
+
+.woocommerce-account .woocommerce-button:hover,
+.woocommerce-account .button:hover,
+.woocommerce-account button[type="submit"]:hover {
+    background: linear-gradient(to right, #1E40AF, #1D4ED8);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* View Button */
+.woocommerce-account .woocommerce-button.view {
+    background: linear-gradient(to right, #059669, #10B981);
+}
+
+.woocommerce-account .woocommerce-button.view:hover {
+    background: linear-gradient(to right, #047857, #059669);
+}
+
+/* Account Forms */
+.woocommerce-account .woocommerce-form-row,
+.woocommerce-account .form-row {
+    margin-bottom: 1.5rem;
+}
+
+.woocommerce-account .woocommerce-form-row label,
+.woocommerce-account .form-row label {
+    display: block;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.woocommerce-account .woocommerce-Input,
+.woocommerce-account .input-text,
+.woocommerce-account input[type="text"],
+.woocommerce-account input[type="email"],
+.woocommerce-account input[type="password"],
+.woocommerce-account input[type="tel"],
+.woocommerce-account textarea,
+.woocommerce-account select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+}
+
+.woocommerce-account .woocommerce-Input:focus,
+.woocommerce-account .input-text:focus,
+.woocommerce-account input[type="text"]:focus,
+.woocommerce-account input[type="email"]:focus,
+.woocommerce-account input[type="password"]:focus,
+.woocommerce-account input[type="tel"]:focus,
+.woocommerce-account textarea:focus,
+.woocommerce-account select:focus {
+    outline: none;
+    border-color: #1D4ED8;
+    box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
+}
+
+/* Account Addresses */
+.woocommerce-account .woocommerce-Addresses {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.woocommerce-account .woocommerce-Address {
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.woocommerce-account .woocommerce-Address:hover {
+    border-color: #1D4ED8;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.woocommerce-account .woocommerce-Address-title h3 {
+    color: #111827;
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.woocommerce-account .woocommerce-Address-title h3::before {
+    content: '\EB41';
+    font-family: 'remixicon';
+    color: #1D4ED8;
+    font-size: 1.5rem;
+}
+
+.woocommerce-account .woocommerce-Address address {
+    font-style: normal;
+    line-height: 1.8;
+    color: #6b7280;
+}
+
+/* Account Empty State */
+.woocommerce-account .woocommerce-message--info,
+.woocommerce-account .woocommerce-info {
+    background: #f0f9ff;
+    border-left: 4px solid #1D4ED8;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: start;
+    gap: 0.75rem;
+}
+
+.woocommerce-account .woocommerce-message--info::before,
+.woocommerce-account .woocommerce-info::before {
+    content: '\EB8F';
+    font-family: 'remixicon';
+    color: #1D4ED8;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+/* Success Messages */
+.woocommerce-account .woocommerce-message {
+    background: #F0FDF4;
+    border-left: 4px solid #10B981;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: start;
+    gap: 0.75rem;
+}
+
+.woocommerce-account .woocommerce-message::before {
+    content: '\EB7B';
+    font-family: 'remixicon';
+    color: #10B981;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+/* Error Messages */
+.woocommerce-account .woocommerce-error {
+    background: #FEF2F2;
+    border-left: 4px solid #EF4444;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: start;
+    gap: 0.75rem;
+}
+
+.woocommerce-account .woocommerce-error::before {
+    content: '\EACF';
+    font-family: 'remixicon';
+    color: #EF4444;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+/* Downloads Table */
+.woocommerce-account .woocommerce-MyAccount-downloads {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.woocommerce-account .woocommerce-MyAccount-downloads td {
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.woocommerce-account .woocommerce-MyAccount-downloads tr:last-child td {
+    border-bottom: none;
+}
+
+/* Payment Methods */
+.woocommerce-account .woocommerce-PaymentMethods {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.woocommerce-account .woocommerce-PaymentMethods .woocommerce-PaymentMethod {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.woocommerce-account .woocommerce-PaymentMethods .woocommerce-PaymentMethod:last-child {
+    border-bottom: none;
+}
+
+/* Login / Register Forms */
+.woocommerce-account .woocommerce-form-login,
+.woocommerce-account .woocommerce-form-register {
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+}
+
+.woocommerce-account .woocommerce-form-login h2,
+.woocommerce-account .woocommerce-form-register h2 {
+    color: #111827;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .woocommerce-account .woocommerce-MyAccount-content > div,
+    .woocommerce-account .woocommerce-MyAccount-content > form {
+        padding: 1.5rem;
+    }
+    
+    .woocommerce-account table.my_account_orders,
+    .woocommerce-account table.account-orders-table,
+    .woocommerce-account table.shop_table {
+        font-size: 0.875rem;
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .woocommerce-account table thead th,
+    .woocommerce-account table tbody td {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .woocommerce-account .woocommerce-MyAccount-navigation {
+        position: relative;
+        top: 0;
+    }
+    
+    .woocommerce-account .woocommerce-form-login,
+    .woocommerce-account .woocommerce-form-register {
+        padding: 1.5rem;
+    }
+}
+
