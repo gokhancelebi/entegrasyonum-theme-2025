@@ -2631,10 +2631,26 @@ ul.products {
     user-select: none;
     border: none;
     background: transparent;
+    min-width: 100px;
 }
 
 .account-toggle:hover {
     background-color: #F9FAFB !important;
+}
+
+/* Account Toggle Text Styles */
+.account-toggle .text-left {
+    line-height: 1.2;
+}
+
+.account-toggle .text-\[10px\] {
+    font-size: 10px;
+    line-height: 1;
+}
+
+/* Cart Icon Styles */
+.cart-icon {
+    min-width: 90px;
 }
 
 /* Account Dropdown */
@@ -2698,10 +2714,31 @@ ul.products {
 }
 
 /* Responsive Account Menu */
+@media (max-width: 1280px) {
+    .account-toggle {
+        min-width: 90px;
+    }
+    
+    .cart-icon {
+        min-width: 80px;
+    }
+}
+
 @media (max-width: 1024px) {
     .account-toggle .text-left,
     .cart-icon .text-left {
         display: none !important;
+    }
+    
+    .account-toggle,
+    .cart-icon {
+        min-width: auto;
+        padding: 0.5rem;
+    }
+    
+    .account-toggle i,
+    .cart-icon i {
+        font-size: 1.5rem;
     }
     
     .account-dropdown {

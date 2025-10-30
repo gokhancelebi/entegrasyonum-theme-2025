@@ -31,8 +31,8 @@
                     ?>
                 </div>
                 
-                <!-- Arama Çubuğu (Orta - Desktop: 5 kolon, Mobile: Gizli) -->
-                <div class="hidden md:block md:col-span-5">
+                <!-- Arama Çubuğu (Orta - Desktop: 4-5 kolon, Mobile: Gizli) -->
+                <div class="hidden md:block md:col-span-4 lg:col-span-5">
                     <form role="search" method="get" class="header-search-form" action="<?php echo esc_url(home_url('/')); ?>">
                         <div class="relative">
                             <input type="search" 
@@ -51,11 +51,11 @@
                     </form>
                 </div>
                 
-                <!-- Sağ Taraf: Menü, Sepet, Mobil Toggle (5 kolon) -->
-                <div class="col-span-6 md:col-span-5 flex items-center justify-end space-x-6">
+                <!-- Sağ Taraf: Menü, Sepet, Mobil Toggle (5-6 kolon) -->
+                <div class="col-span-6 md:col-span-6 lg:col-span-5 flex items-center justify-end space-x-4 lg:space-x-6">
                     
                     <!-- Navigation Menu (Desktop) -->
-                    <nav class="hidden lg:flex items-center space-x-6">
+                    <nav class="hidden lg:flex items-center space-x-4 xl:space-x-6">
                         <?php
                         if (has_nav_menu('primary')) {
                             wp_nav_menu(array(
@@ -95,18 +95,18 @@
                     
                     <!-- Hesabım (Account) -->
                     <div class="relative account-menu-wrapper hidden md:block">
-                        <button class="account-toggle flex items-center gap-2 text-gray-700 hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gray-50">
-                            <i class="ri-user-line text-2xl"></i>
+                        <button class="account-toggle flex items-center gap-2 text-gray-700 hover:text-primary transition-colors duration-300 py-2 px-2 lg:px-3 rounded-lg hover:bg-gray-50">
+                            <i class="ri-user-line text-xl lg:text-2xl"></i>
                             <div class="text-left hidden lg:block">
                                 <?php if (is_user_logged_in()) : ?>
-                                    <div class="text-xs text-gray-500">Hoşgeldin</div>
-                                    <div class="text-sm font-semibold -mt-1"><?php echo wp_get_current_user()->display_name; ?></div>
+                                    <div class="text-xs text-gray-500 whitespace-nowrap">Hoşgeldin</div>
+                                    <div class="text-sm font-semibold -mt-1 whitespace-nowrap"><?php echo wp_get_current_user()->display_name; ?></div>
                                 <?php else : ?>
-                                    <div class="text-xs text-gray-500">Giriş Yap</div>
-                                    <div class="text-sm font-semibold -mt-1">veya Üye Ol</div>
+                                    <div class="text-xs text-gray-500 whitespace-nowrap leading-tight">Giriş Yap</div>
+                                    <div class="text-[10px] font-medium -mt-0.5 text-gray-400 whitespace-nowrap">veya Üye Ol</div>
                                 <?php endif; ?>
                             </div>
-                            <i class="ri-arrow-down-s-line text-sm hidden lg:block"></i>
+                            <i class="ri-arrow-down-s-line text-xs hidden lg:block"></i>
                         </button>
                         
                         <!-- Account Dropdown -->
@@ -185,11 +185,11 @@
                     
                     <!-- Sepet İkonu (WooCommerce Aktifse) -->
                     <?php if (class_exists('WooCommerce')) : ?>
-                        <a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="relative cart-icon flex items-center gap-2 text-gray-700 hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gray-50">
-                            <i class="ri-shopping-cart-line text-2xl"></i>
+                        <a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="relative cart-icon flex items-center gap-2 text-gray-700 hover:text-primary transition-colors duration-300 py-2 px-2 lg:px-3 rounded-lg hover:bg-gray-50">
+                            <i class="ri-shopping-cart-line text-xl lg:text-2xl"></i>
                             <div class="text-left hidden lg:block">
-                                <div class="text-xs text-gray-500">Sepetim</div>
-                                <div class="text-sm font-semibold -mt-1">
+                                <div class="text-xs text-gray-500 whitespace-nowrap">Sepetim</div>
+                                <div class="text-sm font-semibold -mt-1 whitespace-nowrap">
                                     <?php
                                     $cart_count = WC()->cart->get_cart_contents_count();
                                     echo $cart_count > 0 ? $cart_count . ' Ürün' : 'Boş';
@@ -197,7 +197,7 @@
                                 </div>
                             </div>
                             <?php if ($cart_count > 0) : ?>
-                                <span class="cart-count absolute top-0 right-0 bg-primary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center lg:hidden">
+                                <span class="cart-count absolute top-0 right-0 bg-primary text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center lg:hidden">
                                     <?php echo $cart_count; ?>
                                 </span>
                             <?php endif; ?>
