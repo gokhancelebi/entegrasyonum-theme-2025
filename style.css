@@ -2501,3 +2501,217 @@ ul.products {
     }
 }
 
+/* ============================================
+   14. HEADER SEARCH & CART
+   ============================================ */
+
+/* Header Search Form - Desktop */
+.header-search-form input[type="search"] {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+
+.header-search-form input[type="search"]:focus {
+    box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
+}
+
+/* Cart Icon */
+.cart-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.cart-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Cart Count Badge */
+.cart-count {
+    animation: cartBounce 0.5s ease;
+}
+
+@keyframes cartBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+
+/* Mobile Search Popup */
+.mobile-search-popup {
+    animation: fadeIn 0.3s ease;
+}
+
+.mobile-search-popup.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Search Toggle Button */
+.search-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.search-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Header Responsive */
+@media (max-width: 1024px) {
+    .header-search-form {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobilde logo daha küçük */
+    .font-\[\'Pacifico\'\] {
+        font-size: 1.25rem !important;
+    }
+    
+    /* İkonlar daha kompakt */
+    .cart-icon i,
+    .search-toggle i,
+    .mobile-menu-toggle i {
+        font-size: 1.5rem;
+    }
+}
+
+/* Header Hover Effects */
+.cart-icon:hover i,
+.search-toggle:hover i,
+.mobile-menu-toggle:hover i {
+    color: #1D4ED8;
+}
+
+/* Search Input Focus State */
+.header-search-form input[type="search"]:focus,
+.mobile-search-popup input[type="search"]:focus {
+    border-color: #1D4ED8;
+    outline: none;
+}
+
+/* Cart Icon Pulse Animation (When Items Added) */
+@keyframes cartPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(29, 78, 216, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(29, 78, 216, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(29, 78, 216, 0);
+    }
+}
+
+.cart-icon.pulse {
+    animation: cartPulse 0.6s ease;
+}
+
+/* ============================================
+   15. ACCOUNT DROPDOWN (HESABIM)
+   ============================================ */
+
+/* Account Toggle Button */
+.account-toggle {
+    cursor: pointer;
+    user-select: none;
+    border: none;
+    background: transparent;
+}
+
+.account-toggle:hover {
+    background-color: #F9FAFB !important;
+}
+
+/* Account Dropdown */
+.account-dropdown {
+    animation: dropdownSlideDown 0.2s ease;
+}
+
+@keyframes dropdownSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.account-dropdown.hidden {
+    display: none !important;
+}
+
+/* Account Dropdown Links */
+.account-dropdown a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.account-dropdown a i {
+    font-size: 18px;
+}
+
+/* Logged Out State Benefits List */
+.account-dropdown ul li i.ri-check-line {
+    font-size: 14px;
+}
+
+/* Cart & Account Icons Hover */
+.cart-icon,
+.account-toggle {
+    position: relative;
+}
+
+.cart-icon::after,
+.account-toggle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #1D4ED8;
+    transition: width 0.3s ease;
+}
+
+.cart-icon:hover::after,
+.account-toggle:hover::after {
+    width: 80%;
+}
+
+/* Responsive Account Menu */
+@media (max-width: 1024px) {
+    .account-toggle .text-left,
+    .cart-icon .text-left {
+        display: none !important;
+    }
+    
+    .account-dropdown {
+        right: -20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .account-menu-wrapper {
+        display: none !important;
+    }
+}
+

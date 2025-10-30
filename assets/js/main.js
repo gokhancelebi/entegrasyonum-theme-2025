@@ -28,6 +28,9 @@
         // WooCommerce Cart Update / Sepet Güncelleme
         initCartUpdate();
         
+        // Account Dropdown / Hesabım Dropdown
+        initAccountDropdown();
+        
     });
     
     // Window scroll events
@@ -102,33 +105,40 @@
     
     /**
      * Search Toggle
-     * Arama formunu aç/kapat
+     * Mobil arama popup'ını aç/kapat
      */
     function initSearchToggle() {
-        var searchToggle = $('.header-search-toggle');
-        var searchForm = $('.header-search-form');
+        var searchToggle = $('.search-toggle');
+        var searchPopup = $('.mobile-search-popup');
+        var searchClose = $('.search-close');
         
+        // Arama butonuna tıklandığında popup aç
         searchToggle.on('click', function(e) {
             e.preventDefault();
-            searchForm.toggleClass('active');
-            
-            // Form açıldığında input'a focus
-            if (searchForm.hasClass('active')) {
-                searchForm.find('input[type="search"]').focus();
-            }
+            searchPopup.removeClass('hidden');
+            // Input'a focus
+            setTimeout(function() {
+                searchPopup.find('input[type="search"]').focus();
+            }, 100);
         });
         
-        // Dışarı tıklandığında kapat
-        $(document).on('click', function(e) {
-            if (!$(e.target).closest('.header-search-toggle, .header-search-form').length) {
-                searchForm.removeClass('active');
+        // Kapat butonuna tıklandığında
+        searchClose.on('click', function(e) {
+            e.preventDefault();
+            searchPopup.addClass('hidden');
+        });
+        
+        // Popup dışına tıklandığında kapat
+        searchPopup.on('click', function(e) {
+            if ($(e.target).hasClass('mobile-search-popup')) {
+                searchPopup.addClass('hidden');
             }
         });
         
         // ESC tuşu ile kapat
         $(document).on('keydown', function(e) {
-            if (e.key === 'Escape') {
-                searchForm.removeClass('active');
+            if (e.key === 'Escape' && !searchPopup.hasClass('hidden')) {
+                searchPopup.addClass('hidden');
             }
         });
     }
@@ -218,17 +228,54 @@
             },
             success: function(response) {
                 var count = parseInt(response);
+                var cartIcon = $('.cart-icon');
                 var cartCount = $('.cart-count');
                 
                 if (count > 0) {
                     if (cartCount.length) {
                         cartCount.text(count);
                     } else {
-                        $('.cart-icon').append('<span class="cart-count">' + count + '</span>');
+                        cartIcon.append('<span class="cart-count absolute -top-2 -right-2 bg-primary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">' + count + '</span>');
                     }
+                    
+                    // Pulse animasyonu ekle
+                    cartIcon.addClass('pulse');
+                    setTimeout(function() {
+                        cartIcon.removeClass('pulse');
+                    }, 600);
                 } else {
                     cartCount.remove();
                 }
+            }
+        });
+    }
+    
+    /**
+     * Account Dropdown
+     * Hesabım dropdown menüsünü aç/kapat
+     */
+    function initAccountDropdown() {
+        var accountToggle = $('.account-toggle');
+        var accountDropdown = $('.account-dropdown');
+        
+        // Toggle butona tıklandığında
+        accountToggle.on('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            accountDropdown.toggleClass('hidden');
+        });
+        
+        // Dropdown dışına tıklandığında kapat
+        $(document).on('click', function(e) {
+            if (!$(e.target).closest('.account-menu-wrapper').length) {
+                accountDropdown.addClass('hidden');
+            }
+        });
+        
+        // ESC tuşu ile kapat
+        $(document).on('keydown', function(e) {
+            if (e.key === 'Escape' && !accountDropdown.hasClass('hidden')) {
+                accountDropdown.addClass('hidden');
             }
         });
     }
