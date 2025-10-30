@@ -588,7 +588,8 @@ class Entegrasyonum_Walker_Nav_Menu extends Walker_Nav_Menu {
         $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
         $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
         
-        $output .= '<a href="' . esc_url($item->url) . '" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">';
+        // Hover efekti ile modern menü linki
+        $output .= '<a href="' . esc_url($item->url) . '" class="text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-300 font-medium text-sm whitespace-nowrap py-2 px-3 rounded-lg">';
         $output .= apply_filters('the_title', $item->title, $item->ID);
         $output .= '</a>';
     }

@@ -2689,28 +2689,33 @@ ul.products {
     font-size: 14px;
 }
 
-/* Cart & Account Icons Hover */
+/* Header Navigation Links - Modern Hover Effect */
+.main-navigation a,
+nav a {
+    position: relative;
+    display: inline-block;
+}
+
+/* Hover Background Effect for All Header Links */
+nav a:hover,
+.cart-icon:hover,
+.account-toggle:hover {
+    background-color: #F9FAFB;
+    transform: translateY(-1px);
+}
+
+/* Active Menu Item */
+nav a.current-menu-item,
+nav a[aria-current="page"] {
+    color: #1D4ED8;
+    background-color: #EFF6FF;
+}
+
+/* Smooth Transitions */
+nav a,
 .cart-icon,
 .account-toggle {
-    position: relative;
-}
-
-.cart-icon::after,
-.account-toggle::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background-color: #1D4ED8;
-    transition: width 0.3s ease;
-}
-
-.cart-icon:hover::after,
-.account-toggle:hover::after {
-    width: 80%;
+    transition: all 0.3s ease;
 }
 
 /* Responsive Account Menu */
