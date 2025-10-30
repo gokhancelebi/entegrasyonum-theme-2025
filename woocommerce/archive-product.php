@@ -46,7 +46,7 @@ do_action('woocommerce_before_main_content');
     ?>
 
     <!-- Products Grid -->
-    <ul class="products columns-3">
+    <ul class="products columns-3" style="direction: ltr !important;">
         
         <?php
         if (wc_get_loop_prop('total')) {
