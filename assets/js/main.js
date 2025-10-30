@@ -70,12 +70,12 @@
             navigation.toggleClass('active');
             body.toggleClass('menu-open');
             
-            // İkon değiştir
+            // İkon değiştir (RemixIcon)
             var icon = $(this).find('i');
             if (navigation.hasClass('active')) {
-                icon.removeClass('fa-bars').addClass('fa-times');
+                icon.removeClass('ri-menu-line').addClass('ri-close-line');
             } else {
-                icon.removeClass('fa-times').addClass('fa-bars');
+                icon.removeClass('ri-close-line').addClass('ri-menu-line');
             }
         });
         
@@ -85,7 +85,7 @@
                 if (navigation.hasClass('active')) {
                     navigation.removeClass('active');
                     body.removeClass('menu-open');
-                    menuToggle.find('i').removeClass('fa-times').addClass('fa-bars');
+                    menuToggle.find('i').removeClass('ri-close-line').addClass('ri-menu-line');
                 }
             }
         });
@@ -159,12 +159,12 @@
     
     /**
      * Back to Top Button
-     * Yukarı çık butonu
+     * Yukarı çık butonu (RemixIcon kullanılıyor)
      */
     function initBackToTop() {
         // Buton HTML'i ekle
         if ($('.back-to-top').length === 0) {
-            $('body').append('<button class="back-to-top" aria-label="Yukarı Çık"><i class="fas fa-arrow-up"></i></button>');
+            $('body').append('<button class="back-to-top" aria-label="Yukarı Çık"><i class="ri-arrow-up-line"></i></button>');
         }
         
         // Butona tıklandığında

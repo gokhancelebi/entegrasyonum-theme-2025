@@ -38,23 +38,23 @@ get_header();
                             
                             <div class="single-post-meta">
                                 <span class="post-author">
-                                    <i class="fas fa-user"></i>
+                                    <i class="ri-user-line"></i>
                                     <?php the_author_posts_link(); ?>
                                 </span>
                                 <span class="post-date">
-                                    <i class="fas fa-calendar"></i>
+                                    <i class="ri-calendar-line"></i>
                                     <?php echo get_the_date(); ?>
                                 </span>
                                 <span class="post-category">
-                                    <i class="fas fa-folder"></i>
+                                    <i class="ri-folder-line"></i>
                                     <?php the_category(', '); ?>
                                 </span>
                                 <span class="post-comments">
-                                    <i class="fas fa-comments"></i>
+                                    <i class="ri-chat-3-line"></i>
                                     <?php comments_number('0 Yorum', '1 Yorum', '% Yorum'); ?>
                                 </span>
                                 <span class="post-views">
-                                    <i class="fas fa-eye"></i>
+                                    <i class="ri-eye-line"></i>
                                     <?php echo entegrasyonum_get_post_views(get_the_ID()); ?> Görüntülenme
                                 </span>
                             </div>
@@ -85,7 +85,7 @@ get_header();
                             
                             <?php if (has_tag()) : ?>
                                 <div class="post-tags" style="margin-bottom: 1.5rem;">
-                                    <i class="fas fa-tags"></i>
+                                    <i class="ri-price-tag-3-line"></i>
                                     <?php the_tags('', ', ', ''); ?>
                                 </div>
                             <?php endif; ?>
@@ -98,28 +98,28 @@ get_header();
                                    rel="noopener"
                                    class="btn btn-outline"
                                    style="padding: 8px 15px; font-size: 14px;">
-                                    <i class="fab fa-facebook-f"></i> Facebook
+                                    <i class="ri-facebook-fill"></i> Facebook
                                 </a>
                                 <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode(get_permalink()); ?>&text=<?php echo urlencode(get_the_title()); ?>" 
                                    target="_blank" 
                                    rel="noopener"
                                    class="btn btn-outline"
                                    style="padding: 8px 15px; font-size: 14px;">
-                                    <i class="fab fa-twitter"></i> Twitter
+                                    <i class="ri-twitter-fill"></i> Twitter
                                 </a>
                                 <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode(get_permalink()); ?>" 
                                    target="_blank" 
                                    rel="noopener"
                                    class="btn btn-outline"
                                    style="padding: 8px 15px; font-size: 14px;">
-                                    <i class="fab fa-linkedin-in"></i> LinkedIn
+                                    <i class="ri-linkedin-fill"></i> LinkedIn
                                 </a>
                                 <a href="https://wa.me/?text=<?php echo urlencode(get_the_title() . ' ' . get_permalink()); ?>" 
                                    target="_blank" 
                                    rel="noopener"
                                    class="btn btn-outline"
                                    style="padding: 8px 15px; font-size: 14px;">
-                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                    <i class="ri-whatsapp-line"></i> WhatsApp
                                 </a>
                             </div>
                             
@@ -135,7 +135,7 @@ get_header();
                             if ($prev_post) :
                                 ?>
                                 <a href="<?php echo get_permalink($prev_post); ?>" rel="prev">
-                                    <i class="fas fa-chevron-left"></i> 
+                                    <i class="ri-arrow-left-s-line"></i> 
                                     <strong>Önceki Yazı</strong><br>
                                     <span style="font-size: 14px; color: #6c757d;"><?php echo get_the_title($prev_post); ?></span>
                                 </a>
@@ -149,7 +149,7 @@ get_header();
                                 ?>
                                 <a href="<?php echo get_permalink($next_post); ?>" rel="next">
                                     <strong>Sonraki Yazı</strong>
-                                    <i class="fas fa-chevron-right"></i><br>
+                                    <i class="ri-arrow-right-s-line"></i><br>
                                     <span style="font-size: 14px; color: #6c757d;"><?php echo get_the_title($next_post); ?></span>
                                 </a>
                             <?php endif; ?>

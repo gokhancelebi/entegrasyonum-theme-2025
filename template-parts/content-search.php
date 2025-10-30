@@ -20,11 +20,11 @@
         
         <div class="post-meta">
             <span class="post-type">
-                <i class="fas fa-file-alt"></i>
+                <i class="ri-file-text-line"></i>
                 <?php echo get_post_type(); ?>
             </span>
             <span class="post-date">
-                <i class="far fa-calendar"></i>
+                <i class="ri-calendar-line"></i>
                 <?php echo get_the_date(); ?>
             </span>
         </div>
@@ -41,7 +41,7 @@
         
         <a href="<?php the_permalink(); ?>" class="read-more">
             <?php esc_html_e('Görüntüle', 'entegrasyonum'); ?>
-            <i class="fas fa-arrow-right"></i>
+            <i class="ri-arrow-right-line"></i>
         </a>
         
     </div>
