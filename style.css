@@ -180,6 +180,17 @@ img {
     transition: var(--transition);
 }
 
+/* WordPress Admin Bar ile uyumluluk */
+.admin-bar .site-header {
+    top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar .site-header {
+        top: 46px;
+    }
+}
+
 .site-header.sticky {
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
@@ -434,6 +445,17 @@ img {
 .site-content {
     margin-top: var(--header-height);
     min-height: calc(100vh - var(--header-height) - 300px);
+}
+
+/* Admin bar varken main content padding */
+.admin-bar .site-content {
+    margin-top: calc(var(--header-height) + 32px);
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar .site-content {
+        margin-top: calc(var(--header-height) + 46px);
+    }
 }
 
 /* Hero Section */
@@ -832,6 +854,17 @@ img {
     top: calc(var(--header-height) + var(--spacing-md));
 }
 
+/* Admin bar varken sidebar konumu */
+.admin-bar .sidebar {
+    top: calc(var(--header-height) + var(--spacing-md) + 32px);
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar .sidebar {
+        top: calc(var(--header-height) + var(--spacing-md) + 46px);
+    }
+}
+
 .widget {
     background-color: var(--white-color);
     padding: var(--spacing-lg);
@@ -1040,6 +1073,12 @@ textarea:focus {
         z-index: 999;
     }
     
+    /* Admin bar varken mobil menü konumu */
+    .admin-bar .main-navigation {
+        top: calc(var(--header-height) + 46px);
+        height: calc(100vh - var(--header-height) - 46px);
+    }
+    
     .main-navigation.active {
         left: 0;
     }
@@ -1093,6 +1132,11 @@ textarea:focus {
         bottom: 0;
         background: rgba(0, 0, 0, 0.5);
         z-index: 998;
+    }
+    
+    /* Admin bar varken menu overlay */
+    body.admin-bar.menu-open::before {
+        top: calc(var(--header-height) + 46px);
     }
     
     /* Hero */
@@ -1220,7 +1264,7 @@ textarea:focus {
     visibility: hidden;
     transform: translateY(20px);
     transition: var(--transition);
-    z-index: 999;
+    z-index: 990;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
@@ -1619,5 +1663,10 @@ section {
 .alignright {
     float: right;
     margin: 0.5rem 0 1.5rem 1.5rem;
+}
+
+/* WhatsApp Floating Button - Admin Bar uyumluluğu için z-index ayarı */
+.fixed.bottom-6.right-6 {
+    z-index: 990;
 }
 
