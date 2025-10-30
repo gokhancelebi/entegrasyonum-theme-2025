@@ -1676,6 +1676,11 @@ ul.products {
     padding: 0;
 }
 
+.woocommerce ul.products,
+ul.products::before{
+    display: none!important;
+}
+
 /* Catalog Ordering */
 .woocommerce .woocommerce-ordering select {
     padding: 10px 40px 10px 15px;
