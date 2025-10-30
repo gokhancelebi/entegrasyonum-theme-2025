@@ -415,12 +415,18 @@
     });
     
     /**
-     * WooCommerce Product Tabs - Fix Scroll Jump
-     * Tab değişiminde sayfa atlama sorununu çöz
+     * WooCommerce Product Tabs - TAMAMEN SCROLL YOK
+     * Tab değişiminde HİÇBİR scroll işlemi yok
      */
     if ($('.woocommerce-tabs').length) {
+        // Tüm WooCommerce tab scroll davranışlarını kapat
+        $('.woocommerce-tabs ul.tabs li a').off('click');
+        
+        // Kendi click handler'ımız
         $('.woocommerce-tabs ul.tabs li a').on('click', function(e) {
             e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
             
             var $this = $(this);
             var $tabs = $this.closest('ul.tabs');
@@ -436,20 +442,42 @@
             // Hide all panels
             $panels.hide();
             
-            // Show target panel
+            // Show target panel WITHOUT any scroll
             $(target).show();
             
-            // Scroll to tabs without jumping
-            var tabsOffset = $('.woocommerce-tabs').offset().top - 100;
-            var currentScroll = $(window).scrollTop();
-            
-            // Only scroll if we're not already near the tabs
-            if (Math.abs(currentScroll - tabsOffset) > 200) {
-                $('html, body').animate({
-                    scrollTop: tabsOffset
-                }, 300);
-            }
+            return false;
         });
+        
+        // Sayfa yüklendiğinde hash varsa temizle
+        if (window.location.hash) {
+            // Hash'i temizle ama history'ye ekleme
+            history.replaceState(null, null, ' ');
+        }
+        
+        // Tüm hash change event'lerini engelle
+        $(window).on('hashchange', function(e) {
+            e.preventDefault();
+            return false;
+        });
+    }
+    
+    /**
+     * Prevent ALL auto-scroll behaviors
+     * TÜM otomatik scroll davranışlarını engelle
+     */
+    $(window).on('load', function() {
+        // Sayfa yüklendiğinde scroll'u en üste al
+        if ($('.woocommerce-tabs').length || $('body').hasClass('single-product')) {
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+                $('html, body').scrollTop(0);
+            }, 10);
+        }
+    });
+    
+    // Smooth scrolling'i WooCommerce sayfalarında devre dışı bırak
+    if ($('body').hasClass('single-product') || $('.woocommerce-tabs').length) {
+        $('html').css('scroll-behavior', 'auto');
     }
     
 })(jQuery);
