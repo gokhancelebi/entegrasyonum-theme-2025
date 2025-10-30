@@ -524,3 +524,163 @@ function entegrasyonum_customize_hero($wp_customize) {
 }
 add_action('customize_register', 'entegrasyonum_customize_hero');
 
+/**
+ * WooCommerce Hooks - Modern Tasarım Uyumluluğu
+ */
+if (class_exists('WooCommerce')) {
+    
+    // WooCommerce wrapper'ları kaldır - kendi tasarımımızı kullanacağız
+    remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+    remove_action('woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+    
+    // Sidebar kaldır - kendi layoutumuz var
+    remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
+    
+    // Ürün sayısı - 3 sütun grid için
+    add_filter('loop_shop_columns', function() {
+        return 3;
+    });
+    
+    // Sayfa başına ürün sayısı
+    add_filter('loop_shop_per_page', function() {
+        return 12;
+    });
+    
+    // Related products sayısı
+    add_filter('woocommerce_output_related_products_args', function($args) {
+        $args['posts_per_page'] = 3;
+        $args['columns'] = 3;
+        return $args;
+    });
+    
+    // Upsell products sayısı
+    add_filter('woocommerce_upsell_display_args', function($args) {
+        $args['posts_per_page'] = 3;
+        $args['columns'] = 3;
+        return $args;
+    });
+    
+    // Add to cart buton metni özelleştirme
+    add_filter('woocommerce_product_add_to_cart_text', function($text, $product) {
+        if ($product->is_type('simple')) {
+            return __('Sepete Ekle', 'entegrasyonum');
+        }
+        if ($product->is_type('variable')) {
+            return __('Seçenekleri Gör', 'entegrasyonum');
+        }
+        if ($product->is_type('grouped')) {
+            return __('Ürünleri Gör', 'entegrasyonum');
+        }
+        if ($product->is_type('external')) {
+            return __('Satın Al', 'entegrasyonum');
+        }
+        return $text;
+    }, 10, 2);
+    
+    // Single product başlığını summary'den kaldır - kendi tasarımımızda gösteriyoruz
+    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
+    
+    // Sale badge özelleştirme
+    add_filter('woocommerce_sale_flash', function($html, $post, $product) {
+        if ($product->is_on_sale()) {
+            $percentage = '';
+            if ($product->is_type('variable')) {
+                $percentages = array();
+                $prices = $product->get_variation_prices();
+                foreach ($prices['price'] as $key => $price) {
+                    if ($prices['regular_price'][$key] !== $price) {
+                        $percentages[] = round((($prices['regular_price'][$key] - $price) / $prices['regular_price'][$key]) * 100);
+                    }
+                }
+                if ($percentages) {
+                    $percentage = max($percentages) . '%';
+                }
+            } else {
+                $regular_price = $product->get_regular_price();
+                $sale_price = $product->get_sale_price();
+                if ($regular_price && $sale_price) {
+                    $percentage = round((($regular_price - $sale_price) / $regular_price) * 100) . '%';
+                }
+            }
+            
+            return '<span class="onsale bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">' . 
+                   ($percentage ? '-' . $percentage : __('İndirim', 'entegrasyonum')) . 
+                   '</span>';
+        }
+        return $html;
+    }, 10, 3);
+    
+    // WooCommerce bildirimlerini modern hale getir
+    add_filter('woocommerce_add_to_cart_message_html', function($message) {
+        $message = str_replace('class="woocommerce-message"', 'class="woocommerce-message flex items-center"', $message);
+        return '<div class="woocommerce-notices-wrapper">' . $message . '</div>';
+    });
+    
+    // Checkout placeholder metinleri
+    add_filter('woocommerce_checkout_fields', function($fields) {
+        // Fatura alanları
+        if (isset($fields['billing'])) {
+            $fields['billing']['billing_first_name']['placeholder'] = 'Adınız';
+            $fields['billing']['billing_last_name']['placeholder'] = 'Soyadınız';
+            $fields['billing']['billing_email']['placeholder'] = 'E-posta adresiniz';
+            $fields['billing']['billing_phone']['placeholder'] = 'Telefon numaranız';
+            $fields['billing']['billing_address_1']['placeholder'] = 'Adres';
+            $fields['billing']['billing_postcode']['placeholder'] = 'Posta Kodu';
+            $fields['billing']['billing_city']['placeholder'] = 'Şehir';
+        }
+        
+        // Teslimat alanları
+        if (isset($fields['shipping'])) {
+            $fields['shipping']['shipping_first_name']['placeholder'] = 'Adınız';
+            $fields['shipping']['shipping_last_name']['placeholder'] = 'Soyadınız';
+            $fields['shipping']['shipping_address_1']['placeholder'] = 'Adres';
+            $fields['shipping']['shipping_postcode']['placeholder'] = 'Posta Kodu';
+            $fields['shipping']['shipping_city']['placeholder'] = 'Şehir';
+        }
+        
+        return $fields;
+    });
+    
+    // Cart sayfası butonları
+    add_action('woocommerce_proceed_to_checkout', function() {
+        echo '<style>.woocommerce-cart .wc-proceed-to-checkout a.checkout-button { 
+            background-color: #10B981 !important; 
+            color: white !important; 
+            padding: 16px 32px !important; 
+            border-radius: 8px !important; 
+            font-size: 18px !important; 
+            font-weight: 700 !important;
+            font-family: "Poppins", sans-serif !important;
+            text-align: center !important;
+            display: block !important;
+        }
+        .woocommerce-cart .wc-proceed-to-checkout a.checkout-button:hover { 
+            background-color: #059669 !important; 
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3) !important;
+        }</style>';
+    }, 1);
+    
+    // AJAX cart update için script ekle
+    add_action('wp_footer', function() {
+        if (is_cart()) {
+            ?>
+            <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                // Cart update butonuna tıklandığında loading göster
+                $('button[name="update_cart"]').on('click', function() {
+                    $(this).prop('disabled', true).html('<i class="ri-loader-4-line animate-spin mr-2"></i>Güncelleniyor...');
+                });
+                
+                // Quantity değiştiğinde otomatik update
+                $('.qty').on('change', function() {
+                    $('button[name="update_cart"]').prop('disabled', false);
+                });
+            });
+            </script>
+            <?php
+        }
+    });
+    
+}
+
