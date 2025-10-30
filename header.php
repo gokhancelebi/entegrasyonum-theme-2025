@@ -14,7 +14,7 @@
     <!-- Header Section -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 py-4">
-            <div class="grid grid-cols-12 gap-4 items-center">
+            <div class="grid grid-cols-12 gap-2 lg:gap-4 items-center">
                 
                 <!-- Logo (Sol - 2 kolon) -->
                 <div class="col-span-6 md:col-span-2">
@@ -102,7 +102,7 @@
                                     <div class="text-xs text-gray-500 whitespace-nowrap">Hoşgeldin</div>
                                     <div class="text-sm font-semibold -mt-1 whitespace-nowrap"><?php echo wp_get_current_user()->display_name; ?></div>
                                 <?php else : ?>
-                                    <div class="text-xs text-gray-500 whitespace-nowrap leading-tight">Giriş Yap</div>
+                                    <div class="text-sm font-bold text-gray-900 whitespace-nowrap leading-tight">Giriş Yap</div>
                                     <div class="text-[10px] font-medium -mt-0.5 text-gray-400 whitespace-nowrap">veya Üye Ol</div>
                                 <?php endif; ?>
                             </div>
@@ -188,8 +188,8 @@
                         <a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="relative cart-icon flex items-center gap-2 text-gray-700 hover:text-primary transition-colors duration-300 py-2 px-2 lg:px-3 rounded-lg hover:bg-gray-50">
                             <i class="ri-shopping-cart-line text-xl lg:text-2xl"></i>
                             <div class="text-left hidden lg:block">
-                                <div class="text-xs text-gray-500 whitespace-nowrap">Sepetim</div>
-                                <div class="text-sm font-semibold -mt-1 whitespace-nowrap">
+                                <div class="text-sm font-bold text-gray-900 whitespace-nowrap">Sepetim</div>
+                                <div class="text-xs text-gray-500 -mt-0.5 whitespace-nowrap">
                                     <?php
                                     $cart_count = WC()->cart->get_cart_contents_count();
                                     echo $cart_count > 0 ? $cart_count . ' Ürün' : 'Boş';

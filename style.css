@@ -2506,13 +2506,24 @@ ul.products {
    ============================================ */
 
 /* Header Search Form - Desktop */
+.header-search-form {
+    display: block;
+    width: 100%;
+}
+
 .header-search-form input[type="search"] {
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
+    display: block;
+    width: 100%;
 }
 
 .header-search-form input[type="search"]:focus {
     box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
+}
+
+.header-search-form button[type="submit"] {
+    z-index: 10;
 }
 
 /* Cart Icon */
@@ -2570,9 +2581,25 @@ ul.products {
 }
 
 /* Header Responsive */
+@media (min-width: 768px) {
+    .header-search-form {
+        display: block !important;
+    }
+}
+
 @media (max-width: 1024px) {
     .header-search-form {
         max-width: 100%;
+    }
+    
+    .header-search-form input[type="search"] {
+        font-size: 13px;
+        padding: 0.5rem 0.75rem;
+        padding-right: 2.5rem;
+    }
+    
+    .header-search-form button[type="submit"] i {
+        font-size: 18px;
     }
 }
 
@@ -2704,11 +2731,34 @@ nav a:hover,
     transform: translateY(-1px);
 }
 
+/* Alt Çizgi Animasyonu - Menü Linkleri İçin */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #1D4ED8;
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+nav a:hover::after {
+    width: 60%;
+}
+
 /* Active Menu Item */
 nav a.current-menu-item,
 nav a[aria-current="page"] {
     color: #1D4ED8;
     background-color: #EFF6FF;
+}
+
+nav a.current-menu-item::after,
+nav a[aria-current="page"]::after {
+    width: 60%;
 }
 
 /* Smooth Transitions */
