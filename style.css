@@ -3388,6 +3388,7 @@ ul.products li.product {
     font-size: 1rem;
     min-width: 200px;
     margin-bottom: 0;
+    flex:1;
 }
 
 /* Ensure proper alignment and spacing */
@@ -4121,6 +4122,11 @@ ul.products li.product {
 
 .woocommerce div.product form.cart {
     display: flex;
+}
+
+.woocommerce div.product form.cart[data-product_variations] {
+  display: flex;
+  flex-direction: column;
 }
 
 .widget ul li {
