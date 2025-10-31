@@ -95,19 +95,19 @@ get_header();
             </div>
             
             <!-- Sidebar -->
-            <div class="lg:col-span-1">
+            <div class="lg:col-span-1 sticky top-24 h-fit flex flex-col gap-6">
                 
                 <!-- Contact Card -->
-                <div class="bg-gradient-to-br from-primary to-secondary rounded-xl p-8 text-white mb-8 sticky top-24">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <h3 class="text-2xl font-bold mb-4">Bu Hizmeti Mi Arıyorsunuz?</h3>
                     <p class="text-blue-100 mb-6">
                         Size özel bir teklif hazırlayalım. Hemen iletişime geçin!
                     </p>
                     <a href="<?php echo esc_url(get_permalink(get_page_by_path('iletisim'))); ?>" 
-                       class="block w-full bg-white hover:bg-gray-100 text-primary px-6 py-3 rounded-button font-semibold text-center transition-all duration-300 mb-4">
+                       class="block w-full bg-primary hover:bg-secondary text-white px-6 py-3 rounded-button font-semibold text-center transition-all duration-300 mb-4">
                         <i class="ri-phone-line mr-2"></i>İletişime Geçin
                     </a>
-                    <a href="https://wa.me/905551234567?text=<?php echo urlencode('Merhaba, ' . get_the_title() . ' hizmeti hakkında bilgi almak istiyorum.'); ?>" 
+                    <a href="https://wa.me/905448091065?text=<?php echo urlencode('Merhaba, ' . get_the_title() . ' hizmeti hakkında bilgi almak istiyorum.'); ?>" 
                        class="block w-full bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-button font-semibold text-center transition-all duration-300"
                        target="_blank">
                         <i class="ri-whatsapp-line mr-2"></i>WhatsApp ile Sor
