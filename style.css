@@ -1455,7 +1455,7 @@ textarea:focus {
 }
 
 .text-primary {
-    color: #1D4ED8 !important;
+    color: #1D4ED8;
 }
 
 .hover\:bg-primary:hover {
@@ -1463,7 +1463,7 @@ textarea:focus {
 }
 
 .hover\:text-primary:hover {
-    color: #1D4ED8 !important;
+    color: #1D4ED8 ;
 }
 
 /* Secondary Color */
