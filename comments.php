@@ -38,8 +38,8 @@ if (post_password_required()) {
         <?php
         // Comment pagination
         the_comments_navigation(array(
-            'prev_text' => '<i class="fas fa-chevron-left"></i> ' . __('Önceki Yorumlar', 'entegrasyonum'),
-            'next_text' => __('Sonraki Yorumlar', 'entegrasyonum') . ' <i class="fas fa-chevron-right"></i>',
+            'prev_text' => '<i class="ri-arrow-left-s-line"></i> ' . __('Önceki Yorumlar', 'entegrasyonum'),
+            'next_text' => __('Sonraki Yorumlar', 'entegrasyonum') . ' <i class="ri-arrow-right-s-line"></i>',
         ));
         ?>
         
@@ -65,7 +65,7 @@ if (post_password_required()) {
             'url'    => '<p class="comment-form-url"><label for="url">' . __('Website', 'entegrasyonum') . '</label><input id="url" name="url" type="url" /></p>',
         ),
         'class_submit'         => 'btn btn-primary',
-        'submit_button'        => '<button type="submit" name="submit" id="submit" class="%3$s"><i class="fas fa-paper-plane"></i> %4$s</button>',
+        'submit_button'        => '<button type="submit" name="submit" id="submit" class="%3$s"><i class="ri-send-plane-fill"></i> %4$s</button>',
     ));
     ?>
     

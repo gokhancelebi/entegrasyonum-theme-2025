@@ -7,8 +7,6 @@
 
 defined('ABSPATH') || exit;
 
-get_header('shop');
-
 /**
  * Hook: woocommerce_before_main_content
  */
@@ -19,19 +17,24 @@ do_action('woocommerce_before_main_content');
 <?php if (woocommerce_product_loop()) : ?>
 
     <!-- Toolbar: Ordering & Result Count -->
-    <div class="mb-6 flex flex-wrap items-center justify-between gap-4 fade-in">
+    <div class="mb-6 flex flex-wrap items-center justify-between gap-4 fade-in bg-gray-50 p-4 rounded-lg">
         <div class="text-gray-600">
             <?php
             /**
              * Hook: woocommerce_before_shop_loop
              * - woocommerce_result_count - 20
-             * - woocommerce_catalog_ordering - 30
              */
             woocommerce_result_count();
             ?>
         </div>
         <div>
-            <?php woocommerce_catalog_ordering(); ?>
+            <?php
+            /**
+             * Hook: woocommerce_before_shop_loop
+             * - woocommerce_catalog_ordering - 30
+             */
+            woocommerce_catalog_ordering();
+            ?>
         </div>
     </div>
 
@@ -43,7 +46,7 @@ do_action('woocommerce_before_main_content');
     ?>
 
     <!-- Products Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+    <ul class="products columns-3" style="direction: ltr !important;">
         
         <?php
         if (wc_get_loop_prop('total')) {
@@ -60,7 +63,7 @@ do_action('woocommerce_before_main_content');
         }
         ?>
         
-    </div>
+    </ul>
 
     <?php
     /**
@@ -73,14 +76,14 @@ do_action('woocommerce_before_main_content');
 <?php else : ?>
 
     <!-- No Products Found -->
-    <div class="text-center py-16">
+    <div class="text-center py-16 bg-gray-50 rounded-xl">
         <div class="mb-6">
             <i class="ri-shopping-bag-line text-6xl text-gray-300"></i>
         </div>
         <h2 class="text-2xl font-bold text-secondary mb-4">Ürün Bulunamadı</h2>
         <p class="text-gray-600 mb-8">Aradığınız kriterlere uygun ürün bulunamadı. Lütfen farklı bir arama yapın.</p>
         <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-block bg-primary hover:bg-blue-700 text-white px-8 py-3 rounded-button font-semibold transition-all duration-300">
-            Ana Sayfaya Dön
+            <i class="ri-home-line mr-2"></i>Ana Sayfaya Dön
         </a>
     </div>
 
@@ -91,6 +94,4 @@ do_action('woocommerce_before_main_content');
  * Hook: woocommerce_after_main_content
  */
 do_action('woocommerce_after_main_content');
-
-get_footer('shop');
 

@@ -44,11 +44,11 @@ get_header();
                 <?php else : ?>
                     
                     <div class="no-content" style="text-align: center; padding: 4rem 2rem; background: #f8f9fa; border-radius: 8px;">
-                        <i class="fas fa-inbox" style="font-size: 4rem; color: #dcdde1; margin-bottom: 1rem;"></i>
+                        <i class="ri-inbox-line" style="font-size: 4rem; color: #dcdde1; margin-bottom: 1rem;"></i>
                         <h2><?php esc_html_e('İçerik Bulunamadı', 'entegrasyonum'); ?></h2>
                         <p><?php esc_html_e('Bu arşivde henüz içerik bulunmuyor.', 'entegrasyonum'); ?></p>
                         <a href="<?php echo esc_url(home_url('/')); ?>" class="btn btn-primary">
-                            <i class="fas fa-home"></i> <?php esc_html_e('Ana Sayfaya Dön', 'entegrasyonum'); ?>
+                            <i class="ri-home-line"></i> <?php esc_html_e('Ana Sayfaya Dön', 'entegrasyonum'); ?>
                         </a>
                     </div>
                     

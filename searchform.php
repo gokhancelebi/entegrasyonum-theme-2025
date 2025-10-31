@@ -16,7 +16,7 @@
                aria-label="<?php esc_attr_e('Arama', 'entegrasyonum'); ?>"
                required />
         <button type="submit" class="search-submit">
-            <i class="fas fa-search"></i>
+            <i class="ri-search-line"></i>
         </button>
     </div>
 </form>

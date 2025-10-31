@@ -33,15 +33,15 @@
         <!-- Post Meta / Yazı Bilgileri -->
         <div class="post-meta">
             <span class="post-date">
-                <i class="far fa-calendar"></i>
+                <i class="ri-calendar-line"></i>
                 <?php echo get_the_date(); ?>
             </span>
             <span class="post-author">
-                <i class="far fa-user"></i>
+                <i class="ri-user-line"></i>
                 <?php the_author(); ?>
             </span>
             <span class="post-comments">
-                <i class="far fa-comments"></i>
+                <i class="ri-chat-3-line"></i>
                 <?php comments_number('0', '1', '%'); ?>
             </span>
         </div>
@@ -61,7 +61,7 @@
         <!-- Read More / Devamını Oku -->
         <a href="<?php the_permalink(); ?>" class="read-more">
             <?php esc_html_e('Devamını Oku', 'entegrasyonum'); ?>
-            <i class="fas fa-arrow-right"></i>
+            <i class="ri-arrow-right-line"></i>
         </a>
         
     </div>

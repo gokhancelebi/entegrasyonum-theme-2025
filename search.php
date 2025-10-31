@@ -54,7 +54,7 @@ get_header();
                 <?php else : ?>
                     
                     <div class="no-content" style="text-align: center; padding: 4rem 2rem; background: #f8f9fa; border-radius: 8px;">
-                        <i class="fas fa-search" style="font-size: 4rem; color: #dcdde1; margin-bottom: 1rem;"></i>
+                        <i class="ri-search-line" style="font-size: 4rem; color: #dcdde1; margin-bottom: 1rem;"></i>
                         <h2><?php esc_html_e('Sonuç Bulunamadı', 'entegrasyonum'); ?></h2>
                         <p><?php esc_html_e('Aradığınız kriterlere uygun içerik bulunamadı. Lütfen farklı kelimeler deneyin.', 'entegrasyonum'); ?></p>
                         <?php get_search_form(); ?>

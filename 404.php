@@ -23,7 +23,7 @@ get_header();
                 <div class="error-404" style="text-align: center; padding: 4rem 2rem;">
                     
                     <div class="error-icon" style="font-size: 8rem; color: #dcdde1; margin-bottom: 2rem;">
-                        <i class="fas fa-exclamation-triangle"></i>
+                        <i class="ri-error-warning-line"></i>
                     </div>
                     
                     <h2 style="font-size: 2rem; margin-bottom: 1rem;">
@@ -36,11 +36,11 @@ get_header();
                     
                     <div class="error-actions" style="margin-bottom: 3rem;">
                         <a href="<?php echo esc_url(home_url('/')); ?>" class="btn btn-primary">
-                            <i class="fas fa-home"></i> <?php esc_html_e('Ana Sayfaya Dön', 'entegrasyonum'); ?>
+                            <i class="ri-home-line"></i> <?php esc_html_e('Ana Sayfaya Dön', 'entegrasyonum'); ?>
                         </a>
                         <?php if (class_exists('WooCommerce')) : ?>
                             <a href="<?php echo esc_url(get_permalink(wc_get_page_id('shop'))); ?>" class="btn btn-secondary">
-                                <i class="fas fa-shopping-bag"></i> <?php esc_html_e('Mağazayı Ziyaret Et', 'entegrasyonum'); ?>
+                                <i class="ri-shopping-bag-line"></i> <?php esc_html_e('Mağazayı Ziyaret Et', 'entegrasyonum'); ?>
                             </a>
                         <?php endif; ?>
                     </div>

@@ -189,11 +189,8 @@ function entegrasyonum_scripts() {
     // Google Fonts - Poppins ve Pacifico
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap', array(), null);
     
-    // Remix Icon
+    // Remix Icon - lightweight icon library
     wp_enqueue_style('remixicon', 'https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css', array(), '4.6.0');
-    
-    // Font Awesome (ikonlar için)
-    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css', array(), '6.4.0');
     
     // Ana stil dosyası
     wp_enqueue_style('entegrasyonum-style', get_stylesheet_uri(), array(), '1.0.1');
@@ -373,8 +370,8 @@ function entegrasyonum_pagination() {
         'format'    => '?paged=%#%',
         'current'   => max(1, get_query_var('paged')),
         'total'     => $wp_query->max_num_pages,
-        'prev_text' => '<i class="fas fa-chevron-left"></i>',
-        'next_text' => '<i class="fas fa-chevron-right"></i>',
+        'prev_text' => '<i class="ri-arrow-left-s-line"></i>',
+        'next_text' => '<i class="ri-arrow-right-s-line"></i>',
         'type'      => 'list',
     ));
     echo '</div>';
@@ -391,7 +388,7 @@ function entegrasyonum_breadcrumbs() {
     }
     
     echo '<div class="breadcrumbs">';
-    echo '<a href="' . home_url('/') . '"><i class="fas fa-home"></i> Ana Sayfa</a>';
+    echo '<a href="' . home_url('/') . '"><i class="ri-home-line"></i> Ana Sayfa</a>';
     echo '<span class="separator"> / </span>';
     
     if (is_category() || is_single()) {
@@ -540,7 +537,7 @@ function entegrasyonum_comment_callback($comment, $args, $depth) {
             
             <div class="comment-meta">
                 <time datetime="<?php comment_time('c'); ?>">
-                    <i class="far fa-clock"></i>
+                    <i class="ri-time-line"></i>
                     <?php printf(__('%1$s tarihinde %2$s', 'entegrasyonum'), get_comment_date(), get_comment_time()); ?>
                 </time>
             </div>
@@ -591,7 +588,8 @@ class Entegrasyonum_Walker_Nav_Menu extends Walker_Nav_Menu {
         $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
         $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
         
-        $output .= '<a href="' . esc_url($item->url) . '" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">';
+        // Hover efekti ile modern menü linki
+        $output .= '<a href="' . esc_url($item->url) . '" class="text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-300 font-medium text-sm whitespace-nowrap py-2 px-3 rounded-lg">';
         $output .= apply_filters('the_title', $item->title, $item->ID);
         $output .= '</a>';
     }
@@ -775,4 +773,11 @@ if (class_exists('WooCommerce')) {
     });
     
 }
+
+function custom_blog_styles() {
+  wp_enqueue_style('blog-content', get_stylesheet_directory_uri() . '/assets/css/blog-content.css');
+}
+
+add_action('wp_enqueue_scripts', 'custom_blog_styles');
+
 

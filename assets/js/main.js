@@ -28,6 +28,9 @@
         // WooCommerce Cart Update / Sepet Güncelleme
         initCartUpdate();
         
+        // Account Dropdown / Hesabım Dropdown
+        initAccountDropdown();
+        
     });
     
     // Window scroll events
@@ -70,12 +73,12 @@
             navigation.toggleClass('active');
             body.toggleClass('menu-open');
             
-            // İkon değiştir
+            // İkon değiştir (RemixIcon)
             var icon = $(this).find('i');
             if (navigation.hasClass('active')) {
-                icon.removeClass('fa-bars').addClass('fa-times');
+                icon.removeClass('ri-menu-line').addClass('ri-close-line');
             } else {
-                icon.removeClass('fa-times').addClass('fa-bars');
+                icon.removeClass('ri-close-line').addClass('ri-menu-line');
             }
         });
         
@@ -85,7 +88,7 @@
                 if (navigation.hasClass('active')) {
                     navigation.removeClass('active');
                     body.removeClass('menu-open');
-                    menuToggle.find('i').removeClass('fa-times').addClass('fa-bars');
+                    menuToggle.find('i').removeClass('ri-close-line').addClass('ri-menu-line');
                 }
             }
         });
@@ -102,33 +105,40 @@
     
     /**
      * Search Toggle
-     * Arama formunu aç/kapat
+     * Mobil arama popup'ını aç/kapat
      */
     function initSearchToggle() {
-        var searchToggle = $('.header-search-toggle');
-        var searchForm = $('.header-search-form');
+        var searchToggle = $('.search-toggle');
+        var searchPopup = $('.mobile-search-popup');
+        var searchClose = $('.search-close');
         
+        // Arama butonuna tıklandığında popup aç
         searchToggle.on('click', function(e) {
             e.preventDefault();
-            searchForm.toggleClass('active');
-            
-            // Form açıldığında input'a focus
-            if (searchForm.hasClass('active')) {
-                searchForm.find('input[type="search"]').focus();
-            }
+            searchPopup.removeClass('hidden');
+            // Input'a focus
+            setTimeout(function() {
+                searchPopup.find('input[type="search"]').focus();
+            }, 100);
         });
         
-        // Dışarı tıklandığında kapat
-        $(document).on('click', function(e) {
-            if (!$(e.target).closest('.header-search-toggle, .header-search-form').length) {
-                searchForm.removeClass('active');
+        // Kapat butonuna tıklandığında
+        searchClose.on('click', function(e) {
+            e.preventDefault();
+            searchPopup.addClass('hidden');
+        });
+        
+        // Popup dışına tıklandığında kapat
+        searchPopup.on('click', function(e) {
+            if ($(e.target).hasClass('mobile-search-popup')) {
+                searchPopup.addClass('hidden');
             }
         });
         
         // ESC tuşu ile kapat
         $(document).on('keydown', function(e) {
-            if (e.key === 'Escape') {
-                searchForm.removeClass('active');
+            if (e.key === 'Escape' && !searchPopup.hasClass('hidden')) {
+                searchPopup.addClass('hidden');
             }
         });
     }
@@ -159,12 +169,12 @@
     
     /**
      * Back to Top Button
-     * Yukarı çık butonu
+     * Yukarı çık butonu (RemixIcon kullanılıyor)
      */
     function initBackToTop() {
         // Buton HTML'i ekle
         if ($('.back-to-top').length === 0) {
-            $('body').append('<button class="back-to-top" aria-label="Yukarı Çık"><i class="fas fa-arrow-up"></i></button>');
+            $('body').append('<button class="back-to-top" aria-label="Yukarı Çık"><i class="ri-arrow-up-line"></i></button>');
         }
         
         // Butona tıklandığında
@@ -218,17 +228,54 @@
             },
             success: function(response) {
                 var count = parseInt(response);
+                var cartIcon = $('.cart-icon');
                 var cartCount = $('.cart-count');
                 
                 if (count > 0) {
                     if (cartCount.length) {
                         cartCount.text(count);
                     } else {
-                        $('.cart-icon').append('<span class="cart-count">' + count + '</span>');
+                        cartIcon.append('<span class="cart-count absolute -top-2 -right-2 bg-primary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">' + count + '</span>');
                     }
+                    
+                    // Pulse animasyonu ekle
+                    cartIcon.addClass('pulse');
+                    setTimeout(function() {
+                        cartIcon.removeClass('pulse');
+                    }, 600);
                 } else {
                     cartCount.remove();
                 }
+            }
+        });
+    }
+    
+    /**
+     * Account Dropdown
+     * Hesabım dropdown menüsünü aç/kapat
+     */
+    function initAccountDropdown() {
+        var accountToggle = $('.account-toggle');
+        var accountDropdown = $('.account-dropdown');
+        
+        // Toggle butona tıklandığında
+        accountToggle.on('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            accountDropdown.toggleClass('hidden');
+        });
+        
+        // Dropdown dışına tıklandığında kapat
+        $(document).on('click', function(e) {
+            if (!$(e.target).closest('.account-menu-wrapper').length) {
+                accountDropdown.addClass('hidden');
+            }
+        });
+        
+        // ESC tuşu ile kapat
+        $(document).on('keydown', function(e) {
+            if (e.key === 'Escape' && !accountDropdown.hasClass('hidden')) {
+                accountDropdown.addClass('hidden');
             }
         });
     }
@@ -240,7 +287,7 @@
     if ('loading' in HTMLImageElement.prototype) {
         const images = document.querySelectorAll('img[loading="lazy"]');
         images.forEach(img => {
-            img.src = img.dataset.src;
+            // img.src = img.dataset.src;
         });
     }
     
@@ -344,10 +391,15 @@
     
     /**
      * Smooth Scrolling - Yeni Tasarım
-     * Anchor linklerde yumuşak kaydırma
+     * Anchor linklerde yumuşak kaydırma (WooCommerce tab'ları hariç)
      */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+            // WooCommerce tab linklerini atla
+            if (this.closest('.woocommerce-tabs ul.tabs')) {
+                return;
+            }
+            
             const href = this.getAttribute('href');
             if (href && href !== '#') {
                 const target = document.querySelector(href);
@@ -360,6 +412,110 @@
                 }
             }
         });
+    });
+    
+    /**
+     * WooCommerce Product Tabs - TAMAMEN SCROLL YOK
+     * Tab değişiminde HİÇBİR scroll işlemi yok
+     */
+    if ($('.woocommerce-tabs').length) {
+        // Tüm WooCommerce tab scroll davranışlarını kapat
+        $('.woocommerce-tabs ul.tabs li a').off('click');
+        
+        // Kendi click handler'ımız
+        $('.woocommerce-tabs ul.tabs li a').on('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            
+            var $this = $(this);
+            var $tabs = $this.closest('ul.tabs');
+            var $panels = $this.closest('.woocommerce-tabs').find('.panel');
+            var target = $this.attr('href');
+            
+            // Remove active class from all tabs
+            $tabs.find('li').removeClass('active');
+            
+            // Add active class to clicked tab
+            $this.parent().addClass('active');
+            
+            // Hide all panels
+            $panels.hide();
+            
+            // Show target panel WITHOUT any scroll
+            $(target).show();
+            
+            return false;
+        });
+        
+        // Sayfa yüklendiğinde hash varsa temizle
+        if (window.location.hash) {
+            // Hash'i temizle ama history'ye ekleme
+            history.replaceState(null, null, ' ');
+        }
+        
+        // Tüm hash change event'lerini engelle
+        $(window).on('hashchange', function(e) {
+            e.preventDefault();
+            return false;
+        });
+    }
+    
+    /**
+     * Prevent ALL auto-scroll behaviors
+     * TÜM otomatik scroll davranışlarını engelle
+     */
+    $(window).on('load', function() {
+        // Sayfa yüklendiğinde scroll'u en üste al
+        if ($('.woocommerce-tabs').length || $('body').hasClass('single-product')) {
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+                $('html, body').scrollTop(0);
+            }, 10);
+        }
+    });
+    
+    // Smooth scrolling'i WooCommerce sayfalarında devre dışı bırak
+    if ($('body').hasClass('single-product') || $('.woocommerce-tabs').length) {
+        $('html').css('scroll-behavior', 'auto');
+    }
+    
+    /**
+     * Fix Product Grid Direction - SOLDAN BAŞLA
+     * Ürün grid'ini kesinlikle LTR yap
+     */
+    function fixProductGridDirection() {
+        // Tüm products listelerini bul
+        $('.woocommerce ul.products').each(function() {
+            // Direction'ı LTR yap
+            $(this).css({
+                'direction': 'ltr',
+                'text-align': 'left'
+            });
+            
+            // Her product item'ı kontrol et
+            $(this).find('li.product').each(function(index) {
+                $(this).css({
+                    'direction': 'ltr',
+                    'text-align': 'left',
+                    'float': 'none',
+                    'clear': 'none'
+                });
+                
+                // Grid order'ı düzelt
+                $(this).css('order', index);
+            });
+        });
+    }
+    
+    // Sayfa yüklendiğinde çalıştır
+    $(document).ready(function() {
+        fixProductGridDirection();
+    });
+    
+    // AJAX ile ürün yüklendiğinde de çalıştır
+    $(document.body).on('updated_wc_div', function() {
+        fixProductGridDirection();
     });
     
 })(jQuery);
