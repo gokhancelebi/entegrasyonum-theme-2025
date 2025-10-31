@@ -25,11 +25,11 @@ get_header();
         <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div class="text-white">
                 <h1 class="text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                    <?php echo esc_html(get_theme_mod('hero_title', 'Digital Integration')); ?> 
-                    <span class="text-blue-400"><?php echo esc_html(get_theme_mod('hero_subtitle', 'Made Simple')); ?></span>
+                    <?php echo esc_html(get_theme_mod('hero_title', 'Web Yazılıım Hizmetlerini')); ?> 
+                    <span class="text-blue-400"><?php echo esc_html(get_theme_mod('hero_subtitle', 'Kolaylaştırdık')); ?></span>
                 </h1>
                 <p class="text-xl text-blue-100 mb-8 leading-relaxed">
-                    <?php echo esc_html(get_theme_mod('hero_description', 'Transform your business with our cutting-edge API integration, WooCommerce solutions, and XML-based automation tools.')); ?>
+                    <?php echo esc_html(get_theme_mod('hero_description', 'İşletmenizi dijitalleştirin ve verimliliği artırın.')); ?>
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="#services" class="bg-primary hover:bg-blue-700 text-white px-8 py-4 rounded-button font-semibold transition-all duration-300 whitespace-nowrap text-center">
@@ -352,7 +352,7 @@ get_header();
         
         <?php if ($blog_query->found_posts > 0) : ?>
             <div class="text-center mt-12">
-                <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" 
+                <a href="/blog" 
                    class="inline-block bg-primary hover:bg-blue-700 text-white px-8 py-4 rounded-button font-semibold transition-all duration-300">
                     <i class="ri-article-line mr-2"></i>Tüm Yazılar
                 </a>
@@ -372,7 +372,7 @@ get_header();
         </div>
         <div class="grid lg:grid-cols-2 gap-16">
             <div class="fade-in">
-                <?php echo do_shortcode('[contact-form-7 id="1"]'); ?>
+                <?php echo do_shortcode('[wpforms id="8"]'); ?>
             </div>
             <div class="fade-in">
                 <div class="bg-gray-100 rounded-xl h-96 flex items-center justify-center" style="background-image: url('/wp-content/themes/entegrasyonum/map_placeholder_1280x720.png'); background-size: cover; background-position: center;">

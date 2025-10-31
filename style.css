@@ -481,7 +481,6 @@ img {
 .page-header h1 {
     font-size: 2.5rem;
     margin-bottom: var(--spacing-sm);
-    display: none;
 }
 
 .breadcrumbs {
@@ -778,6 +777,8 @@ img {
     background-color: var(--primary-color);
     transform: translateY(-2px);
 }
+
+ 
 
 /* Single Product */
 .single-product-layout {
@@ -3289,6 +3290,7 @@ ul.products li.product {
 /* Add to Cart Section */
 .woocommerce div.product form.cart {
     margin: 2rem 0;
+    display: flex;
 }
 
 .woocommerce div.product form.cart .variations {

@@ -816,3 +816,10 @@ function mytheme_enable_gutenberg_frontend_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'mytheme_enable_gutenberg_frontend_styles' );
 
+// code that runs only for single blog post
+function mytheme_single_post_scripts() {
+    if ( is_single() && 'post' === get_post_type() ) {
+        wp_enqueue_style( 'single-post-style', get_template_directory_uri() . '/assets/css/single-post.css', array(), '1.0.0' );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'mytheme_single_post_scripts' );
