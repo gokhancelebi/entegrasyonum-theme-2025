@@ -774,3 +774,10 @@ if (class_exists('WooCommerce')) {
     
 }
 
+function custom_blog_styles() {
+  wp_enqueue_style('blog-content', get_stylesheet_directory_uri() . '/assets/css/blog-content.css');
+}
+
+add_action('wp_enqueue_scripts', 'custom_blog_styles');
+
+
