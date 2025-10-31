@@ -397,7 +397,7 @@ get_header();
                         </div>
                         <div>
                             <div class="font-medium text-secondary">Telefon</div>
-                            <div class="text-gray-600">+90 555 123 4567</div>
+                            <div class="text-gray-600">+90 544 809 1065</div>
                         </div>
                     </div>
                 </div>
