@@ -41,9 +41,11 @@ get_header();
                 </div>
             </div>
             <div class="hidden lg:block">
+                <!-- 
                 <img src="" 
                      alt="Digital Integration Services" 
                      class="w-full h-auto object-cover object-top rounded-xl">
+                -->
             </div>
         </div>
     </div>
@@ -242,9 +244,11 @@ get_header();
                 </div>
             </div>
             <div class="fade-in">
+                <!-- 
                 <img src="" 
                      alt="About Entegrasyonum" 
                      class="w-full h-auto object-cover object-top rounded-xl">
+                -->
             </div>
         </div>
     </div>

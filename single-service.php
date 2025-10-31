@@ -100,7 +100,7 @@ get_header();
                 <!-- Contact Card -->
                 <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <h3 class="text-2xl font-bold mb-4">Bu Hizmeti Mi Arıyorsunuz?</h3>
-                    <p class="text-blue-100 mb-6">
+                    <p class="text-gray-600 mb-6">
                         Size özel bir teklif hazırlayalım. Hemen iletişime geçin!
                     </p>
                     <a href="<?php echo esc_url(get_permalink(get_page_by_path('iletisim'))); ?>" 
