@@ -183,9 +183,6 @@ add_action('after_setup_theme', 'entegrasyonum_content_width', 0);
  * CSS ve JavaScript dosyalarını yükle
  */
 function entegrasyonum_scripts() {
-    // Tailwind CSS
-    wp_enqueue_script('tailwindcss', 'https://cdn.tailwindcss.com/3.4.16', array(), '3.4.16', false);
-    
     // Google Fonts - Poppins ve Pacifico
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap', array(), null);
     
@@ -781,3 +778,12 @@ function custom_blog_styles() {
 add_action('wp_enqueue_scripts', 'custom_blog_styles');
 
 
+function mytheme_enqueue_styles() {
+    wp_enqueue_style(
+        'tailwind',
+        get_template_directory_uri() . '/assets/css/tailwind.css',
+        array(),
+        filemtime(get_template_directory() . '/assets/css/tailwind.css')
+    );
+}
+add_action('wp_enqueue_scripts', 'mytheme_enqueue_styles');
