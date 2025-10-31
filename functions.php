@@ -787,3 +787,9 @@ function mytheme_enqueue_styles() {
     );
 }
 add_action('wp_enqueue_scripts', 'mytheme_enqueue_styles');
+
+# /assets/css/wp-forms.css
+function custom_wpforms_styles() {
+  wp_enqueue_style('wpforms-custom', get_stylesheet_directory_uri() . '/assets/css/wp-forms.css');
+}
+add_action('wp_enqueue_scripts', 'custom_wpforms_styles');

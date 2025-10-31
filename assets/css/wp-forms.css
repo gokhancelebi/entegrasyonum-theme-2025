@@ -1,0 +1,9 @@
+.wpforms-container .wpforms-form .wpforms-submit-container .wpforms-submit {
+    background-color: #1D4ED8 !important;
+    border-color: #1D4ED8 !important;
+}
+
+.wpforms-container .wpforms-form .wpforms-submit-container .wpforms-submit:hover {
+    background-color: #1E40AF !important;
+    border-color: #1E40AF !important;
+}
