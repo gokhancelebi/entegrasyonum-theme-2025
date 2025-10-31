@@ -41,7 +41,7 @@ get_header();
                 </div>
             </div>
             <div class="hidden lg:block">
-                <img src="https://readdy.ai/api/search-image?query=Modern%20digital%20integration%20dashboard%20with%20API%20connections%2C%20data%20flow%20visualization%2C%20clean%20interface%20with%20blue%20and%20navy%20color%20scheme&width=600&height=500&seq=hero1&orientation=landscape" 
+                <img src="" 
                      alt="Digital Integration Services" 
                      class="w-full h-auto object-cover object-top rounded-xl">
             </div>
@@ -242,7 +242,7 @@ get_header();
                 </div>
             </div>
             <div class="fade-in">
-                <img src="https://readdy.ai/api/search-image?query=Professional%20team%20working%20on%20digital%20integration%20projects%2C%20modern%20office%20environment&width=600&height=500&seq=about1&orientation=landscape" 
+                <img src="" 
                      alt="About Entegrasyonum" 
                      class="w-full h-auto object-cover object-top rounded-xl">
             </div>
@@ -371,7 +371,7 @@ get_header();
                 <?php echo do_shortcode('[contact-form-7 id="1"]'); ?>
             </div>
             <div class="fade-in">
-                <div class="bg-gray-100 rounded-xl h-96 flex items-center justify-center" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-size: cover; background-position: center;">
+                <div class="bg-gray-100 rounded-xl h-96 flex items-center justify-center" style="background-image: url('/wp-content/themes/entegrasyonum/map_placeholder_1280x720.png'); background-size: cover; background-position: center;">
                     <div class="bg-white p-6 rounded-lg shadow-lg">
                         <h3 class="font-semibold text-secondary mb-2">Konumumuz</h3>
                         <p class="text-gray-600">İstanbul, Türkiye</p>
