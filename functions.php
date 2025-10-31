@@ -777,6 +777,8 @@ function custom_blog_styles() {
 
 add_action('wp_enqueue_scripts', 'custom_blog_styles');
 
+add_theme_support('editor-styles');
+add_editor_style('blog-editor.css');
 
 function mytheme_enqueue_styles() {
     wp_enqueue_style(
@@ -793,3 +795,24 @@ function custom_wpforms_styles() {
   wp_enqueue_style('wpforms-custom', get_stylesheet_directory_uri() . '/assets/css/wp-forms.css');
 }
 add_action('wp_enqueue_scripts', 'custom_wpforms_styles');
+
+
+// Gutenberg (block editor) desteğini etkinleştir
+function mytheme_add_gutenberg_support() {
+    add_theme_support( 'editor-styles' ); // Tema stillerini editörde göster
+    add_theme_support( 'wp-block-styles' ); // Gutenberg blok stilleri
+    add_theme_support( 'align-wide' ); // Geniş hizalama desteği
+    add_theme_support( 'responsive-embeds' ); // Embed'ler responsive olsun
+}
+add_action( 'after_setup_theme', 'mytheme_add_gutenberg_support' );
+
+// Gutenberg blok stillerini frontend'de etkinleştir
+function mytheme_enable_gutenberg_frontend_styles() {
+    // WordPress'in varsayılan Gutenberg CSS dosyasını yükle
+    wp_enqueue_style( 'wp-block-library' );
+
+    // Ek olarak tema içinde kendi blok düzenlemelerini de ekleyebilirsin
+    wp_enqueue_style( 'mytheme-gutenberg', get_template_directory_uri() . '/assets/css/block-editor.css', array(), null );
+}
+add_action( 'wp_enqueue_scripts', 'mytheme_enable_gutenberg_frontend_styles' );
+

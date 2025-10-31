@@ -153,3 +153,9 @@
   .entry-content h3 { font-size: 1.2rem; }
 }
 /* End of BLOG CONTENT STYLES */
+
+.single-post-content blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, .single-post-content p, pre, ul, ol, menu {
+    margin:2rem 0;
+}
+
+
