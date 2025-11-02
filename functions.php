@@ -187,7 +187,7 @@ function entegrasyonum_scripts() {
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap', array(), null);
     
     // Remix Icon - lightweight icon library
-    wp_enqueue_style('remixicon', 'https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css', array(), '4.6.0');
+    wp_enqueue_style('remixicon', get_template_directory_uri() . '/assets/remixicon/fonts/remixicon.css', array(), '4.7.0');
     
     // Ana stil dosyası
     wp_enqueue_style('entegrasyonum-style', get_stylesheet_uri(), array(), '1.0.1');
