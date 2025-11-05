@@ -4176,7 +4176,7 @@ ul.products li.product {
 /* Mobile Menu Overlay */
 .mobile-menu-overlay {
     position: fixed;
-    top: 0;
+    top: 72px; /* Header height */
     left: 0;
     right: 0;
     bottom: 0;
@@ -4197,11 +4197,11 @@ ul.products li.product {
 /* Mobile Menu */
 .mobile-menu {
     position: fixed;
-    top: 0;
+    top: 72px; /* Header height */
     right: -100%;
     width: 85%;
     max-width: 400px;
-    height: 100vh;
+    height: calc(100vh - 72px);
     background: white;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     z-index: 999;
