@@ -766,6 +766,10 @@ if (class_exists('WooCommerce')) {
         }
     });
     
+    // WooCommerce varsayılan ödeme yöntemlerini kaldır - tema dosyasında zaten gösteriliyor
+    // Bu, ödeme yöntemlerinin tekrar görünmesini engeller
+    remove_action('woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20);
+    
 }
 
 function custom_blog_styles() {
