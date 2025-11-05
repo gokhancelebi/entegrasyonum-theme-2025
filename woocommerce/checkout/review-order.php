@@ -1,8 +1,12 @@
 <?php
 /**
- * Review Order Table - Modern Tasarım
- * 
- * @package Entegrasyonum
+ * Review Order Table
+ *
+ * Keeps theme styling while following WooCommerce template structure.
+ *
+ * @see     https://woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates
+ * @version 5.2.0
  */
 
 defined('ABSPATH') || exit;
