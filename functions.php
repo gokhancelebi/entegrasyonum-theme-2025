@@ -663,10 +663,7 @@ if (class_exists('WooCommerce')) {
         }
         return $text;
     }, 10, 2);
-    
-    // Single product başlığını summary'den kaldır - kendi tasarımımızda gösteriyoruz
-    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
-    
+     
     // Sale badge özelleştirme
     add_filter('woocommerce_sale_flash', function($html, $post, $product) {
         if ($product->is_on_sale()) {

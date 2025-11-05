@@ -61,7 +61,7 @@ defined('ABSPATH') || exit;
                     <?php endif; ?>
                 </div>
                 
-                <h1 class="text-4xl font-bold text-secondary mb-6"><?php the_title(); ?></h1>
+                
                 
                 <?php
                 /**
@@ -73,7 +73,6 @@ defined('ABSPATH') || exit;
                  * - woocommerce_template_single_meta - 40
                  * - woocommerce_template_single_sharing - 50
                  */
-                remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
                 do_action('woocommerce_single_product_summary');
                 ?>
             </div>
