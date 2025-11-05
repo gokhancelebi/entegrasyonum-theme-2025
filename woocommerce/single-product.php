@@ -1,8 +1,9 @@
 <?php
 /**
  * Single Product Template - Modern Tasarım
- * 
+ *
  * @package Entegrasyonum
+ * @version 1.6.4
  */
 
 defined('ABSPATH') || exit;
