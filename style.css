@@ -4168,3 +4168,124 @@ ul.products li.product {
 .widget_search form, .widget_product_search form {
     flex-direction: column;
 }
+
+/* ============================================
+   MOBILE MENU & OVERLAY FIX
+   ============================================ */
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 400px;
+    height: 100vh;
+    background: white;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    overflow-y: auto;
+    transition: right 0.3s ease-in-out;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+/* Body overflow when menu is open */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Mobile Menu Links - Better visibility */
+.mobile-menu a {
+    position: relative;
+    pointer-events: auto !important;
+    display: block;
+}
+
+/* Mobile Menu Items */
+.mobile-menu .menu-item {
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.mobile-menu .menu-item > a {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #374151;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu .menu-item > a:hover {
+    background-color: #f9fafb;
+    color: #1D4ED8;
+    padding-left: 2rem;
+}
+
+/* Mobile Menu Submenu */
+.mobile-menu .menu-item.menu-item-has-children.open > .sub-menu {
+    display: block;
+}
+
+.mobile-menu .sub-menu {
+    display: none;
+    background-color: #f9fafb;
+    padding-left: 1rem;
+}
+
+.mobile-menu .sub-menu .menu-item > a {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.mobile-menu .sub-menu .menu-item > a:hover {
+    color: #1D4ED8;
+    background-color: #f3f4f6;
+}
+
+/* Mobile Menu Toggle Icon Animation */
+.mobile-menu-toggle {
+    position: relative;
+    z-index: 1000;
+}
+
+.mobile-menu-toggle i {
+    transition: transform 0.3s ease;
+}
+
+/* Header z-index */
+header.site-header,
+header {
+    z-index: 1000;
+}
+
+/* Ensure mobile menu is hidden on desktop */
+@media (min-width: 1024px) {
+    .mobile-menu,
+    .mobile-menu-overlay {
+        display: none !important;
+    }
+}

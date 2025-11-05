@@ -65,42 +65,48 @@
      */
     function initMobileMenu() {
         var menuToggle = $('.mobile-menu-toggle');
-        var navigation = $('.main-navigation');
+        var mobileMenu = $('.mobile-menu');
         var body = $('body');
+        var overlay = $('.mobile-menu-overlay');
         
+        // Menü toggle butonu
         menuToggle.on('click', function(e) {
             e.preventDefault();
-            navigation.toggleClass('active');
-            body.toggleClass('menu-open');
+            e.stopPropagation();
             
-            // İkon değiştir (RemixIcon)
-            var icon = $(this).find('i');
-            if (navigation.hasClass('active')) {
-                icon.removeClass('ri-menu-line').addClass('ri-close-line');
+            var isOpen = mobileMenu.hasClass('active');
+            
+            if (isOpen) {
+                // Kapat
+                mobileMenu.removeClass('active');
+                overlay.removeClass('active');
+                body.removeClass('menu-open');
+                $(this).find('i').removeClass('ri-close-line').addClass('ri-menu-line');
             } else {
-                icon.removeClass('ri-close-line').addClass('ri-menu-line');
+                // Aç
+                mobileMenu.addClass('active');
+                overlay.addClass('active');
+                body.addClass('menu-open');
+                $(this).find('i').removeClass('ri-menu-line').addClass('ri-close-line');
             }
         });
         
-        // Menü dışına tıklandığında kapat
-        $(document).on('click', function(e) {
-            if (!$(e.target).closest('.main-navigation, .mobile-menu-toggle').length) {
-                if (navigation.hasClass('active')) {
-                    navigation.removeClass('active');
-                    body.removeClass('menu-open');
-                    menuToggle.find('i').removeClass('ri-close-line').addClass('ri-menu-line');
-                }
-            }
+        // Overlay'e tıklandığında kapat
+        overlay.on('click', function() {
+            mobileMenu.removeClass('active');
+            overlay.removeClass('active');
+            body.removeClass('menu-open');
+            menuToggle.find('i').removeClass('ri-close-line').addClass('ri-menu-line');
         });
         
         // Mobil menüde dropdown toggle
-        if ($(window).width() <= 768) {
-            $('.main-menu > li.menu-item-has-children > a').on('click', function(e) {
+        $('.mobile-menu .menu-item-has-children > a').on('click', function(e) {
+            if ($(window).width() <= 1024) {
                 e.preventDefault();
-                $(this).parent().toggleClass('active');
+                $(this).parent().toggleClass('open');
                 $(this).next('ul').slideToggle(300);
-            });
-        }
+            }
+        });
     }
     
     /**
@@ -368,26 +374,8 @@
         });
     }
     
-    /**
-     * Mobile Menu Toggle - Yeni Tasarım
-     * Mobil menü açma/kapama - Remix Icon ile
-     */
-    $('.mobile-menu-toggle').on('click', function(e) {
-        e.preventDefault();
-        var mobileMenu = $('.mobile-menu');
-        var icon = $(this).find('i');
-        
-        mobileMenu.toggleClass('active');
-        
-        // İkon değiştir
-        if (mobileMenu.hasClass('active')) {
-            icon.removeClass('ri-menu-line').addClass('ri-close-line');
-            mobileMenu.slideDown(300);
-        } else {
-            icon.removeClass('ri-close-line').addClass('ri-menu-line');
-            mobileMenu.slideUp(300);
-        }
-    });
+    // Mobile menu artık initMobileMenu() fonksiyonunda yönetiliyor
+    // Bu kısım kaldırıldı (duplicate idi)
     
     /**
      * Smooth Scrolling - Yeni Tasarım

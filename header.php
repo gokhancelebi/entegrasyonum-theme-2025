@@ -12,7 +12,7 @@
 <div id="page" class="site">
     
     <!-- Header Section -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
+    <header class="site-header bg-white shadow-sm sticky top-0">
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="grid grid-cols-12 gap-2 lg:gap-4 items-center">
                 
@@ -215,6 +215,9 @@
         </div>
     </header>
     
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
     <!-- Mobile Search Popup -->
     <div class="mobile-search-popup hidden fixed inset-0 bg-black bg-opacity-50 z-50">
         <div class="bg-white p-6">
@@ -245,7 +248,7 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu hidden md:hidden bg-white shadow-lg">
+    <div class="mobile-menu md:hidden bg-white shadow-lg">
         <div class="px-6 py-4">
             
             <!-- Hesabım ve Sepet (Mobil) -->
