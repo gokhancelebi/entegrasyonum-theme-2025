@@ -11,7 +11,24 @@
                     </div>
                 <?php elseif (has_nav_menu('footer')) : ?>
                     <div>
-                        <div class="font-['Pacifico'] text-2xl mb-4"><?php bloginfo('name'); ?></div>
+                        <?php
+                        $footer_logo_id = get_theme_mod('footer_logo');
+                        if ($footer_logo_id) {
+                            $footer_logo_url = wp_get_attachment_image_url($footer_logo_id, 'full');
+                            $footer_logo_alt = get_bloginfo('name');
+                            ?>
+                            <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-block mb-4">
+                                <img src="<?php echo esc_url($footer_logo_url); ?>" 
+                                     alt="<?php echo esc_attr($footer_logo_alt); ?>" 
+                                     class="h-12 w-auto">
+                            </a>
+                            <?php
+                        } else {
+                            ?>
+                            <div class="font-['Pacifico'] text-2xl mb-4"><?php bloginfo('name'); ?></div>
+                            <?php
+                        }
+                        ?>
                         <p class="text-blue-200 leading-relaxed mb-4">
                             <?php bloginfo('description'); ?>
                         </p>
@@ -38,7 +55,24 @@
                     </div>
                 <?php else : ?>
                     <div>
-                        <div class="font-['Pacifico'] text-2xl mb-4"><?php bloginfo('name'); ?></div>
+                        <?php
+                        $footer_logo_id = get_theme_mod('footer_logo');
+                        if ($footer_logo_id) {
+                            $footer_logo_url = wp_get_attachment_image_url($footer_logo_id, 'full');
+                            $footer_logo_alt = get_bloginfo('name');
+                            ?>
+                            <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-block mb-4">
+                                <img src="<?php echo esc_url($footer_logo_url); ?>" 
+                                     alt="<?php echo esc_attr($footer_logo_alt); ?>" 
+                                     class="h-12 w-auto">
+                            </a>
+                            <?php
+                        } else {
+                            ?>
+                            <div class="font-['Pacifico'] text-2xl mb-4"><?php bloginfo('name'); ?></div>
+                            <?php
+                        }
+                        ?>
                         <p class="text-blue-200 leading-relaxed mb-6">
                             <?php bloginfo('description'); ?>
                         </p>

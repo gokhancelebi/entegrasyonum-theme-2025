@@ -488,6 +488,24 @@ add_filter('comment_form_default_fields', 'entegrasyonum_comment_form_fields');
  * Tema özelleştirici ayarları
  */
 function entegrasyonum_customize_register($wp_customize) {
+    // Footer Logo Section
+    $wp_customize->add_section('entegrasyonum_footer_logo', array(
+        'title'    => __('Footer Logo', 'entegrasyonum'),
+        'priority' => 29,
+    ));
+    
+    $wp_customize->add_setting('footer_logo', array(
+        'default'           => '',
+        'sanitize_callback' => 'absint',
+    ));
+    
+    $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'footer_logo', array(
+        'label'       => __('Footer Logo', 'entegrasyonum'),
+        'description' => __('Header logodan farklı bir logo kullanmak için yükleyin. Boş bırakılırsa site adı gösterilir.', 'entegrasyonum'),
+        'section'     => 'entegrasyonum_footer_logo',
+        'mime_type'   => 'image',
+    )));
+    
     // Hero Section
     $wp_customize->add_section('entegrasyonum_hero', array(
         'title'    => __('Hero Section', 'entegrasyonum'),
