@@ -66,6 +66,18 @@ body {
     color: var(--dark-color);
     background-color: var(--white-color);
     overflow-x: hidden;
+    padding-top: var(--header-height); /* Fixed header için boşluk */
+}
+
+/* Admin bar varken body padding */
+.admin-bar body {
+    padding-top: calc(var(--header-height) + 32px);
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar body {
+        padding-top: calc(var(--header-height) + 46px);
+    }
 }
 
 /* Container */
@@ -465,6 +477,21 @@ img {
     color: var(--white-color);
     padding: var(--spacing-xxl) 0;
     text-align: center;
+    margin-top: calc(var(--header-height) * -1); /* Body padding'ini iptal et */
+    padding-top: calc(var(--spacing-xxl) + var(--header-height)); /* Header + normal padding */
+}
+
+/* Admin bar varken hero section */
+.admin-bar .hero-section {
+    margin-top: calc((var(--header-height) + 32px) * -1);
+    padding-top: calc(var(--spacing-xxl) + var(--header-height) + 32px);
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar .hero-section {
+        margin-top: calc((var(--header-height) + 46px) * -1);
+        padding-top: calc(var(--spacing-xxl) + var(--header-height) + 46px);
+    }
 }
 
 .hero-content h1 {
@@ -1432,6 +1459,21 @@ textarea:focus {
 .hero-bg {
     background: linear-gradient(135deg, #0A2540 0%, #122B55 100%) !important;
     color: #ffffff !important;
+    margin-top: calc(var(--header-height) * -1); /* Body padding'ini iptal et */
+    padding-top: var(--header-height); /* Header için alan bırak */
+}
+
+/* Admin bar varken hero section */
+.admin-bar .hero-bg {
+    margin-top: calc((var(--header-height) + 32px) * -1);
+    padding-top: calc(var(--header-height) + 32px);
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar .hero-bg {
+        margin-top: calc((var(--header-height) + 46px) * -1);
+        padding-top: calc(var(--header-height) + 46px);
+    }
 }
 
 .hero-bg h1,
