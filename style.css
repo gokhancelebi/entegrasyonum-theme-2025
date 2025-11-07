@@ -1559,7 +1559,11 @@ textarea:focus {
 }
 
 .text-primary {
-    color: #1D4ED8;
+    color: #1D4ED8 !important;
+}
+
+.border-primary {
+    border-color: #1D4ED8 !important;
 }
 
 .hover\:bg-primary:hover {
@@ -1567,7 +1571,11 @@ textarea:focus {
 }
 
 .hover\:text-primary:hover {
-    color: #1D4ED8 ;
+    color: #1D4ED8 !important;
+}
+
+.hover\:border-primary:hover {
+    border-color: #1D4ED8 !important;
 }
 
 /* Secondary Color */
@@ -1579,8 +1587,20 @@ textarea:focus {
     color: #0A2540 !important;
 }
 
+.border-secondary {
+    border-color: #0A2540 !important;
+}
+
+.hover\:bg-secondary:hover {
+    background-color: #0A2540 !important;
+}
+
 .hover\:text-secondary:hover {
     color: #0A2540 !important;
+}
+
+.hover\:border-secondary:hover {
+    border-color: #0A2540 !important;
 }
 
 /* Remix Icon Compatibility */
@@ -4321,7 +4341,7 @@ ul.products li.product {
 /* Mobile Menu Overlay */
 .mobile-menu-overlay {
     position: fixed;
-    top: 72px; /* Header height */
+    top: var(--header-height); /* Header height */
     left: 0;
     right: 0;
     bottom: 0;
@@ -4333,6 +4353,17 @@ ul.products li.product {
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+/* Admin bar varken mobile menu overlay */
+.admin-bar .mobile-menu-overlay {
+    top: calc(var(--header-height) + 32px);
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar .mobile-menu-overlay {
+        top: calc(var(--header-height) + 46px);
+    }
+}
+
 .mobile-menu-overlay.active {
     opacity: 1;
     visibility: visible;
@@ -4342,16 +4373,29 @@ ul.products li.product {
 /* Mobile Menu */
 .mobile-menu {
     position: fixed;
-    top: 72px; /* Header height */
+    top: var(--header-height); /* Header height */
     right: -100%;
     width: 85%;
     max-width: 400px;
-    height: calc(100vh - 72px);
+    height: calc(100vh - var(--header-height));
     background: white;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     z-index: 999;
     overflow-y: auto;
     transition: right 0.3s ease-in-out;
+}
+
+/* Admin bar varken mobile menu */
+.admin-bar .mobile-menu {
+    top: calc(var(--header-height) + 32px);
+    height: calc(100vh - var(--header-height) - 32px);
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar .mobile-menu {
+        top: calc(var(--header-height) + 46px);
+        height: calc(100vh - var(--header-height) - 46px);
+    }
 }
 
 .mobile-menu.active {

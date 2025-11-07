@@ -6,12 +6,22 @@ module.exports = {
     "./assets/js/**/*.js",
     "./assets/css/**/*.css",
   ],
-  // Tailwind'in reset stillerini devre dışı bırak - style.css'deki default stilleri korur
+  // Preflight açık - Tailwind utility class'ları çalışıyor
   corePlugins: {
-    preflight: false,
+    preflight: true,
   },
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#1D4ED8',
+        secondary: '#0A2540',
+        accent: '#3B82F6',
+      },
+      fontFamily: {
+        'pacifico': ['Pacifico', 'cursive'],
+        'poppins': ['Poppins', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 };
