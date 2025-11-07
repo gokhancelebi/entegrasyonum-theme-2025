@@ -152,11 +152,11 @@ function entegrasyonum_setup() {
     
     // Menü konumları
     register_nav_menus(array(
-        'primary'         => esc_html__('Ana Menü', 'entegrasyonum'),
-        'footer'          => esc_html__('Footer Genel Menü', 'entegrasyonum'),
-        'footer-services' => esc_html__('Footer - Hizmetler Menüsü', 'entegrasyonum'),
-        'footer-company'  => esc_html__('Footer - Şirket Menüsü', 'entegrasyonum'),
-        'footer-legal'    => esc_html__('Footer - Yasal Linkler (Gizlilik, Hizmet Şartları)', 'entegrasyonum'),
+        'primary'         => esc_html__('Ana Menü (Header)', 'entegrasyonum'),
+        'footer'          => esc_html__('Footer Kolon 1 - Genel Linkler (Logo altında)', 'entegrasyonum'),
+        'footer-services' => esc_html__('Footer Kolon 2 - Hizmetler Menüsü', 'entegrasyonum'),
+        'footer-company'  => esc_html__('Footer Kolon 3 - Şirket Menüsü', 'entegrasyonum'),
+        'footer-legal'    => esc_html__('Footer Alt Kısım - Yasal Linkler (Gizlilik, Hizmet Şartları)', 'entegrasyonum'),
     ));
     
     // Post formatları

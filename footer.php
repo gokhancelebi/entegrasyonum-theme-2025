@@ -9,6 +9,33 @@
                     <div>
                         <?php dynamic_sidebar('footer-1'); ?>
                     </div>
+                <?php elseif (has_nav_menu('footer')) : ?>
+                    <div>
+                        <div class="font-['Pacifico'] text-2xl mb-4"><?php bloginfo('name'); ?></div>
+                        <p class="text-blue-200 leading-relaxed mb-4">
+                            <?php bloginfo('description'); ?>
+                        </p>
+                        <?php
+                        wp_nav_menu(array(
+                            'theme_location' => 'footer',
+                            'menu_class'     => 'space-y-2 text-blue-200 mb-6',
+                            'container'      => false,
+                            'depth'          => 1,
+                            'fallback_cb'    => false,
+                        ));
+                        ?>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-lg hover:bg-white/20 transition-colors duration-300">
+                                <i class="ri-linkedin-line"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-lg hover:bg-white/20 transition-colors duration-300">
+                                <i class="ri-twitter-line"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-lg hover:bg-white/20 transition-colors duration-300">
+                                <i class="ri-github-line"></i>
+                            </a>
+                        </div>
+                    </div>
                 <?php else : ?>
                     <div>
                         <div class="font-['Pacifico'] text-2xl mb-4"><?php bloginfo('name'); ?></div>
