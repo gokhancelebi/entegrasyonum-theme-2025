@@ -34,6 +34,19 @@
                     <div>
                         <?php dynamic_sidebar('footer-2'); ?>
                     </div>
+                <?php elseif (has_nav_menu('footer-services')) : ?>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-4">Hizmetler</h3>
+                        <?php
+                        wp_nav_menu(array(
+                            'theme_location' => 'footer-services',
+                            'menu_class'     => 'space-y-2 text-blue-200',
+                            'container'      => false,
+                            'depth'          => 1,
+                            'fallback_cb'    => false,
+                        ));
+                        ?>
+                    </div>
                 <?php else : ?>
                     <div>
                         <h3 class="font-semibold text-lg mb-4">Hizmetler</h3>
@@ -50,6 +63,19 @@
                 <?php if (is_active_sidebar('footer-3')) : ?>
                     <div>
                         <?php dynamic_sidebar('footer-3'); ?>
+                    </div>
+                <?php elseif (has_nav_menu('footer-company')) : ?>
+                    <div>
+                        <h3 class="font-semibold text-lg mb-4">Şirket</h3>
+                        <?php
+                        wp_nav_menu(array(
+                            'theme_location' => 'footer-company',
+                            'menu_class'     => 'space-y-2 text-blue-200',
+                            'container'      => false,
+                            'depth'          => 1,
+                            'fallback_cb'    => false,
+                        ));
+                        ?>
                     </div>
                 <?php else : ?>
                     <div>
@@ -83,7 +109,24 @@
             </div>
             
             <div class="border-t border-white/20 pt-8 text-center text-blue-200">
-                <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. Tüm hakları saklıdır. | Gizlilik Politikası | Hizmet Şartları</p>
+                <p class="mb-2">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. Tüm hakları saklıdır.</p>
+                <?php if (has_nav_menu('footer-legal')) : ?>
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'footer-legal',
+                        'menu_class'     => 'flex justify-center space-x-4 text-blue-200',
+                        'container'      => false,
+                        'depth'          => 1,
+                        'fallback_cb'    => false,
+                    ));
+                    ?>
+                <?php else : ?>
+                    <div class="flex justify-center space-x-4">
+                        <a href="#" class="hover:text-white transition-colors duration-300">Gizlilik Politikası</a>
+                        <span>|</span>
+                        <a href="#" class="hover:text-white transition-colors duration-300">Hizmet Şartları</a>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </footer>

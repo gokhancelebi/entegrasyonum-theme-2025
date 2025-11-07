@@ -152,8 +152,11 @@ function entegrasyonum_setup() {
     
     // Menü konumları
     register_nav_menus(array(
-        'primary' => esc_html__('Ana Menü', 'entegrasyonum'),
-        'footer'  => esc_html__('Footer Menü', 'entegrasyonum'),
+        'primary'         => esc_html__('Ana Menü', 'entegrasyonum'),
+        'footer'          => esc_html__('Footer Genel Menü', 'entegrasyonum'),
+        'footer-services' => esc_html__('Footer - Hizmetler Menüsü', 'entegrasyonum'),
+        'footer-company'  => esc_html__('Footer - Şirket Menüsü', 'entegrasyonum'),
+        'footer-legal'    => esc_html__('Footer - Yasal Linkler (Gizlilik, Hizmet Şartları)', 'entegrasyonum'),
     ));
     
     // Post formatları
@@ -189,8 +192,16 @@ function entegrasyonum_scripts() {
     // Remix Icon - lightweight icon library
     wp_enqueue_style('remixicon', get_template_directory_uri() . '/assets/remixicon/fonts/remixicon.css', array(), '4.7.0');
     
-    // Ana stil dosyası
-    wp_enqueue_style('entegrasyonum-style', get_stylesheet_uri(), array(), '1.0.1');
+    // Tailwind CSS - önce yükle
+    wp_enqueue_style(
+        'tailwind',
+        get_template_directory_uri() . '/assets/css/tailwind.css',
+        array(),
+        filemtime(get_template_directory() . '/assets/css/tailwind.css')
+    );
+    
+    // Ana stil dosyası - Tailwind'den sonra yükle (tailwind dependency olarak)
+    wp_enqueue_style('entegrasyonum-style', get_stylesheet_uri(), array('tailwind'), '1.0.1');
     
     // Ana JavaScript dosyası
     wp_enqueue_script('entegrasyonum-main', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), '1.0.1', true);
@@ -257,9 +268,9 @@ function entegrasyonum_widgets_init() {
         'name'          => esc_html__('Footer 1', 'entegrasyonum'),
         'id'            => 'footer-1',
         'description'   => esc_html__('Footer ilk kolon', 'entegrasyonum'),
-        'before_widget' => '<div id="%1$s" class="footer-widget %2$s">',
+        'before_widget' => '<div id="%1$s" class="footer-widget %2$s text-white">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h3>',
+        'before_title'  => '<h3 class="text-white font-semibold text-lg mb-4">',
         'after_title'   => '</h3>',
     ));
     
@@ -267,9 +278,9 @@ function entegrasyonum_widgets_init() {
         'name'          => esc_html__('Footer 2', 'entegrasyonum'),
         'id'            => 'footer-2',
         'description'   => esc_html__('Footer ikinci kolon', 'entegrasyonum'),
-        'before_widget' => '<div id="%1$s" class="footer-widget %2$s">',
+        'before_widget' => '<div id="%1$s" class="footer-widget %2$s text-white">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h3>',
+        'before_title'  => '<h3 class="text-white font-semibold text-lg mb-4">',
         'after_title'   => '</h3>',
     ));
     
@@ -277,9 +288,9 @@ function entegrasyonum_widgets_init() {
         'name'          => esc_html__('Footer 3', 'entegrasyonum'),
         'id'            => 'footer-3',
         'description'   => esc_html__('Footer üçüncü kolon', 'entegrasyonum'),
-        'before_widget' => '<div id="%1$s" class="footer-widget %2$s">',
+        'before_widget' => '<div id="%1$s" class="footer-widget %2$s text-white">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h3>',
+        'before_title'  => '<h3 class="text-white font-semibold text-lg mb-4">',
         'after_title'   => '</h3>',
     ));
     
@@ -287,9 +298,9 @@ function entegrasyonum_widgets_init() {
         'name'          => esc_html__('Footer 4', 'entegrasyonum'),
         'id'            => 'footer-4',
         'description'   => esc_html__('Footer dördüncü kolon', 'entegrasyonum'),
-        'before_widget' => '<div id="%1$s" class="footer-widget %2$s">',
+        'before_widget' => '<div id="%1$s" class="footer-widget %2$s text-white">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h3>',
+        'before_title'  => '<h3 class="text-white font-semibold text-lg mb-4">',
         'after_title'   => '</h3>',
     ));
 }
@@ -781,15 +792,8 @@ add_action('wp_enqueue_scripts', 'custom_blog_styles');
 add_theme_support('editor-styles');
 add_editor_style('blog-editor.css');
 
-function mytheme_enqueue_styles() {
-    wp_enqueue_style(
-        'tailwind',
-        get_template_directory_uri() . '/assets/css/tailwind.css',
-        array(),
-        filemtime(get_template_directory() . '/assets/css/tailwind.css')
-    );
-}
-add_action('wp_enqueue_scripts', 'mytheme_enqueue_styles');
+// Tailwind CSS artık entegrasyonum_scripts() fonksiyonunda yükleniyor
+// Bu fonksiyon gereksiz olduğu için kaldırıldı
 
 # /assets/css/wp-forms.css
 function custom_wpforms_styles() {
