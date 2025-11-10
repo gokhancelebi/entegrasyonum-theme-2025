@@ -396,7 +396,7 @@ function entegrasyonum_breadcrumbs() {
     }
     
     echo '<div class="breadcrumbs">';
-    echo '<a href="' . home_url('/') . '"><i class="ri-home-line"></i> Ana Sayfa</a>';
+    echo '<a href="' . home_url('/') . '"><i class="ri-home-line"></i> ' . esc_html__('Ana Sayfa', 'entegrasyonum') . '</a>';
     echo '<span class="separator"> / </span>';
     
     if (is_category() || is_single()) {
@@ -411,9 +411,9 @@ function entegrasyonum_breadcrumbs() {
     } elseif (is_page()) {
         echo '<span>' . get_the_title() . '</span>';
     } elseif (is_search()) {
-        echo '<span>Arama Sonuçları: ' . get_search_query() . '</span>';
+        echo '<span>' . sprintf(esc_html__('Arama Sonuçları: %s', 'entegrasyonum'), get_search_query()) . '</span>';
     } elseif (is_404()) {
-        echo '<span>Sayfa Bulunamadı</span>';
+        echo '<span>' . esc_html__('Sayfa Bulunamadı', 'entegrasyonum') . '</span>';
     }
     
     echo '</div>';
@@ -733,22 +733,22 @@ if (class_exists('WooCommerce')) {
     add_filter('woocommerce_checkout_fields', function($fields) {
         // Fatura alanları
         if (isset($fields['billing'])) {
-            $fields['billing']['billing_first_name']['placeholder'] = 'Adınız';
-            $fields['billing']['billing_last_name']['placeholder'] = 'Soyadınız';
-            $fields['billing']['billing_email']['placeholder'] = 'E-posta adresiniz';
-            $fields['billing']['billing_phone']['placeholder'] = 'Telefon numaranız';
-            $fields['billing']['billing_address_1']['placeholder'] = 'Adres';
-            $fields['billing']['billing_postcode']['placeholder'] = 'Posta Kodu';
-            $fields['billing']['billing_city']['placeholder'] = 'Şehir';
+            $fields['billing']['billing_first_name']['placeholder'] = __('Adınız', 'entegrasyonum');
+            $fields['billing']['billing_last_name']['placeholder'] = __('Soyadınız', 'entegrasyonum');
+            $fields['billing']['billing_email']['placeholder'] = __('E-posta adresiniz', 'entegrasyonum');
+            $fields['billing']['billing_phone']['placeholder'] = __('Telefon numaranız', 'entegrasyonum');
+            $fields['billing']['billing_address_1']['placeholder'] = __('Adres', 'entegrasyonum');
+            $fields['billing']['billing_postcode']['placeholder'] = __('Posta Kodu', 'entegrasyonum');
+            $fields['billing']['billing_city']['placeholder'] = __('Şehir', 'entegrasyonum');
         }
         
         // Teslimat alanları
         if (isset($fields['shipping'])) {
-            $fields['shipping']['shipping_first_name']['placeholder'] = 'Adınız';
-            $fields['shipping']['shipping_last_name']['placeholder'] = 'Soyadınız';
-            $fields['shipping']['shipping_address_1']['placeholder'] = 'Adres';
-            $fields['shipping']['shipping_postcode']['placeholder'] = 'Posta Kodu';
-            $fields['shipping']['shipping_city']['placeholder'] = 'Şehir';
+            $fields['shipping']['shipping_first_name']['placeholder'] = __('Adınız', 'entegrasyonum');
+            $fields['shipping']['shipping_last_name']['placeholder'] = __('Soyadınız', 'entegrasyonum');
+            $fields['shipping']['shipping_address_1']['placeholder'] = __('Adres', 'entegrasyonum');
+            $fields['shipping']['shipping_postcode']['placeholder'] = __('Posta Kodu', 'entegrasyonum');
+            $fields['shipping']['shipping_city']['placeholder'] = __('Şehir', 'entegrasyonum');
         }
         
         return $fields;
@@ -782,7 +782,7 @@ if (class_exists('WooCommerce')) {
             jQuery(document).ready(function($) {
                 // Cart update butonuna tıklandığında loading göster
                 $('button[name="update_cart"]').on('click', function() {
-                    $(this).prop('disabled', true).html('<i class="ri-loader-4-line animate-spin mr-2"></i>Güncelleniyor...');
+                    $(this).prop('disabled', true).html('<i class="ri-loader-4-line animate-spin mr-2"></i><?php echo esc_js(__('Güncelleniyor...', 'entegrasyonum')); ?>');
                 });
                 
                 // Quantity değiştiğinde otomatik update

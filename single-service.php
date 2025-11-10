@@ -72,7 +72,7 @@ get_header();
                     <div class="mt-12 bg-gray-50 rounded-xl p-8">
                         <h3 class="text-2xl font-bold text-secondary mb-6 flex items-center">
                             <i class="ri-check-double-line mr-3 text-primary"></i>
-                            Hizmet Özellikleri
+                            <?php esc_html_e('Hizmet Özellikleri', 'entegrasyonum'); ?>
                         </h3>
                         <div class="grid md:grid-cols-2 gap-4">
                             <?php
@@ -99,18 +99,18 @@ get_header();
                 
                 <!-- Contact Card -->
                 <div class="bg-white border border-gray-200 rounded-xl p-6">
-                    <h3 class="text-2xl font-bold mb-4">Bu Hizmeti Mi Arıyorsunuz?</h3>
+                    <h3 class="text-2xl font-bold mb-4"><?php esc_html_e('Bu Hizmeti Mi Arıyorsunuz?', 'entegrasyonum'); ?></h3>
                     <p class="text-gray-600 mb-6">
-                        Size özel bir teklif hazırlayalım. Hemen iletişime geçin!
+                        <?php esc_html_e('Size özel bir teklif hazırlayalım. Hemen iletişime geçin!', 'entegrasyonum'); ?>
                     </p>
                     <a href="<?php echo esc_url(get_permalink(get_page_by_path('iletisim'))); ?>" 
                        class="block w-full bg-primary hover:bg-secondary text-white px-6 py-3 rounded-button font-semibold text-center transition-all duration-300 mb-4">
-                        <i class="ri-phone-line mr-2"></i>İletişime Geçin
+                        <i class="ri-phone-line mr-2"></i><?php esc_html_e('İletişime Geçin', 'entegrasyonum'); ?>
                     </a>
-                    <a href="https://wa.me/905448091065?text=<?php echo urlencode('Merhaba, ' . get_the_title() . ' hizmeti hakkında bilgi almak istiyorum.'); ?>" 
+                    <a href="https://wa.me/905448091065?text=<?php echo urlencode(sprintf(__('Merhaba, %s hizmeti hakkında bilgi almak istiyorum.', 'entegrasyonum'), get_the_title())); ?>" 
                        class="block w-full bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-button font-semibold text-center transition-all duration-300"
                        target="_blank">
-                        <i class="ri-whatsapp-line mr-2"></i>WhatsApp ile Sor
+                        <i class="ri-whatsapp-line mr-2"></i><?php esc_html_e('WhatsApp ile Sor', 'entegrasyonum'); ?>
                     </a>
                 </div>
                 
@@ -118,14 +118,14 @@ get_header();
                 <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <h4 class="font-bold text-secondary mb-4 flex items-center">
                         <i class="ri-information-line mr-2 text-primary"></i>
-                        Hizmet Bilgileri
+                        <?php esc_html_e('Hizmet Bilgileri', 'entegrasyonum'); ?>
                     </h4>
                     
                     <div class="space-y-3 text-sm">
                         <!-- Category -->
                         <?php if ($categories && !is_wp_error($categories)) : ?>
                             <div class="flex items-start">
-                                <span class="text-gray-500 w-24 flex-shrink-0">Kategori:</span>
+                                <span class="text-gray-500 w-24 flex-shrink-0"><?php esc_html_e('Kategori:', 'entegrasyonum'); ?></span>
                                 <span class="text-secondary font-medium">
                                     <?php
                                     $cat_names = array();
@@ -141,19 +141,19 @@ get_header();
                         
                         <!-- Published Date -->
                         <div class="flex items-start">
-                            <span class="text-gray-500 w-24 flex-shrink-0">Yayın:</span>
+                            <span class="text-gray-500 w-24 flex-shrink-0"><?php esc_html_e('Yayın:', 'entegrasyonum'); ?></span>
                             <span class="text-secondary"><?php echo get_the_date(); ?></span>
                         </div>
                         
                         <!-- Updated Date -->
                         <div class="flex items-start">
-                            <span class="text-gray-500 w-24 flex-shrink-0">Güncelleme:</span>
+                            <span class="text-gray-500 w-24 flex-shrink-0"><?php esc_html_e('Güncelleme:', 'entegrasyonum'); ?></span>
                             <span class="text-secondary"><?php echo get_the_modified_date(); ?></span>
                         </div>
                         
                         <!-- Share -->
                         <div class="pt-4 border-t border-gray-200">
-                            <span class="text-gray-500 block mb-2">Paylaş:</span>
+                            <span class="text-gray-500 block mb-2"><?php esc_html_e('Paylaş:', 'entegrasyonum'); ?></span>
                             <div class="flex gap-2">
                                 <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>" 
                                    target="_blank"
@@ -211,7 +211,7 @@ if ($related_query->have_posts()) :
     ?>
     <section class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-secondary mb-8 text-center">İlgili Hizmetler</h2>
+            <h2 class="text-3xl font-bold text-secondary mb-8 text-center"><?php esc_html_e('İlgili Hizmetler', 'entegrasyonum'); ?></h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
                 <?php while ($related_query->have_posts()) : $related_query->the_post(); ?>
@@ -235,7 +235,7 @@ if ($related_query->have_posts()) :
                             </p>
                             <a href="<?php the_permalink(); ?>" 
                                class="inline-flex items-center text-primary hover:text-secondary font-semibold transition-colors duration-300">
-                                Detaylı Bilgi
+                                <?php esc_html_e('Detaylı Bilgi', 'entegrasyonum'); ?>
                                 <i class="ri-arrow-right-line ml-2"></i>
                             </a>
                         </div>

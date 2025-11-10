@@ -110,12 +110,12 @@
                     </div>
                 <?php else : ?>
                     <div>
-                        <h3 class="font-semibold text-lg mb-4">Hizmetler</h3>
+                        <h3 class="font-semibold text-lg mb-4"><?php esc_html_e('Hizmetler', 'entegrasyonum'); ?></h3>
                         <ul class="space-y-2 text-blue-200">
-                            <li><a href="#" class="hover:text-white transition-colors duration-300">API Entegrasyonu</a></li>
-                            <li><a href="#" class="hover:text-white transition-colors duration-300">WooCommerce Çözümleri</a></li>
-                            <li><a href="#" class="hover:text-white transition-colors duration-300">XML İşleme</a></li>
-                            <li><a href="#" class="hover:text-white transition-colors duration-300">Özel Geliştirme</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors duration-300"><?php esc_html_e('API Entegrasyonu', 'entegrasyonum'); ?></a></li>
+                            <li><a href="#" class="hover:text-white transition-colors duration-300"><?php esc_html_e('WooCommerce Çözümleri', 'entegrasyonum'); ?></a></li>
+                            <li><a href="#" class="hover:text-white transition-colors duration-300"><?php esc_html_e('XML İşleme', 'entegrasyonum'); ?></a></li>
+                            <li><a href="#" class="hover:text-white transition-colors duration-300"><?php esc_html_e('Özel Geliştirme', 'entegrasyonum'); ?></a></li>
                         </ul>
                     </div>
                 <?php endif; ?>
@@ -140,12 +140,12 @@
                     </div>
                 <?php else : ?>
                     <div>
-                        <h3 class="font-semibold text-lg mb-4">Şirket</h3>
+                        <h3 class="font-semibold text-lg mb-4"><?php esc_html_e('Şirket', 'entegrasyonum'); ?></h3>
                         <ul class="space-y-2 text-blue-200">
-                            <li><a href="#" class="hover:text-white transition-colors duration-300">Hakkımızda</a></li>
-                            <li><a href="#" class="hover:text-white transition-colors duration-300">Ekibimiz</a></li>
-                            <li><a href="#" class="hover:text-white transition-colors duration-300">Kariyer</a></li>
-                            <li><a href="#" class="hover:text-white transition-colors duration-300">İletişim</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors duration-300"><?php esc_html_e('Hakkımızda', 'entegrasyonum'); ?></a></li>
+                            <li><a href="#" class="hover:text-white transition-colors duration-300"><?php esc_html_e('Ekibimiz', 'entegrasyonum'); ?></a></li>
+                            <li><a href="#" class="hover:text-white transition-colors duration-300"><?php esc_html_e('Kariyer', 'entegrasyonum'); ?></a></li>
+                            <li><a href="#" class="hover:text-white transition-colors duration-300"><?php esc_html_e('İletişim', 'entegrasyonum'); ?></a></li>
                         </ul>
                     </div>
                 <?php endif; ?>
@@ -157,12 +157,12 @@
                     </div>
                 <?php else : ?>
                     <div>
-                        <h3 class="font-semibold text-lg mb-4">Bülten</h3>
-                        <p class="text-blue-200 mb-4">En son içgörülerimiz ve entegrasyon ipuçlarımızdan haberdar olun.</p>
+                        <h3 class="font-semibold text-lg mb-4"><?php esc_html_e('Bülten', 'entegrasyonum'); ?></h3>
+                        <p class="text-blue-200 mb-4"><?php esc_html_e('En son içgörülerimiz ve entegrasyon ipuçlarımızdan haberdar olun.', 'entegrasyonum'); ?></p>
                         <div class="flex">
-                            <input type="email" placeholder="E-posta adresiniz" class="flex-1 px-4 py-2 rounded-l-lg bg-white/10 border border-white/20 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <input type="email" placeholder="<?php esc_attr_e('E-posta adresiniz', 'entegrasyonum'); ?>" class="flex-1 px-4 py-2 rounded-l-lg bg-white/10 border border-white/20 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-primary">
                             <button class="bg-primary hover:bg-blue-700 px-6 py-2 rounded-r-lg transition-colors duration-300 whitespace-nowrap" style="background-color: #1D4ED8;">
-                                Abone Ol
+                                <?php esc_html_e('Abone Ol', 'entegrasyonum'); ?>
                             </button>
                         </div>
                     </div>
@@ -170,7 +170,7 @@
             </div>
             
             <div class="border-t border-white/20 pt-8 text-center text-blue-200">
-                <p class="mb-2">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. Tüm hakları saklıdır.</p>
+                <p class="mb-2">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. <?php esc_html_e('Tüm hakları saklıdır.', 'entegrasyonum'); ?></p>
                 <?php if (has_nav_menu('footer-legal')) : ?>
                     <?php
                     wp_nav_menu(array(
@@ -183,9 +183,9 @@
                     ?>
                 <?php else : ?>
                     <div class="flex justify-center space-x-4">
-                        <a href="#" class="hover:text-white transition-colors duration-300">Gizlilik Politikası</a>
+                        <a href="#" class="hover:text-white transition-colors duration-300"><?php esc_html_e('Gizlilik Politikası', 'entegrasyonum'); ?></a>
                         <span>|</span>
-                        <a href="#" class="hover:text-white transition-colors duration-300">Hizmet Şartları</a>
+                        <a href="#" class="hover:text-white transition-colors duration-300"><?php esc_html_e('Hizmet Şartları', 'entegrasyonum'); ?></a>
                     </div>
                 <?php endif; ?>
             </div>

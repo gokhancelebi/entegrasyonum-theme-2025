@@ -1,0 +1,794 @@
+# Copyright (C) 2025 Entegrasyonum Theme
+# This file is distributed under the same license as the Entegrasyonum package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Entegrasyonum 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/entegrasyonum\n"
+"POT-Creation-Date: 2025-11-10 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: functions.php:20
+msgctxt "Post type genel adı"
+msgid "Hizmetler"
+msgstr ""
+
+#: functions.php:21
+msgctxt "Post type tekil adı"
+msgid "Hizmet"
+msgstr ""
+
+#: functions.php:22
+msgctxt "Admin menü"
+msgid "Hizmetler"
+msgstr ""
+
+#: functions.php:23
+msgctxt "Admin bar ekle"
+msgid "Hizmet"
+msgstr ""
+
+#: functions.php:24
+msgctxt "hizmet"
+msgid "Yeni Ekle"
+msgstr ""
+
+#: functions.php:25
+msgid "Yeni Hizmet Ekle"
+msgstr ""
+
+#: functions.php:26
+msgid "Yeni Hizmet"
+msgstr ""
+
+#: functions.php:27
+msgid "Hizmeti Düzenle"
+msgstr ""
+
+#: functions.php:28
+msgid "Hizmeti Görüntüle"
+msgstr ""
+
+#: functions.php:29
+msgid "Tüm Hizmetler"
+msgstr ""
+
+#: functions.php:30
+msgid "Hizmet Ara"
+msgstr ""
+
+#: functions.php:31
+msgid "Üst Hizmet:"
+msgstr ""
+
+#: functions.php:32
+msgid "Hizmet bulunamadı."
+msgstr ""
+
+#: functions.php:33
+msgid "Çöp kutusunda hizmet bulunamadı."
+msgstr ""
+
+#: functions.php:34
+msgctxt "Overrides the \"Featured Image\" phrase"
+msgid "Hizmet Görseli"
+msgstr ""
+
+#: functions.php:35
+msgctxt "Overrides the \"Set featured image\" phrase"
+msgid "Hizmet görseli seç"
+msgstr ""
+
+#: functions.php:36
+msgctxt "Overrides the \"Remove featured image\" phrase"
+msgid "Hizmet görselini kaldır"
+msgstr ""
+
+#: functions.php:37
+msgctxt "Overrides the \"Use as featured image\" phrase"
+msgid "Hizmet görseli olarak kullan"
+msgstr ""
+
+#: functions.php:38
+msgctxt "The post type archive label used in nav menus"
+msgid "Hizmet arşivleri"
+msgstr ""
+
+#: functions.php:39
+msgctxt "Overrides the \"Insert into post\"/\"Insert into page\" phrase"
+msgid "Hizmete ekle"
+msgstr ""
+
+#: functions.php:40
+msgctxt "Overrides the \"Uploaded to this post\"/\"Uploaded to this page\" phrase"
+msgid "Bu hizmete yüklendi"
+msgstr ""
+
+#: functions.php:41
+msgctxt "Screen reader text for the filter links"
+msgid "Hizmet listesini filtrele"
+msgstr ""
+
+#: functions.php:42
+msgctxt "Screen reader text for the pagination"
+msgid "Hizmet listesi navigasyonu"
+msgstr ""
+
+#: functions.php:43
+msgctxt "Screen reader text for the items list"
+msgid "Hizmet listesi"
+msgstr ""
+
+#: functions.php:48
+msgid "Şirket hizmetleri"
+msgstr ""
+
+#: functions.php:74
+msgctxt "taxonomy genel adı"
+msgid "Hizmet Kategorileri"
+msgstr ""
+
+#: functions.php:75
+msgctxt "taxonomy tekil adı"
+msgid "Hizmet Kategorisi"
+msgstr ""
+
+#: functions.php:76
+msgid "Kategori Ara"
+msgstr ""
+
+#: functions.php:77
+msgid "Popüler Kategoriler"
+msgstr ""
+
+#: functions.php:78
+msgid "Tüm Kategoriler"
+msgstr ""
+
+#: functions.php:79
+msgid "Üst Kategori"
+msgstr ""
+
+#: functions.php:80
+msgid "Üst Kategori:"
+msgstr ""
+
+#: functions.php:81
+msgid "Kategoriyi Düzenle"
+msgstr ""
+
+#: functions.php:82
+msgid "Kategoriyi Güncelle"
+msgstr ""
+
+#: functions.php:83
+msgid "Yeni Kategori Ekle"
+msgstr ""
+
+#: functions.php:84
+msgid "Yeni Kategori Adı"
+msgstr ""
+
+#: functions.php:85
+msgid "Kategorileri virgülle ayırın"
+msgstr ""
+
+#: functions.php:86
+msgid "Kategori ekle veya kaldır"
+msgstr ""
+
+#: functions.php:87
+msgid "En çok kullanılanlardan seç"
+msgstr ""
+
+#: functions.php:88
+msgid "Kategori bulunamadı."
+msgstr ""
+
+#: functions.php:89
+msgid "Kategoriler"
+msgstr ""
+
+#: functions.php:155
+msgid "Ana Menü (Header)"
+msgstr ""
+
+#: functions.php:156
+msgid "Footer Kolon 1 - Genel Linkler (Logo altında)"
+msgstr ""
+
+#: functions.php:157
+msgid "Footer Kolon 2 - Hizmetler Menüsü"
+msgstr ""
+
+#: functions.php:158
+msgid "Footer Kolon 3 - Şirket Menüsü"
+msgstr ""
+
+#: functions.php:159
+msgid "Footer Alt Kısım - Yasal Linkler (Gizlilik, Hizmet Şartları)"
+msgstr ""
+
+#: functions.php:246
+msgid "Blog Sidebar"
+msgstr ""
+
+#: functions.php:248
+msgid "Blog sayfaları için sidebar"
+msgstr ""
+
+#: functions.php:257
+msgid "Shop Sidebar"
+msgstr ""
+
+#: functions.php:259
+msgid "Mağaza sayfaları için sidebar"
+msgstr ""
+
+#: functions.php:268
+msgid "Footer 1"
+msgstr ""
+
+#: functions.php:270
+msgid "Footer ilk kolon"
+msgstr ""
+
+#: functions.php:278
+msgid "Footer 2"
+msgstr ""
+
+#: functions.php:280
+msgid "Footer ikinci kolon"
+msgstr ""
+
+#: functions.php:288
+msgid "Footer 3"
+msgstr ""
+
+#: functions.php:290
+msgid "Footer üçüncü kolon"
+msgstr ""
+
+#: functions.php:298
+msgid "Footer 4"
+msgstr ""
+
+#: functions.php:300
+msgid "Footer dördüncü kolon"
+msgstr ""
+
+#: functions.php:399
+msgid "Ana Sayfa"
+msgstr ""
+
+#: functions.php:414
+#, php-format
+msgid "Arama Sonuçları: %s"
+msgstr ""
+
+#: functions.php:416
+msgid "Sayfa Bulunamadı"
+msgstr ""
+
+#: functions.php:493
+msgid "Footer Logo"
+msgstr ""
+
+#: functions.php:504
+msgid "Header logodan farklı bir logo kullanmak için yükleyin. Boş bırakılırsa site adı gösterilir."
+msgstr ""
+
+#: functions.php:511
+msgid "Hero Section"
+msgstr ""
+
+#: functions.php:522
+msgid "Hero Başlık"
+msgstr ""
+
+#: functions.php:532
+msgid "Hero Açıklama"
+msgstr ""
+
+#: functions.php:567
+#, php-format
+msgid "%1$s tarihinde %2$s"
+msgstr ""
+
+#: functions.php:588
+msgid "Yorumunuz onay bekliyor."
+msgstr ""
+
+#: functions.php:636
+msgid "Hero Alt Başlık"
+msgstr ""
+
+#: functions.php:682
+msgid "Sepete Ekle"
+msgstr ""
+
+#: functions.php:685
+msgid "Seçenekleri Gör"
+msgstr ""
+
+#: functions.php:688
+msgid "Ürünleri Gör"
+msgstr ""
+
+#: functions.php:691
+msgid "Satın Al"
+msgstr ""
+
+#: functions.php:720
+msgid "İndirim"
+msgstr ""
+
+#: functions.php:736
+msgid "Adınız"
+msgstr ""
+
+#: functions.php:737
+msgid "Soyadınız"
+msgstr ""
+
+#: functions.php:738
+msgid "E-posta adresiniz"
+msgstr ""
+
+#: functions.php:739
+msgid "Telefon numaranız"
+msgstr ""
+
+#: functions.php:740
+msgid "Adres"
+msgstr ""
+
+#: functions.php:741
+msgid "Posta Kodu"
+msgstr ""
+
+#: functions.php:742
+msgid "Şehir"
+msgstr ""
+
+#: functions.php:785
+msgid "Güncelleniyor..."
+msgstr ""
+
+#: 404.php:13
+msgid "404 - Sayfa Bulunamadı"
+msgstr ""
+
+#: 404.php:30
+msgid "Üzgünüz, bu sayfa bulunamadı!"
+msgstr ""
+
+#: 404.php:34
+msgid "Aradığınız sayfa taşınmış, silinmiş veya hiç var olmamış olabilir."
+msgstr ""
+
+#: header.php:41
+msgid "Ürün, hizmet veya içerik ara..."
+msgstr ""
+
+#: header.php:43
+msgid "Arama"
+msgstr ""
+
+#: header.php:71 header.php:326
+msgid "Ana Sayfa"
+msgstr ""
+
+#: header.php:74 header.php:329
+msgid "Hizmetler"
+msgstr ""
+
+#: header.php:78 header.php:333
+msgid "Ürünler"
+msgstr ""
+
+#: header.php:82 header.php:337
+msgid "Blog"
+msgstr ""
+
+#: header.php:85 header.php:340
+msgid "İletişim"
+msgstr ""
+
+#: header.php:102 header.php:263
+msgid "Hoşgeldin"
+msgstr ""
+
+#: header.php:105 header.php:278
+msgid "Giriş Yap"
+msgstr ""
+
+#: header.php:106 header.php:279
+msgid "veya Üye Ol"
+msgstr ""
+
+#: header.php:123
+msgid "Hesabım"
+msgstr ""
+
+#: header.php:128
+msgid "Siparişlerim"
+msgstr ""
+
+#: header.php:133
+msgid "Adreslerim"
+msgstr ""
+
+#: header.php:138
+msgid "Hesap Detayları"
+msgstr ""
+
+#: header.php:144 header.php:270
+msgid "Profilim"
+msgstr ""
+
+#: header.php:150 header.php:351
+msgid "Çıkış Yap"
+msgstr ""
+
+#: header.php:158 header.php:165
+msgid "Giriş Yap"
+msgstr ""
+
+#: header.php:161 header.php:168
+msgid "Üye Ol"
+msgstr ""
+
+#: header.php:174
+msgid "Üye Ol, avantajlardan yararlan:"
+msgstr ""
+
+#: header.php:176
+msgid "Siparişlerini takip et"
+msgstr ""
+
+#: header.php:177
+msgid "Hızlı alışveriş yap"
+msgstr ""
+
+#: header.php:178
+msgid "Kampanyalardan haberdar ol"
+msgstr ""
+
+#: header.php:191 header.php:295
+msgid "Sepetim"
+msgstr ""
+
+#: header.php:195 header.php:299
+msgid "%s Ürün"
+msgid_plural "%s Ürün"
+msgstr[0] ""
+msgstr[1] ""
+
+#: header.php:195 header.php:299
+msgid "Boş"
+msgstr ""
+
+#: header.php:235
+msgid "Ne aramak istersiniz?"
+msgstr ""
+
+#: front-page.php:36
+msgid "Hizmetleri Keşfet"
+msgstr ""
+
+#: front-page.php:39
+msgid "İletişim"
+msgstr ""
+
+#: front-page.php:58
+msgid "Hizmetlerimiz"
+msgstr ""
+
+#: front-page.php:60
+msgid "İş operasyonlarınızı kolaylaştırmak ve gelişmiş otomasyon teknolojileri ile verimliliği artırmak için tasarlanmış kapsamlı dijital entegrasyon çözümleri."
+msgstr ""
+
+#: front-page.php:100 archive-service.php:120 single-service.php:238
+msgid "Detaylı Bilgi"
+msgstr ""
+
+#: front-page.php:114
+msgid "API Entegrasyonu"
+msgstr ""
+
+#: front-page.php:116
+msgid "Güçlü API entegrasyon hizmetlerimizle farklı sistemleri ve uygulamaları sorunsuz bir şekilde bağlayın."
+msgstr ""
+
+#: front-page.php:123
+msgid "WooCommerce Çözümleri"
+msgstr ""
+
+#: front-page.php:125
+msgid "Özel WooCommerce entegrasyonları, ödeme ağ geçitleri ve envanter yönetim sistemleri ile e-ticaret platformunuzu optimize edin."
+msgstr ""
+
+#: front-page.php:132
+msgid "XML Veri İşleme"
+msgstr ""
+
+#: front-page.php:134
+msgid "Otomatik ayrıştırma çözümlerimizle XML verilerini verimli bir şekilde dönüştürün ve işleyin."
+msgstr ""
+
+#: front-page.php:144
+msgid "Tüm Hizmetleri Görüntüle"
+msgstr ""
+
+#: front-page.php:157
+msgid "Öne Çıkan Ürünler"
+msgstr ""
+
+#: front-page.php:159
+msgid "Entegrasyon projelerinizi hızlandırmak ve karmaşık otomasyon iş akışlarını kolaylaştırmak için tasarlanmış dijital ürün paketimizi keşfedin."
+msgstr ""
+
+#: front-page.php:198
+msgid "Daha Fazla Bilgi"
+msgstr ""
+
+#: front-page.php:212
+msgid "Tüm Ürünler"
+msgstr ""
+
+#: front-page.php:224
+msgid "Entegrasyonum Hakkında"
+msgstr ""
+
+#: front-page.php:226
+msgid "Farklı sistemleri birbirine bağlayan ve iş süreçlerini kolaylaştıran otomasyon çözümlerinde uzmanlaşmış lider bir dijital entegrasyon şirketiyiz. Uzmanlığımız API geliştirme, e-ticaret entegrasyonları ve veri işleme teknolojilerini kapsamaktadır."
+msgstr ""
+
+#: front-page.php:229
+msgid "Kurumsal entegrasyon konusundaki yıllarca süren deneyimimizle, işletmelerin manuel çalışmayı azaltmalarına, veri silolarını ortadan kaldırmalarına ve büyümeyi ve verimliliği artıran sorunsuz dijital iş akışları oluşturmalarına yardımcı oluyoruz."
+msgstr ""
+
+#: front-page.php:234
+msgid "Tamamlanan Proje"
+msgstr ""
+
+#: front-page.php:238
+msgid "Mutlu Müşteri"
+msgstr ""
+
+#: front-page.php:242
+msgid "Yıllık Deneyim"
+msgstr ""
+
+#: front-page.php:261
+msgid "Neden Bizi Seçmelisiniz"
+msgstr ""
+
+#: front-page.php:263
+msgid "Teknik uzmanlık, kanıtlanmış metodolojiler ve müşteri başarısına olan bağlılığımızla desteklenen olağanüstü entegrasyon çözümleri sunuyoruz."
+msgstr ""
+
+#: front-page.php:271
+msgid "Hızlı Uygulama"
+msgstr ""
+
+#: front-page.php:273
+msgid "Minimum kesinti süresiyle entegrasyon çözümlerinin hızlı bir şekilde dağıtımı. Çevik yaklaşımımız, dijital dönüşüm projeleriniz için hızlı pazara çıkış süresi sağlar."
+msgstr ""
+
+#: front-page.php:280
+msgid "Kurumsal Güvenlik"
+msgstr ""
+
+#: front-page.php:282
+msgid "Banka düzeyinde güvenlik protokolleri ve uyumluluk standartları, tüm entegrasyon süreçleri ve iş akışları boyunca verilerinizin korunmasını sağlar."
+msgstr ""
+
+#: front-page.php:289
+msgid "7/24 Destek"
+msgstr ""
+
+#: front-page.php:291
+msgid "Entegrasyonlarınızın her zaman sorunsuz ve verimli bir şekilde çalışmasını sağlamak için kesintisiz teknik destek ve izleme hizmetleri."
+msgstr ""
+
+#: front-page.php:302
+msgid "Blog Öne Çıkanları"
+msgstr ""
+
+#: front-page.php:304
+msgid "E-ticaret teknolojileri, entegrasyon en iyi uygulamaları ve dijital dönüşüm stratejileri hakkında en son görüşlerden haberdar olun."
+msgstr ""
+
+#: front-page.php:357
+msgid "Tüm Yazılar"
+msgstr ""
+
+#: front-page.php:368
+msgid "İletişime Geçin"
+msgstr ""
+
+#: front-page.php:370
+msgid "İşinizi dijital entegrasyon ile dönüştürmeye hazır mısınız? Proje gereksinimlerinizi görüşmek için bugün bizimle iletişime geçin."
+msgstr ""
+
+#: front-page.php:380
+msgid "Konumumuz"
+msgstr ""
+
+#: front-page.php:381
+msgid "İstanbul, Türkiye"
+msgstr ""
+
+#: front-page.php:390
+msgid "E-posta"
+msgstr ""
+
+#: front-page.php:399
+msgid "Telefon"
+msgstr ""
+
+#: footer.php:100 footer.php:113
+msgid "Hizmetler"
+msgstr ""
+
+#: footer.php:115
+msgid "API Entegrasyonu"
+msgstr ""
+
+#: footer.php:116
+msgid "WooCommerce Çözümleri"
+msgstr ""
+
+#: footer.php:117
+msgid "XML İşleme"
+msgstr ""
+
+#: footer.php:118
+msgid "Özel Geliştirme"
+msgstr ""
+
+#: footer.php:130 footer.php:143
+msgid "Şirket"
+msgstr ""
+
+#: footer.php:145
+msgid "Hakkımızda"
+msgstr ""
+
+#: footer.php:146
+msgid "Ekibimiz"
+msgstr ""
+
+#: footer.php:147
+msgid "Kariyer"
+msgstr ""
+
+#: footer.php:148
+msgid "İletişim"
+msgstr ""
+
+#: footer.php:160
+msgid "Bülten"
+msgstr ""
+
+#: footer.php:161
+msgid "En son içgörülerimiz ve entegrasyon ipuçlarımızdan haberdar olun."
+msgstr ""
+
+#: footer.php:163
+msgid "E-posta adresiniz"
+msgstr ""
+
+#: footer.php:165
+msgid "Abone Ol"
+msgstr ""
+
+#: footer.php:173
+msgid "Tüm hakları saklıdır."
+msgstr ""
+
+#: footer.php:186
+msgid "Gizlilik Politikası"
+msgstr ""
+
+#: footer.php:188
+msgid "Hizmet Şartları"
+msgstr ""
+
+#: archive-service.php:20
+msgid "Hizmetlerimiz"
+msgstr ""
+
+#: archive-service.php:29
+msgid "Profesyonel entegrasyon hizmetlerimizi keşfedin ve işinizi bir üst seviyeye taşıyın"
+msgstr ""
+
+#: archive-service.php:56
+msgid "Tümü"
+msgstr ""
+
+#: archive-service.php:137
+msgid "Önceki"
+msgstr ""
+
+#: archive-service.php:138
+msgid "Sonraki"
+msgstr ""
+
+#: archive-service.php:151
+msgid "Hizmet Bulunamadı"
+msgstr ""
+
+#: archive-service.php:152
+msgid "Henüz bu kategoride hizmet bulunmamaktadır."
+msgstr ""
+
+#: archive-service.php:155
+msgid "Ana Sayfaya Dön"
+msgstr ""
+
+#: archive-service.php:167
+msgid "Size Nasıl Yardımcı Olabiliriz?"
+msgstr ""
+
+#: archive-service.php:169
+msgid "Hizmetlerimiz hakkında detaylı bilgi almak veya özel bir çözüm için bizimle iletişime geçin."
+msgstr ""
+
+#: archive-service.php:173
+msgid "İletişime Geçin"
+msgstr ""
+
+#: single-service.php:75
+msgid "Hizmet Özellikleri"
+msgstr ""
+
+#: single-service.php:102
+msgid "Bu Hizmeti Mi Arıyorsunuz?"
+msgstr ""
+
+#: single-service.php:104
+msgid "Size özel bir teklif hazırlayalım. Hemen iletişime geçin!"
+msgstr ""
+
+#: single-service.php:108
+msgid "İletişime Geçin"
+msgstr ""
+
+#: single-service.php:110
+#, php-format
+msgid "Merhaba, %s hizmeti hakkında bilgi almak istiyorum."
+msgstr ""
+
+#: single-service.php:113
+msgid "WhatsApp ile Sor"
+msgstr ""
+
+#: single-service.php:121
+msgid "Hizmet Bilgileri"
+msgstr ""
+
+#: single-service.php:128
+msgid "Kategori:"
+msgstr ""
+
+#: single-service.php:144
+msgid "Yayın:"
+msgstr ""
+
+#: single-service.php:150
+msgid "Güncelleme:"
+msgstr ""
+
+#: single-service.php:156
+msgid "Paylaş:"
+msgstr ""
+
+#: single-service.php:214
+msgid "İlgili Hizmetler"
+msgstr ""
+

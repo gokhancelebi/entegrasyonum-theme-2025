@@ -68,21 +68,21 @@
                             ));
                         } else {
                             ?>
-                            <a href="<?php echo esc_url(home_url('/')); ?>" class="text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-300 font-medium text-sm whitespace-nowrap py-2 px-3 rounded-lg">Ana Sayfa</a>
+                            <a href="<?php echo esc_url(home_url('/')); ?>" class="text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-300 font-medium text-sm whitespace-nowrap py-2 px-3 rounded-lg"><?php esc_html_e('Ana Sayfa', 'entegrasyonum'); ?></a>
                             
                             <?php if (post_type_exists('service')) : ?>
-                                <a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>" class="text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-300 font-medium text-sm whitespace-nowrap py-2 px-3 rounded-lg">Hizmetler</a>
+                                <a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>" class="text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-300 font-medium text-sm whitespace-nowrap py-2 px-3 rounded-lg"><?php esc_html_e('Hizmetler', 'entegrasyonum'); ?></a>
                             <?php endif; ?>
                             
                             <?php if (class_exists('WooCommerce')) : ?>
-                                <a href="<?php echo esc_url(get_permalink(wc_get_page_id('shop'))); ?>" class="text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-300 font-medium text-sm whitespace-nowrap py-2 px-3 rounded-lg">Ürünler</a>
+                                <a href="<?php echo esc_url(get_permalink(wc_get_page_id('shop'))); ?>" class="text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-300 font-medium text-sm whitespace-nowrap py-2 px-3 rounded-lg"><?php esc_html_e('Ürünler', 'entegrasyonum'); ?></a>
                             <?php endif; ?>
                             
                             <?php if (get_option('page_for_posts')) : ?>
-                                <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-300 font-medium text-sm whitespace-nowrap py-2 px-3 rounded-lg">Blog</a>
+                                <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-300 font-medium text-sm whitespace-nowrap py-2 px-3 rounded-lg"><?php esc_html_e('Blog', 'entegrasyonum'); ?></a>
                             <?php endif; ?>
                             
-                            <a href="#contact" class="text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-300 font-medium text-sm whitespace-nowrap py-2 px-3 rounded-lg">İletişim</a>
+                            <a href="#contact" class="text-gray-700 hover:text-primary hover:bg-gray-50 transition-all duration-300 font-medium text-sm whitespace-nowrap py-2 px-3 rounded-lg"><?php esc_html_e('İletişim', 'entegrasyonum'); ?></a>
                             <?php
                         }
                         ?>
@@ -99,11 +99,11 @@
                             <i class="ri-user-line text-xl lg:text-2xl"></i>
                             <div class="text-left hidden lg:block">
                                 <?php if (is_user_logged_in()) : ?>
-                                    <div class="text-xs text-gray-500 whitespace-nowrap">Hoşgeldin</div>
+                                    <div class="text-xs text-gray-500 whitespace-nowrap"><?php esc_html_e('Hoşgeldin', 'entegrasyonum'); ?></div>
                                     <div class="text-sm font-semibold -mt-1 whitespace-nowrap"><?php echo wp_get_current_user()->display_name; ?></div>
                                 <?php else : ?>
-                                    <div class="text-sm font-bold text-gray-900 whitespace-nowrap leading-tight">Giriş Yap</div>
-                                    <div class="text-[10px] font-medium -mt-0.5 text-gray-400 whitespace-nowrap">veya Üye Ol</div>
+                                    <div class="text-sm font-bold text-gray-900 whitespace-nowrap leading-tight"><?php esc_html_e('Giriş Yap', 'entegrasyonum'); ?></div>
+                                    <div class="text-[10px] font-medium -mt-0.5 text-gray-400 whitespace-nowrap"><?php esc_html_e('veya Üye Ol', 'entegrasyonum'); ?></div>
                                 <?php endif; ?>
                             </div>
                             <i class="ri-arrow-down-s-line text-xs hidden lg:block"></i>
@@ -120,34 +120,34 @@
                                     <?php if (class_exists('WooCommerce')) : ?>
                                         <li>
                                             <a href="<?php echo esc_url(wc_get_account_endpoint_url('dashboard')); ?>" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors duration-300">
-                                                <i class="ri-dashboard-line mr-2"></i>Hesabım
+                                                <i class="ri-dashboard-line mr-2"></i><?php esc_html_e('Hesabım', 'entegrasyonum'); ?>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="<?php echo esc_url(wc_get_account_endpoint_url('orders')); ?>" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors duration-300">
-                                                <i class="ri-shopping-bag-line mr-2"></i>Siparişlerim
+                                                <i class="ri-shopping-bag-line mr-2"></i><?php esc_html_e('Siparişlerim', 'entegrasyonum'); ?>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="<?php echo esc_url(wc_get_account_endpoint_url('edit-address')); ?>" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors duration-300">
-                                                <i class="ri-map-pin-line mr-2"></i>Adreslerim
+                                                <i class="ri-map-pin-line mr-2"></i><?php esc_html_e('Adreslerim', 'entegrasyonum'); ?>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="<?php echo esc_url(wc_get_account_endpoint_url('edit-account')); ?>" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors duration-300">
-                                                <i class="ri-settings-3-line mr-2"></i>Hesap Detayları
+                                                <i class="ri-settings-3-line mr-2"></i><?php esc_html_e('Hesap Detayları', 'entegrasyonum'); ?>
                                             </a>
                                         </li>
                                     <?php else : ?>
                                         <li>
                                             <a href="<?php echo esc_url(admin_url('profile.php')); ?>" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors duration-300">
-                                                <i class="ri-user-line mr-2"></i>Profilim
+                                                <i class="ri-user-line mr-2"></i><?php esc_html_e('Profilim', 'entegrasyonum'); ?>
                                             </a>
                                         </li>
                                     <?php endif; ?>
                                     <li class="border-t border-gray-200 mt-2 pt-2">
                                         <a href="<?php echo esc_url(wp_logout_url(home_url())); ?>" class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors duration-300">
-                                            <i class="ri-logout-box-line mr-2"></i>Çıkış Yap
+                                            <i class="ri-logout-box-line mr-2"></i><?php esc_html_e('Çıkış Yap', 'entegrasyonum'); ?>
                                         </a>
                                     </li>
                                 </ul>
@@ -155,27 +155,27 @@
                                 <div class="p-4">
                                     <?php if (class_exists('WooCommerce')) : ?>
                                         <a href="<?php echo esc_url(wc_get_page_permalink('myaccount')); ?>" class="block w-full bg-primary hover:bg-blue-700 text-white text-center px-4 py-2 rounded-lg font-semibold transition-all duration-300 mb-2">
-                                            Giriş Yap
+                                            <?php esc_html_e('Giriş Yap', 'entegrasyonum'); ?>
                                         </a>
                                         <a href="<?php echo esc_url(wc_get_page_permalink('myaccount')); ?>" class="block w-full border-2 border-primary text-primary hover:bg-primary hover:text-white text-center px-4 py-2 rounded-lg font-semibold transition-all duration-300">
-                                            Üye Ol
+                                            <?php esc_html_e('Üye Ol', 'entegrasyonum'); ?>
                                         </a>
                                     <?php else : ?>
                                         <a href="<?php echo esc_url(wp_login_url()); ?>" class="block w-full bg-primary hover:bg-blue-700 text-white text-center px-4 py-2 rounded-lg font-semibold transition-all duration-300 mb-2">
-                                            Giriş Yap
+                                            <?php esc_html_e('Giriş Yap', 'entegrasyonum'); ?>
                                         </a>
                                         <a href="<?php echo esc_url(wp_registration_url()); ?>" class="block w-full border-2 border-primary text-primary hover:bg-primary hover:text-white text-center px-4 py-2 rounded-lg font-semibold transition-all duration-300">
-                                            Üye Ol
+                                            <?php esc_html_e('Üye Ol', 'entegrasyonum'); ?>
                                         </a>
                                     <?php endif; ?>
                                 </div>
                                 <?php if (class_exists('WooCommerce')) : ?>
                                     <div class="border-t border-gray-200 p-4">
-                                        <p class="text-xs text-gray-500 mb-2">Üye Ol, avantajlardan yararlan:</p>
+                                        <p class="text-xs text-gray-500 mb-2"><?php esc_html_e('Üye Ol, avantajlardan yararlan:', 'entegrasyonum'); ?></p>
                                         <ul class="text-xs text-gray-600 space-y-1">
-                                            <li><i class="ri-check-line text-primary mr-1"></i>Siparişlerini takip et</li>
-                                            <li><i class="ri-check-line text-primary mr-1"></i>Hızlı alışveriş yap</li>
-                                            <li><i class="ri-check-line text-primary mr-1"></i>Kampanyalardan haberdar ol</li>
+                                            <li><i class="ri-check-line text-primary mr-1"></i><?php esc_html_e('Siparişlerini takip et', 'entegrasyonum'); ?></li>
+                                            <li><i class="ri-check-line text-primary mr-1"></i><?php esc_html_e('Hızlı alışveriş yap', 'entegrasyonum'); ?></li>
+                                            <li><i class="ri-check-line text-primary mr-1"></i><?php esc_html_e('Kampanyalardan haberdar ol', 'entegrasyonum'); ?></li>
                                         </ul>
                                     </div>
                                 <?php endif; ?>
@@ -188,11 +188,11 @@
                         <a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="relative cart-icon flex items-center gap-2 text-gray-700 hover:text-primary transition-colors duration-300 py-2 px-2 lg:px-3 rounded-lg hover:bg-gray-50">
                             <i class="ri-shopping-cart-line text-xl lg:text-2xl"></i>
                             <div class="text-left hidden lg:block">
-                                <div class="text-sm font-bold text-gray-900 whitespace-nowrap">Sepetim</div>
+                                <div class="text-sm font-bold text-gray-900 whitespace-nowrap"><?php esc_html_e('Sepetim', 'entegrasyonum'); ?></div>
                                 <div class="text-xs text-gray-500 -mt-0.5 whitespace-nowrap">
                                     <?php
                                     $cart_count = WC()->cart->get_cart_contents_count();
-                                    echo $cart_count > 0 ? $cart_count . ' Ürün' : 'Boş';
+                                    echo $cart_count > 0 ? sprintf(_n('%s Ürün', '%s Ürün', $cart_count, 'entegrasyonum'), $cart_count) : esc_html__('Boş', 'entegrasyonum');
                                     ?>
                                 </div>
                             </div>
@@ -223,7 +223,7 @@
         <div class="bg-white p-6">
             <div class="max-w-7xl mx-auto">
                 <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-lg font-semibold text-secondary">Arama</h3>
+                    <h3 class="text-lg font-semibold text-secondary"><?php esc_html_e('Arama', 'entegrasyonum'); ?></h3>
                     <button class="search-close text-gray-500 hover:text-gray-700">
                         <i class="ri-close-line text-2xl"></i>
                     </button>
@@ -260,14 +260,14 @@
                             <a href="<?php echo esc_url(wc_get_account_endpoint_url('dashboard')); ?>" class="flex-1 flex items-center gap-2 text-gray-700 hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gray-50">
                                 <i class="ri-user-line text-2xl"></i>
                                 <div class="text-left">
-                                    <div class="text-xs text-gray-500">Hoşgeldin</div>
+                                    <div class="text-xs text-gray-500"><?php esc_html_e('Hoşgeldin', 'entegrasyonum'); ?></div>
                                     <div class="text-sm font-semibold -mt-1"><?php echo wp_get_current_user()->display_name; ?></div>
                                 </div>
                             </a>
                         <?php else : ?>
                             <a href="<?php echo esc_url(admin_url('profile.php')); ?>" class="flex-1 flex items-center gap-2 text-gray-700 hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gray-50">
                                 <i class="ri-user-line text-2xl"></i>
-                                <span class="text-sm font-semibold">Profilim</span>
+                                <span class="text-sm font-semibold"><?php esc_html_e('Profilim', 'entegrasyonum'); ?></span>
                             </a>
                         <?php endif; ?>
                     <?php else : ?>
@@ -275,14 +275,14 @@
                             <a href="<?php echo esc_url(wc_get_page_permalink('myaccount')); ?>" class="flex-1 flex items-center gap-2 text-gray-700 hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gray-50">
                                 <i class="ri-user-line text-2xl"></i>
                                 <div class="text-left">
-                                    <div class="text-xs text-gray-500">Giriş Yap</div>
-                                    <div class="text-sm font-semibold -mt-1">veya Üye Ol</div>
+                                    <div class="text-xs text-gray-500"><?php esc_html_e('Giriş Yap', 'entegrasyonum'); ?></div>
+                                    <div class="text-sm font-semibold -mt-1"><?php esc_html_e('veya Üye Ol', 'entegrasyonum'); ?></div>
                                 </div>
                             </a>
                         <?php else : ?>
                             <a href="<?php echo esc_url(wp_login_url()); ?>" class="flex-1 flex items-center gap-2 text-gray-700 hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gray-50">
                                 <i class="ri-user-line text-2xl"></i>
-                                <span class="text-sm font-semibold">Giriş Yap</span>
+                                <span class="text-sm font-semibold"><?php esc_html_e('Giriş Yap', 'entegrasyonum'); ?></span>
                             </a>
                         <?php endif; ?>
                     <?php endif; ?>
@@ -292,11 +292,11 @@
                         <a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="flex-1 flex items-center gap-2 text-gray-700 hover:text-primary transition-colors duration-300 py-2 px-3 rounded-lg hover:bg-gray-50 relative">
                             <i class="ri-shopping-cart-line text-2xl"></i>
                             <div class="text-left">
-                                <div class="text-xs text-gray-500">Sepetim</div>
+                                <div class="text-xs text-gray-500"><?php esc_html_e('Sepetim', 'entegrasyonum'); ?></div>
                                 <div class="text-sm font-semibold -mt-1">
                                     <?php
                                     $cart_count = WC()->cart->get_cart_contents_count();
-                                    echo $cart_count > 0 ? $cart_count . ' Ürün' : 'Boş';
+                                    echo $cart_count > 0 ? sprintf(_n('%s Ürün', '%s Ürün', $cart_count, 'entegrasyonum'), $cart_count) : esc_html__('Boş', 'entegrasyonum');
                                     ?>
                                 </div>
                             </div>
@@ -323,21 +323,21 @@
                 // Menü yoksa otomatik linkler göster
                 ?>
                 <div class="flex flex-col space-y-4">
-                    <a href="<?php echo esc_url(home_url('/')); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium py-2">Ana Sayfa</a>
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium py-2"><?php esc_html_e('Ana Sayfa', 'entegrasyonum'); ?></a>
                     
                     <?php if (post_type_exists('service')) : ?>
-                        <a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium py-2">Hizmetler</a>
+                        <a href="<?php echo esc_url(get_post_type_archive_link('service')); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium py-2"><?php esc_html_e('Hizmetler', 'entegrasyonum'); ?></a>
                     <?php endif; ?>
                     
                     <?php if (class_exists('WooCommerce')) : ?>
-                        <a href="<?php echo esc_url(get_permalink(wc_get_page_id('shop'))); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium py-2">Ürünler</a>
+                        <a href="<?php echo esc_url(get_permalink(wc_get_page_id('shop'))); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium py-2"><?php esc_html_e('Ürünler', 'entegrasyonum'); ?></a>
                     <?php endif; ?>
                     
                     <?php if (get_option('page_for_posts')) : ?>
-                        <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium py-2">Blog</a>
+                        <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium py-2"><?php esc_html_e('Blog', 'entegrasyonum'); ?></a>
                     <?php endif; ?>
                     
-                    <a href="#contact" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium py-2">İletişim</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium py-2"><?php esc_html_e('İletişim', 'entegrasyonum'); ?></a>
                 </div>
                 <?php
             }
@@ -348,7 +348,7 @@
                 <div class="pt-4 mt-4 border-t border-gray-200">
                     <a href="<?php echo esc_url(wp_logout_url(home_url())); ?>" class="flex items-center gap-2 text-red-600 hover:text-red-700 transition-colors duration-300 font-medium py-2">
                         <i class="ri-logout-box-line text-xl"></i>
-                        Çıkış Yap
+                        <?php esc_html_e('Çıkış Yap', 'entegrasyonum'); ?>
                     </a>
                 </div>
             <?php endif; ?>

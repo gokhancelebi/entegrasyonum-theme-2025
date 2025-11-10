@@ -33,10 +33,10 @@ get_header();
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="#services" class="bg-primary hover:bg-blue-700 text-white px-8 py-4 rounded-button font-semibold transition-all duration-300 whitespace-nowrap text-center">
-                        Hizmetleri Keşfet
+                        <?php esc_html_e('Hizmetleri Keşfet', 'entegrasyonum'); ?>
                     </a>
                     <a href="#contact" class="border-2 border-white text-white hover:bg-white hover:text-secondary px-8 py-4 rounded-button font-semibold transition-all duration-300 whitespace-nowrap text-center">
-                        İletişim
+                        <?php esc_html_e('İletişim', 'entegrasyonum'); ?>
                     </a>
                 </div>
             </div>
@@ -55,9 +55,9 @@ get_header();
 <section id="services" class="py-24 bg-gray-50">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16 fade-in">
-            <h2 class="text-4xl font-bold text-secondary mb-4">Hizmetlerimiz</h2>
+            <h2 class="text-4xl font-bold text-secondary mb-4"><?php esc_html_e('Hizmetlerimiz', 'entegrasyonum'); ?></h2>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                İş operasyonlarınızı kolaylaştırmak ve gelişmiş otomasyon teknolojileri ile verimliliği artırmak için tasarlanmış kapsamlı dijital entegrasyon çözümleri.
+                <?php esc_html_e('İş operasyonlarınızı kolaylaştırmak ve gelişmiş otomasyon teknolojileri ile verimliliği artırmak için tasarlanmış kapsamlı dijital entegrasyon çözümleri.', 'entegrasyonum'); ?>
             </p>
         </div>
         
@@ -97,7 +97,7 @@ get_header();
                         </p>
                         <a href="<?php the_permalink(); ?>" 
                            class="inline-flex items-center text-primary hover:text-secondary font-semibold transition-colors duration-300">
-                            Detaylı Bilgi
+                            <?php esc_html_e('Detaylı Bilgi', 'entegrasyonum'); ?>
                             <i class="ri-arrow-right-line ml-2"></i>
                         </a>
                     </div>
@@ -111,27 +111,27 @@ get_header();
                     <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-xl mb-6">
                         <i class="ri-code-s-slash-line text-2xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-secondary mb-4">API Entegrasyonu</h3>
+                    <h3 class="text-xl font-semibold text-secondary mb-4"><?php esc_html_e('API Entegrasyonu', 'entegrasyonum'); ?></h3>
                     <p class="text-gray-600 leading-relaxed">
-                        Güçlü API entegrasyon hizmetlerimizle farklı sistemleri ve uygulamaları sorunsuz bir şekilde bağlayın.
+                        <?php esc_html_e('Güçlü API entegrasyon hizmetlerimizle farklı sistemleri ve uygulamaları sorunsuz bir şekilde bağlayın.', 'entegrasyonum'); ?>
                     </p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-lg card-hover fade-in">
                     <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-xl mb-6">
                         <i class="ri-shopping-cart-line text-2xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-secondary mb-4">WooCommerce Çözümleri</h3>
+                    <h3 class="text-xl font-semibold text-secondary mb-4"><?php esc_html_e('WooCommerce Çözümleri', 'entegrasyonum'); ?></h3>
                     <p class="text-gray-600 leading-relaxed">
-                        Özel WooCommerce entegrasyonları, ödeme ağ geçitleri ve envanter yönetim sistemleri ile e-ticaret platformunuzu optimize edin.
+                        <?php esc_html_e('Özel WooCommerce entegrasyonları, ödeme ağ geçitleri ve envanter yönetim sistemleri ile e-ticaret platformunuzu optimize edin.', 'entegrasyonum'); ?>
                     </p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-lg card-hover fade-in">
                     <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-xl mb-6">
                         <i class="ri-file-code-line text-2xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-secondary mb-4">XML Veri İşleme</h3>
+                    <h3 class="text-xl font-semibold text-secondary mb-4"><?php esc_html_e('XML Veri İşleme', 'entegrasyonum'); ?></h3>
                     <p class="text-gray-600 leading-relaxed">
-                        Otomatik ayrıştırma çözümlerimizle XML verilerini verimli bir şekilde dönüştürün ve işleyin.
+                        <?php esc_html_e('Otomatik ayrıştırma çözümlerimizle XML verilerini verimli bir şekilde dönüştürün ve işleyin.', 'entegrasyonum'); ?>
                     </p>
                 </div>
             <?php endif; ?>
@@ -141,7 +141,7 @@ get_header();
             <div class="text-center mt-12">
                 <a href="<?php echo get_post_type_archive_link('service'); ?>" 
                    class="inline-block bg-primary hover:bg-blue-700 text-white px-8 py-4 rounded-button font-semibold transition-all duration-300">
-                    Tüm Hizmetleri Görüntüle
+                    <?php esc_html_e('Tüm Hizmetleri Görüntüle', 'entegrasyonum'); ?>
                 </a>
             </div>
         <?php endif; ?>
@@ -154,9 +154,9 @@ get_header();
 <section id="products" class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16 fade-in">
-            <h2 class="text-4xl font-bold text-secondary mb-4">Öne Çıkan Ürünler</h2>
+            <h2 class="text-4xl font-bold text-secondary mb-4"><?php esc_html_e('Öne Çıkan Ürünler', 'entegrasyonum'); ?></h2>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                Entegrasyon projelerinizi hızlandırmak ve karmaşık otomasyon iş akışlarını kolaylaştırmak için tasarlanmış dijital ürün paketimizi keşfedin.
+                <?php esc_html_e('Entegrasyon projelerinizi hızlandırmak ve karmaşık otomasyon iş akışlarını kolaylaştırmak için tasarlanmış dijital ürün paketimizi keşfedin.', 'entegrasyonum'); ?>
             </p>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -195,7 +195,7 @@ get_header();
                                 <?php echo wp_trim_words(get_the_excerpt(), 15); ?>
                             </p>
                             <a href="<?php the_permalink(); ?>" class="bg-primary hover:bg-blue-700 text-white px-6 py-2 rounded-button font-medium transition-all duration-300 whitespace-nowrap inline-block">
-                                Daha Fazla Bilgi
+                                <?php esc_html_e('Daha Fazla Bilgi', 'entegrasyonum'); ?>
                             </a>
                         </div>
                     </div>
@@ -209,7 +209,7 @@ get_header();
         <div class="text-center mt-12">
             <a href="<?php echo esc_url(get_permalink(wc_get_page_id('shop'))); ?>" 
                class="inline-block bg-primary hover:bg-blue-700 text-white px-8 py-4 rounded-button font-semibold transition-all duration-300">
-                <i class="ri-shopping-bag-line mr-2"></i>Tüm Ürünler
+                <i class="ri-shopping-bag-line mr-2"></i><?php esc_html_e('Tüm Ürünler', 'entegrasyonum'); ?>
             </a>
         </div>
     </div>
@@ -221,25 +221,25 @@ get_header();
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div class="fade-in">
-                <h2 class="text-4xl font-bold text-secondary mb-6">Entegrasyonum Hakkında</h2>
+                <h2 class="text-4xl font-bold text-secondary mb-6"><?php esc_html_e('Entegrasyonum Hakkında', 'entegrasyonum'); ?></h2>
                 <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-                    Farklı sistemleri birbirine bağlayan ve iş süreçlerini kolaylaştıran otomasyon çözümlerinde uzmanlaşmış lider bir dijital entegrasyon şirketiyiz. Uzmanlığımız API geliştirme, e-ticaret entegrasyonları ve veri işleme teknolojilerini kapsamaktadır.
+                    <?php esc_html_e('Farklı sistemleri birbirine bağlayan ve iş süreçlerini kolaylaştıran otomasyon çözümlerinde uzmanlaşmış lider bir dijital entegrasyon şirketiyiz. Uzmanlığımız API geliştirme, e-ticaret entegrasyonları ve veri işleme teknolojilerini kapsamaktadır.', 'entegrasyonum'); ?>
                 </p>
                 <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                    Kurumsal entegrasyon konusundaki yıllarca süren deneyimimizle, işletmelerin manuel çalışmayı azaltmalarına, veri silolarını ortadan kaldırmalarına ve büyümeyi ve verimliliği artıran sorunsuz dijital iş akışları oluşturmalarına yardımcı oluyoruz.
+                    <?php esc_html_e('Kurumsal entegrasyon konusundaki yıllarca süren deneyimimizle, işletmelerin manuel çalışmayı azaltmalarına, veri silolarını ortadan kaldırmalarına ve büyümeyi ve verimliliği artıran sorunsuz dijital iş akışları oluşturmalarına yardımcı oluyoruz.', 'entegrasyonum'); ?>
                 </p>
                 <div class="flex items-center space-x-8">
                     <div class="text-center">
                         <div class="text-3xl font-bold text-primary">500+</div>
-                        <div class="text-gray-600">Tamamlanan Proje</div>
+                        <div class="text-gray-600"><?php esc_html_e('Tamamlanan Proje', 'entegrasyonum'); ?></div>
                     </div>
                     <div class="text-center">
                         <div class="text-3xl font-bold text-primary">150+</div>
-                        <div class="text-gray-600">Mutlu Müşteri</div>
+                        <div class="text-gray-600"><?php esc_html_e('Mutlu Müşteri', 'entegrasyonum'); ?></div>
                     </div>
                     <div class="text-center">
                         <div class="text-3xl font-bold text-primary">5+</div>
-                        <div class="text-gray-600">Yıllık Deneyim</div>
+                        <div class="text-gray-600"><?php esc_html_e('Yıllık Deneyim', 'entegrasyonum'); ?></div>
                     </div>
                 </div>
             </div>
@@ -258,9 +258,9 @@ get_header();
 <section class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16 fade-in">
-            <h2 class="text-4xl font-bold text-secondary mb-4">Neden Bizi Seçmelisiniz</h2>
+            <h2 class="text-4xl font-bold text-secondary mb-4"><?php esc_html_e('Neden Bizi Seçmelisiniz', 'entegrasyonum'); ?></h2>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                Teknik uzmanlık, kanıtlanmış metodolojiler ve müşteri başarısına olan bağlılığımızla desteklenen olağanüstü entegrasyon çözümleri sunuyoruz.
+                <?php esc_html_e('Teknik uzmanlık, kanıtlanmış metodolojiler ve müşteri başarısına olan bağlılığımızla desteklenen olağanüstü entegrasyon çözümleri sunuyoruz.', 'entegrasyonum'); ?>
             </p>
         </div>
         <div class="grid md:grid-cols-3 gap-8">
@@ -268,27 +268,27 @@ get_header();
                 <div class="w-20 h-20 flex items-center justify-center bg-primary/10 rounded-full mx-auto mb-6">
                     <i class="ri-rocket-line text-3xl text-primary"></i>
                 </div>
-                <h3 class="text-xl font-semibold text-secondary mb-4">Hızlı Uygulama</h3>
+                <h3 class="text-xl font-semibold text-secondary mb-4"><?php esc_html_e('Hızlı Uygulama', 'entegrasyonum'); ?></h3>
                 <p class="text-gray-600 leading-relaxed">
-                    Minimum kesinti süresiyle entegrasyon çözümlerinin hızlı bir şekilde dağıtımı. Çevik yaklaşımımız, dijital dönüşüm projeleriniz için hızlı pazara çıkış süresi sağlar.
+                    <?php esc_html_e('Minimum kesinti süresiyle entegrasyon çözümlerinin hızlı bir şekilde dağıtımı. Çevik yaklaşımımız, dijital dönüşüm projeleriniz için hızlı pazara çıkış süresi sağlar.', 'entegrasyonum'); ?>
                 </p>
             </div>
             <div class="text-center p-8 fade-in">
                 <div class="w-20 h-20 flex items-center justify-center bg-primary/10 rounded-full mx-auto mb-6">
                     <i class="ri-shield-check-line text-3xl text-primary"></i>
                 </div>
-                <h3 class="text-xl font-semibold text-secondary mb-4">Kurumsal Güvenlik</h3>
+                <h3 class="text-xl font-semibold text-secondary mb-4"><?php esc_html_e('Kurumsal Güvenlik', 'entegrasyonum'); ?></h3>
                 <p class="text-gray-600 leading-relaxed">
-                    Banka düzeyinde güvenlik protokolleri ve uyumluluk standartları, tüm entegrasyon süreçleri ve iş akışları boyunca verilerinizin korunmasını sağlar.
+                    <?php esc_html_e('Banka düzeyinde güvenlik protokolleri ve uyumluluk standartları, tüm entegrasyon süreçleri ve iş akışları boyunca verilerinizin korunmasını sağlar.', 'entegrasyonum'); ?>
                 </p>
             </div>
             <div class="text-center p-8 fade-in">
                 <div class="w-20 h-20 flex items-center justify-center bg-primary/10 rounded-full mx-auto mb-6">
                     <i class="ri-customer-service-2-line text-3xl text-primary"></i>
                 </div>
-                <h3 class="text-xl font-semibold text-secondary mb-4">7/24 Destek</h3>
+                <h3 class="text-xl font-semibold text-secondary mb-4"><?php esc_html_e('7/24 Destek', 'entegrasyonum'); ?></h3>
                 <p class="text-gray-600 leading-relaxed">
-                    Entegrasyonlarınızın her zaman sorunsuz ve verimli bir şekilde çalışmasını sağlamak için kesintisiz teknik destek ve izleme hizmetleri.
+                    <?php esc_html_e('Entegrasyonlarınızın her zaman sorunsuz ve verimli bir şekilde çalışmasını sağlamak için kesintisiz teknik destek ve izleme hizmetleri.', 'entegrasyonum'); ?>
                 </p>
             </div>
         </div>
@@ -299,9 +299,9 @@ get_header();
 <section id="blog" class="py-24 bg-gray-50">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16 fade-in">
-            <h2 class="text-4xl font-bold text-secondary mb-4">Blog Öne Çıkanları</h2>
+            <h2 class="text-4xl font-bold text-secondary mb-4"><?php esc_html_e('Blog Öne Çıkanları', 'entegrasyonum'); ?></h2>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                E-ticaret teknolojileri, entegrasyon en iyi uygulamaları ve dijital dönüşüm stratejileri hakkında en son görüşlerden haberdar olun.
+                <?php esc_html_e('E-ticaret teknolojileri, entegrasyon en iyi uygulamaları ve dijital dönüşüm stratejileri hakkında en son görüşlerden haberdar olun.', 'entegrasyonum'); ?>
             </p>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -354,7 +354,7 @@ get_header();
             <div class="text-center mt-12">
                 <a href="/blog" 
                    class="inline-block bg-primary hover:bg-blue-700 text-white px-8 py-4 rounded-button font-semibold transition-all duration-300">
-                    <i class="ri-article-line mr-2"></i>Tüm Yazılar
+                    <i class="ri-article-line mr-2"></i><?php esc_html_e('Tüm Yazılar', 'entegrasyonum'); ?>
                 </a>
             </div>
         <?php endif; ?>
@@ -365,9 +365,9 @@ get_header();
 <section id="contact" class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16 fade-in">
-            <h2 class="text-4xl font-bold text-secondary mb-4">İletişime Geçin</h2>
+            <h2 class="text-4xl font-bold text-secondary mb-4"><?php esc_html_e('İletişime Geçin', 'entegrasyonum'); ?></h2>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                İşinizi dijital entegrasyon ile dönüştürmeye hazır mısınız? Proje gereksinimlerinizi görüşmek için bugün bizimle iletişime geçin.
+                <?php esc_html_e('İşinizi dijital entegrasyon ile dönüştürmeye hazır mısınız? Proje gereksinimlerinizi görüşmek için bugün bizimle iletişime geçin.', 'entegrasyonum'); ?>
             </p>
         </div>
         <div class="grid lg:grid-cols-2 gap-16">
@@ -377,8 +377,8 @@ get_header();
             <div class="fade-in">
                 <div class="bg-gray-100 rounded-xl h-96 flex items-center justify-center" style="background-image: url('/wp-content/themes/entegrasyonum/map_placeholder_1280x720.png'); background-size: cover; background-position: center;">
                     <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <h3 class="font-semibold text-secondary mb-2">Konumumuz</h3>
-                        <p class="text-gray-600">İstanbul, Türkiye</p>
+                        <h3 class="font-semibold text-secondary mb-2"><?php esc_html_e('Konumumuz', 'entegrasyonum'); ?></h3>
+                        <p class="text-gray-600"><?php esc_html_e('İstanbul, Türkiye', 'entegrasyonum'); ?></p>
                     </div>
                 </div>
                 <div class="mt-8 space-y-4">
@@ -387,7 +387,7 @@ get_header();
                             <i class="ri-mail-line text-primary"></i>
                         </div>
                         <div>
-                            <div class="font-medium text-secondary">E-posta</div>
+                            <div class="font-medium text-secondary"><?php esc_html_e('E-posta', 'entegrasyonum'); ?></div>
                             <div class="text-gray-600">info@entegrasyonum.com</div>
                         </div>
                     </div>
@@ -396,7 +396,7 @@ get_header();
                             <i class="ri-phone-line text-primary"></i>
                         </div>
                         <div>
-                            <div class="font-medium text-secondary">Telefon</div>
+                            <div class="font-medium text-secondary"><?php esc_html_e('Telefon', 'entegrasyonum'); ?></div>
                             <div class="text-gray-600">+90 544 809 1065</div>
                         </div>
                     </div>

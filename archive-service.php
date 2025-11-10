@@ -17,7 +17,7 @@ get_header();
                 if (is_tax('service_category')) {
                     single_term_title();
                 } else {
-                    echo 'Hizmetlerimiz';
+                    esc_html_e('Hizmetlerimiz', 'entegrasyonum');
                 }
                 ?>
             </h1>
@@ -26,7 +26,7 @@ get_header();
                 if (is_tax('service_category')) {
                     echo term_description();
                 } else {
-                    echo 'Profesyonel entegrasyon hizmetlerimizi keşfedin ve işinizi bir üst seviyeye taşıyın';
+                    esc_html_e('Profesyonel entegrasyon hizmetlerimizi keşfedin ve işinizi bir üst seviyeye taşıyın', 'entegrasyonum');
                 }
                 ?>
             </p>
@@ -53,7 +53,7 @@ get_header();
                     <div class="inline-flex flex-wrap gap-2 p-2 bg-gray-100 rounded-lg">
                         <a href="<?php echo get_post_type_archive_link('service'); ?>" 
                            class="px-6 py-2 rounded-lg font-medium transition-all duration-300 <?php echo !is_tax() ? 'bg-primary text-white' : 'text-gray-700 hover:bg-gray-200'; ?>">
-                            Tümü
+                            <?php esc_html_e('Tümü', 'entegrasyonum'); ?>
                         </a>
                         <?php foreach ($terms as $term) : ?>
                             <a href="<?php echo get_term_link($term); ?>" 
@@ -117,7 +117,7 @@ get_header();
                             <!-- Read More Button -->
                             <a href="<?php the_permalink(); ?>" 
                                class="inline-flex items-center text-primary hover:text-secondary font-semibold transition-colors duration-300">
-                                Detaylı Bilgi
+                                <?php esc_html_e('Detaylı Bilgi', 'entegrasyonum'); ?>
                                 <i class="ri-arrow-right-line ml-2"></i>
                             </a>
                             
@@ -134,8 +134,8 @@ get_header();
                 <?php
                 the_posts_pagination(array(
                     'mid_size'  => 2,
-                    'prev_text' => '<i class="ri-arrow-left-line"></i> Önceki',
-                    'next_text' => 'Sonraki <i class="ri-arrow-right-line"></i>',
+                    'prev_text' => '<i class="ri-arrow-left-line"></i> ' . esc_html__('Önceki', 'entegrasyonum'),
+                    'next_text' => esc_html__('Sonraki', 'entegrasyonum') . ' <i class="ri-arrow-right-line"></i>',
                     'class'     => 'pagination',
                 ));
                 ?>
@@ -148,11 +148,11 @@ get_header();
                 <div class="mb-6">
                     <i class="ri-tools-line text-6xl text-gray-300"></i>
                 </div>
-                <h2 class="text-2xl font-bold text-secondary mb-4">Hizmet Bulunamadı</h2>
-                <p class="text-gray-600 mb-8">Henüz bu kategoride hizmet bulunmamaktadır.</p>
+                <h2 class="text-2xl font-bold text-secondary mb-4"><?php esc_html_e('Hizmet Bulunamadı', 'entegrasyonum'); ?></h2>
+                <p class="text-gray-600 mb-8"><?php esc_html_e('Henüz bu kategoride hizmet bulunmamaktadır.', 'entegrasyonum'); ?></p>
                 <a href="<?php echo esc_url(home_url('/')); ?>" 
                    class="inline-block bg-primary hover:bg-blue-700 text-white px-8 py-3 rounded-button font-semibold transition-all duration-300">
-                    Ana Sayfaya Dön
+                    <?php esc_html_e('Ana Sayfaya Dön', 'entegrasyonum'); ?>
                 </a>
             </div>
             
@@ -164,13 +164,13 @@ get_header();
 <!-- Call to Action -->
 <section class="py-16 bg-gray-50">
     <div class="max-w-4xl mx-auto px-6 text-center">
-        <h2 class="text-3xl font-bold text-secondary mb-4">Size Nasıl Yardımcı Olabiliriz?</h2>
+        <h2 class="text-3xl font-bold text-secondary mb-4"><?php esc_html_e('Size Nasıl Yardımcı Olabiliriz?', 'entegrasyonum'); ?></h2>
         <p class="text-xl text-gray-600 mb-8">
-            Hizmetlerimiz hakkında detaylı bilgi almak veya özel bir çözüm için bizimle iletişime geçin.
+            <?php esc_html_e('Hizmetlerimiz hakkında detaylı bilgi almak veya özel bir çözüm için bizimle iletişime geçin.', 'entegrasyonum'); ?>
         </p>
         <a href="<?php echo esc_url(get_permalink(get_page_by_path('iletisim'))); ?>" 
            class="inline-block bg-primary hover:bg-blue-700 text-white px-8 py-4 rounded-button font-semibold transition-all duration-300">
-            <i class="ri-phone-line mr-2"></i>İletişime Geçin
+            <i class="ri-phone-line mr-2"></i><?php esc_html_e('İletişime Geçin', 'entegrasyonum'); ?>
         </a>
     </div>
 </section>
