@@ -95,35 +95,39 @@ get_header();
                             <?php endif; ?>
                             
                             <!-- Social Share / Sosyal Medya Paylaşım -->
-                            <div class="social-share" style="display: flex; gap: 10px; flex-wrap: wrap;">
-                                <span style="font-weight: 600;">Paylaş:</span>
+                            <div class="social-share" style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+                                <span style="font-weight: 600; color: #374151; margin-right: 8px;">Paylaş:</span>
                                 <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>" 
                                    target="_blank" 
                                    rel="noopener"
-                                   class="btn btn-outline"
-                                   style="padding: 8px 15px; font-size: 14px;">
-                                    <i class="ri-facebook-fill"></i> Facebook
+                                   style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; font-size: 14px; font-weight: 500; background-color: #1877F2; color: white; border-radius: 8px; text-decoration: none; transition: all 0.3s ease;"
+                                   onmouseover="this.style.backgroundColor='#0C63D4'"
+                                   onmouseout="this.style.backgroundColor='#1877F2'">
+                                    <i class="ri-facebook-fill" style="font-size: 18px;"></i> Facebook
                                 </a>
                                 <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode(get_permalink()); ?>&text=<?php echo urlencode(get_the_title()); ?>" 
                                    target="_blank" 
                                    rel="noopener"
-                                   class="btn btn-outline"
-                                   style="padding: 8px 15px; font-size: 14px;">
-                                    <i class="ri-twitter-fill"></i> Twitter
+                                   style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; font-size: 14px; font-weight: 500; background-color: #1DA1F2; color: white; border-radius: 8px; text-decoration: none; transition: all 0.3s ease;"
+                                   onmouseover="this.style.backgroundColor='#0C8DD9'"
+                                   onmouseout="this.style.backgroundColor='#1DA1F2'">
+                                    <i class="ri-twitter-fill" style="font-size: 18px;"></i> Twitter
                                 </a>
                                 <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode(get_permalink()); ?>" 
                                    target="_blank" 
                                    rel="noopener"
-                                   class="btn btn-outline"
-                                   style="padding: 8px 15px; font-size: 14px;">
-                                    <i class="ri-linkedin-fill"></i> LinkedIn
+                                   style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; font-size: 14px; font-weight: 500; background-color: #0A66C2; color: white; border-radius: 8px; text-decoration: none; transition: all 0.3s ease;"
+                                   onmouseover="this.style.backgroundColor='#084D93'"
+                                   onmouseout="this.style.backgroundColor='#0A66C2'">
+                                    <i class="ri-linkedin-fill" style="font-size: 18px;"></i> LinkedIn
                                 </a>
                                 <a href="https://wa.me/?text=<?php echo urlencode(get_the_title() . ' ' . get_permalink()); ?>" 
                                    target="_blank" 
                                    rel="noopener"
-                                   class="btn btn-outline"
-                                   style="padding: 8px 15px; font-size: 14px;">
-                                    <i class="ri-whatsapp-line"></i> WhatsApp
+                                   style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; font-size: 14px; font-weight: 500; background-color: #25D366; color: white; border-radius: 8px; text-decoration: none; transition: all 0.3s ease;"
+                                   onmouseover="this.style.backgroundColor='#1DA851'"
+                                   onmouseout="this.style.backgroundColor='#25D366'">
+                                    <i class="ri-whatsapp-line" style="font-size: 18px;"></i> WhatsApp
                                 </a>
                             </div>
                             
