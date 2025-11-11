@@ -10,6 +10,7 @@
 defined( 'ABSPATH' ) || exit;
 
 $notes = $order->get_customer_order_notes();
+$show_purchase_note = $order->has_status( apply_filters( 'woocommerce_purchase_note_order_statuses', array( 'completed', 'processing' ) ) );
 ?>
 
 <div class="bg-white rounded-lg shadow-md p-6 lg:p-8">
