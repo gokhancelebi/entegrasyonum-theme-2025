@@ -18,7 +18,11 @@ get_header();
 
 <div class="content-area">
     <div class="container">
-        <div class="content-wrapper">
+        <?php
+        $is_full_width = entegrasyonum_is_full_width();
+        $wrapper_class = $is_full_width ? 'content-wrapper-full' : 'content-wrapper';
+        ?>
+        <div class="<?php echo esc_attr($wrapper_class); ?>">
             
             <div class="main-content">
                 
@@ -167,7 +171,9 @@ get_header();
                 
             </div>
             
-            <?php get_sidebar(); ?>
+            <?php if (!$is_full_width) : ?>
+                <?php get_sidebar(); ?>
+            <?php endif; ?>
             
         </div>
     </div>

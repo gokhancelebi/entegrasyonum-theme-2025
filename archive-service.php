@@ -6,6 +6,11 @@
  */
 
 get_header();
+
+// Hizmetleri sıraya göre sırala
+global $wp_query;
+$wp_query->set('orderby', 'menu_order');
+$wp_query->set('order', 'ASC');
 ?>
 
 <!-- Services Archive Header -->

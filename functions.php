@@ -57,7 +57,7 @@ function entegrasyonum_register_services_post_type() {
         'hierarchical'       => false,
         'menu_position'      => 5,
         'menu_icon'          => 'dashicons-admin-tools',
-        'supports'           => array('title', 'editor', 'excerpt', 'thumbnail', 'custom-fields'),
+        'supports'           => array('title', 'editor', 'excerpt', 'thumbnail', 'custom-fields', 'page-attributes'), // page-attributes = sıralama
         'show_in_rest'       => true, // Gutenberg desteği
     );
 
@@ -860,3 +860,84 @@ function mytheme_single_post_scripts() {
     }
 }
 add_action( 'wp_enqueue_scripts', 'mytheme_single_post_scripts' );
+
+/**
+ * Full Width Layout Meta Box
+ * Hizmet ve Blog yazılarında full-width düzen seçeneği
+ */
+function entegrasyonum_add_layout_meta_box() {
+    add_meta_box(
+        'entegrasyonum_layout_options',
+        __('Sayfa Düzeni', 'entegrasyonum'),
+        'entegrasyonum_layout_meta_box_callback',
+        array('post', 'service'),
+        'side',
+        'default'
+    );
+}
+add_action('add_meta_boxes', 'entegrasyonum_add_layout_meta_box');
+
+/**
+ * Meta Box Callback
+ */
+function entegrasyonum_layout_meta_box_callback($post) {
+    wp_nonce_field('entegrasyonum_save_layout_meta', 'entegrasyonum_layout_nonce');
+    $full_width = get_post_meta($post->ID, '_entegrasyonum_full_width', true);
+    ?>
+    <div style="padding: 10px 0;">
+        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+            <input type="checkbox" 
+                   name="entegrasyonum_full_width" 
+                   value="1" 
+                   <?php checked($full_width, '1'); ?>
+                   style="margin: 0;">
+            <span style="font-weight: 500;">
+                <?php esc_html_e('Tam Genişlik Düzen (Sidebar\'sız)', 'entegrasyonum'); ?>
+            </span>
+        </label>
+        <p style="margin: 10px 0 0 0; color: #666; font-size: 12px;">
+            <?php esc_html_e('Bu seçeneği işaretlerseniz, içerik sidebar olmadan tam genişlikte görünür.', 'entegrasyonum'); ?>
+        </p>
+    </div>
+    <?php
+}
+
+/**
+ * Save Meta Box Data
+ */
+function entegrasyonum_save_layout_meta($post_id) {
+    // Nonce kontrolü
+    if (!isset($_POST['entegrasyonum_layout_nonce']) || 
+        !wp_verify_nonce($_POST['entegrasyonum_layout_nonce'], 'entegrasyonum_save_layout_meta')) {
+        return;
+    }
+    
+    // Autosave kontrolü
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    
+    // Yetki kontrolü
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+    
+    // Meta değerini kaydet
+    if (isset($_POST['entegrasyonum_full_width'])) {
+        update_post_meta($post_id, '_entegrasyonum_full_width', '1');
+    } else {
+        delete_post_meta($post_id, '_entegrasyonum_full_width');
+    }
+}
+add_action('save_post', 'entegrasyonum_save_layout_meta');
+
+/**
+ * Helper Function - Check if Full Width Layout
+ */
+function entegrasyonum_is_full_width() {
+    if (is_singular(array('post', 'service'))) {
+        $full_width = get_post_meta(get_the_ID(), '_entegrasyonum_full_width', true);
+        return $full_width === '1';
+    }
+    return false;
+}

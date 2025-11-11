@@ -543,8 +543,15 @@ img {
     gap: var(--spacing-xl);
 }
 
-.content-wrapper.full-width {
+.content-wrapper.full-width,
+.content-wrapper-full {
     grid-template-columns: 1fr;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.content-wrapper-full .main-content {
+    max-width: 100%;
 }
 
 .main-content {
