@@ -883,9 +883,11 @@ add_action('add_meta_boxes', 'entegrasyonum_add_layout_meta_box');
 function entegrasyonum_layout_meta_box_callback($post) {
     wp_nonce_field('entegrasyonum_save_layout_meta', 'entegrasyonum_layout_nonce');
     $full_width = get_post_meta($post->ID, '_entegrasyonum_full_width', true);
+    $hide_thumbnail = get_post_meta($post->ID, '_entegrasyonum_hide_thumbnail', true);
     ?>
     <div style="padding: 10px 0;">
-        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+        <!-- Full Width Option -->
+        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; margin-bottom: 15px;">
             <input type="checkbox" 
                    name="entegrasyonum_full_width" 
                    value="1" 
@@ -895,8 +897,23 @@ function entegrasyonum_layout_meta_box_callback($post) {
                 <?php esc_html_e('Tam Genişlik Düzen (Sidebar\'sız)', 'entegrasyonum'); ?>
             </span>
         </label>
-        <p style="margin: 10px 0 0 0; color: #666; font-size: 12px;">
-            <?php esc_html_e('Bu seçeneği işaretlerseniz, içerik sidebar olmadan tam genişlikte görünür.', 'entegrasyonum'); ?>
+        <p style="margin: 0 0 20px 0; color: #666; font-size: 12px; padding-left: 24px;">
+            <?php esc_html_e('İçerik sidebar olmadan tam genişlikte görünür.', 'entegrasyonum'); ?>
+        </p>
+        
+        <!-- Hide Thumbnail Option -->
+        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; margin-bottom: 15px; padding-top: 15px; border-top: 1px solid #ddd;">
+            <input type="checkbox" 
+                   name="entegrasyonum_hide_thumbnail" 
+                   value="1" 
+                   <?php checked($hide_thumbnail, '1'); ?>
+                   style="margin: 0;">
+            <span style="font-weight: 500;">
+                <?php esc_html_e('Öne Çıkan Görseli Gizle', 'entegrasyonum'); ?>
+            </span>
+        </label>
+        <p style="margin: 0; color: #666; font-size: 12px; padding-left: 24px;">
+            <?php esc_html_e('Detay sayfasında öne çıkan görsel gösterilmez. (Default: Göster)', 'entegrasyonum'); ?>
         </p>
     </div>
     <?php
@@ -922,11 +939,18 @@ function entegrasyonum_save_layout_meta($post_id) {
         return;
     }
     
-    // Meta değerini kaydet
+    // Full Width ayarını kaydet
     if (isset($_POST['entegrasyonum_full_width'])) {
         update_post_meta($post_id, '_entegrasyonum_full_width', '1');
     } else {
         delete_post_meta($post_id, '_entegrasyonum_full_width');
+    }
+    
+    // Hide Thumbnail ayarını kaydet
+    if (isset($_POST['entegrasyonum_hide_thumbnail'])) {
+        update_post_meta($post_id, '_entegrasyonum_hide_thumbnail', '1');
+    } else {
+        delete_post_meta($post_id, '_entegrasyonum_hide_thumbnail');
     }
 }
 add_action('save_post', 'entegrasyonum_save_layout_meta');
@@ -938,6 +962,17 @@ function entegrasyonum_is_full_width() {
     if (is_singular(array('post', 'service'))) {
         $full_width = get_post_meta(get_the_ID(), '_entegrasyonum_full_width', true);
         return $full_width === '1';
+    }
+    return false;
+}
+
+/**
+ * Helper Function - Check if Thumbnail Should Be Hidden
+ */
+function entegrasyonum_hide_thumbnail() {
+    if (is_singular(array('post', 'service'))) {
+        $hide_thumbnail = get_post_meta(get_the_ID(), '_entegrasyonum_hide_thumbnail', true);
+        return $hide_thumbnail === '1';
     }
     return false;
 }

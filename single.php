@@ -65,7 +65,7 @@ get_header();
                         </header>
                         
                         <!-- Post Thumbnail / Öne Çıkan Görsel -->
-                        <?php if (has_post_thumbnail()) : ?>
+                        <?php if (has_post_thumbnail() && !entegrasyonum_hide_thumbnail()) : ?>
                             <div class="single-post-thumbnail" style="margin-bottom: 2rem;">
                                 <?php the_post_thumbnail('large', array('style' => 'width: 100%; height: auto; border-radius: 8px;')); ?>
                             </div>

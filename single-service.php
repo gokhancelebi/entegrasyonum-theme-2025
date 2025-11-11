@@ -59,7 +59,7 @@ get_header();
             <div class="<?php echo esc_attr($content_class); ?>">
         
                 <!-- Featured Image -->
-                <?php if (has_post_thumbnail()) : ?>
+                <?php if (has_post_thumbnail() && !entegrasyonum_hide_thumbnail()) : ?>
                     <div class="mb-8 rounded-xl overflow-hidden shadow-lg">
                         <?php the_post_thumbnail('large', array('class' => 'w-full h-auto')); ?>
                     </div>
