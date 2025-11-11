@@ -66,6 +66,20 @@ function entegrasyonum_register_services_post_type() {
 add_action('init', 'entegrasyonum_register_services_post_type');
 
 /**
+ * Flush Rewrite Rules on Theme Activation
+ * Tema aktif edildiğinde permalink yapısını yenile
+ */
+function entegrasyonum_rewrite_flush() {
+    // Custom post type'ı kaydet
+    entegrasyonum_register_services_post_type();
+    // Taxonomy'yi kaydet
+    entegrasyonum_register_service_taxonomy();
+    // Permalink yapısını yenile
+    flush_rewrite_rules();
+}
+add_action('after_switch_theme', 'entegrasyonum_rewrite_flush');
+
+/**
  * Custom Taxonomy - Hizmet Kategorileri
  * Hizmetler için kategori taxonomy
  */
