@@ -941,3 +941,29 @@ function entegrasyonum_is_full_width() {
     }
     return false;
 }
+
+/**
+ * Custom Document Title for Services
+ * Hizmet sayfaları için özel tarayıcı başlığı
+ */
+function entegrasyonum_custom_document_title($title) {
+    if (is_singular('service')) {
+        $title['title'] = get_the_title();
+        $title['site'] = get_bloginfo('name');
+        $title['tagline'] = get_bloginfo('description');
+    }
+    return $title;
+}
+add_filter('document_title_parts', 'entegrasyonum_custom_document_title');
+
+/**
+ * Pre Get Document Title - Fallback
+ * Alternatif title oluşturma (SEO eklentileri yoksa)
+ */
+function entegrasyonum_pre_get_document_title($title) {
+    if (is_singular('service') && empty($title)) {
+        return get_the_title() . ' - ' . get_bloginfo('name');
+    }
+    return $title;
+}
+add_filter('pre_get_document_title', 'entegrasyonum_pre_get_document_title');
