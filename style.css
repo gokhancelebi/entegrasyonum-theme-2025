@@ -122,12 +122,12 @@ a:hover {
 }
 
 /* Footer linklerini genel a stilinden muaf tut */
-footer a,
-footer a:visited {
+.site-footer a,
+.site-footer a:visited {
     color: rgba(255, 255, 255, 0.8) !important;
 }
 
-footer a:hover {
+.site-footer a:hover {
     color: #ffffff !important;
 }
 
@@ -1669,33 +1669,33 @@ textarea:focus {
 }
 
 /* Footer genel stiller - tüm footer elementleri için */
-footer {
+.site-footer {
     color: #ffffff !important;
 }
 
-footer a {
+.site-footer a {
     color: rgba(255, 255, 255, 0.8) !important;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-footer a:hover {
+.site-footer a:hover {
     color: #ffffff !important;
 }
 
-footer h1,
-footer h2,
-footer h3,
-footer h4,
-footer h5,
-footer h6 {
+.site-footer h1,
+.site-footer h2,
+.site-footer h3,
+.site-footer h4,
+.site-footer h5,
+.site-footer h6 {
     color: #ffffff !important;
 }
 
-footer p,
-footer span,
-footer div,
-footer li {
+.site-footer p,
+.site-footer span,
+.site-footer div,
+.site-footer li {
     color: #ffffff !important;
 }
 
@@ -4491,9 +4491,6 @@ header {
    ============================================ */
 
 /* Tüm footer linklerini beyaz yap - genel a stilini override et */
-footer a,
-footer a:link,
-footer a:visited,
 .site-footer a,
 .site-footer a:link,
 .site-footer a:visited,
@@ -4507,9 +4504,7 @@ footer a:visited,
     text-decoration: none !important;
     transition: color 0.3s ease !important;
 }
-
-footer a:hover,
-footer a:active,
+ 
 .site-footer a:hover,
 .site-footer a:active,
 .footer-widget a:hover,
@@ -4520,16 +4515,12 @@ footer a:active,
 }
 
 /* Footer içindeki tüm text elementleri beyaz olmalı */
-footer,
-footer *,
 .site-footer,
 .site-footer * {
     color: #ffffff !important;
 }
 
 /* Footer liste stilleri - bullet point'leri kaldır */
-footer ul,
-footer ol,
 .site-footer ul,
 .site-footer ol,
 .footer-widget ul,
@@ -4540,8 +4531,6 @@ footer ol,
     margin-left: 0 !important;
 }
 
-footer ul li,
-footer ol li,
 .site-footer ul li,
 .site-footer ol li,
 .footer-widget ul li,
@@ -4554,8 +4543,6 @@ footer ol li,
     color: #ffffff !important;
 }
 
-footer ul li:before,
-footer ol li:before,
 .site-footer ul li:before,
 .site-footer ol li:before,
 .footer-widget ul li:before,

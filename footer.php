@@ -1,7 +1,7 @@
     </main><!-- #main-content -->
 
     <!-- Footer -->
-    <footer class="bg-secondary text-white py-16" style="background-color: #0A2540;">
+    <footer class="bg-secondary text-white py-16 site-footer" style="background-color: #0A2540;">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                 <!-- Footer Column 1 -->
