@@ -10,6 +10,9 @@
     // Document ready
     $(document).ready(function() {
         
+        // Header Height Adjustment / Header Yüksekliği Ayarlama
+        initHeaderHeightAdjustment();
+        
         // Sticky Header / Yapışkan Başlık
         initStickyHeader();
         
@@ -38,6 +41,57 @@
         handleStickyHeader();
         handleBackToTop();
     });
+    
+    // Window resize events
+    $(window).on('resize', function() {
+        adjustHeaderHeight();
+    });
+    
+    /**
+     * Header Height Adjustment
+     * Header yüksekliğini dinamik olarak ayarla ve hero/page-header padding'ini güncelle
+     */
+    function initHeaderHeightAdjustment() {
+        // İlk yüklemede ayarla
+        adjustHeaderHeight();
+        
+        // ResizeObserver ile header yüksekliği değişikliklerini izle (modern tarayıcılar)
+        if ('ResizeObserver' in window) {
+            var header = document.querySelector('.site-header');
+            if (header) {
+                var resizeObserver = new ResizeObserver(function(entries) {
+                    adjustHeaderHeight();
+                });
+                resizeObserver.observe(header);
+            }
+        }
+        
+        // MutationObserver ile header içeriği değişikliklerini izle
+        if ('MutationObserver' in window) {
+            var header = document.querySelector('.site-header');
+            if (header) {
+                var mutationObserver = new MutationObserver(function() {
+                    adjustHeaderHeight();
+                });
+                mutationObserver.observe(header, {
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                    attributeFilter: ['class']
+                });
+            }
+        }
+    }
+    
+    function adjustHeaderHeight() {
+        var header = $('.site-header');
+        if (header.length) {
+            var headerHeight = header.outerHeight();
+            
+            // CSS değişkenini güncelle - CSS kendi hesaplamalarını yapacak
+            document.documentElement.style.setProperty('--header-height', headerHeight + 'px');
+        }
+    }
     
     /**
      * Sticky Header

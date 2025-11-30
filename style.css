@@ -513,6 +513,21 @@ img {
     padding: var(--spacing-lg) 0; /* 2rem = 32px (önceki 3rem'den düşürüldü) */
     text-align: center;
     margin-bottom: 0; /* Kaldırıldı, content-area kendi padding'ini yönetiyor */
+    margin-top: calc(var(--header-height) * -1); /* Body padding'ini iptal et */
+    padding-top: calc(var(--spacing-lg) + var(--header-height)); /* Header + normal padding */
+}
+
+/* Admin bar varken page header */
+.admin-bar .page-header {
+    margin-top: calc((var(--header-height) + 32px) * -1);
+    padding-top: calc(var(--spacing-lg) + var(--header-height) + 32px);
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar .page-header {
+        margin-top: calc((var(--header-height) + 46px) * -1);
+        padding-top: calc(var(--spacing-lg) + var(--header-height) + 46px);
+    }
 }
 
 .page-header h1 {
