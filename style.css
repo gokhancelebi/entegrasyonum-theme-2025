@@ -870,6 +870,51 @@ img {
     margin-bottom: var(--spacing-lg);
 }
 
+/* Product Description Headings */
+.product-description h1,
+.product-description h2,
+.product-description h3,
+.product-description h4,
+.product-description h5,
+.product-description h6 {
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.product-description h1 {
+    font-size: 2rem;
+}
+
+.product-description h2 {
+    font-size: 1.75rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.product-description h3 {
+    font-size: 1.5rem;
+}
+
+.product-description h4 {
+    font-size: 1.25rem;
+}
+
+.product-description h5 {
+    font-size: 1.1rem;
+    color: var(--dark-color);
+}
+
+.product-description h6 {
+    font-size: 1rem;
+    color: var(--gray-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.875rem;
+}
+
 /* Cart */
 .cart-table {
     width: 100%;
@@ -2118,6 +2163,61 @@ ul.products::before{
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* WooCommerce Product Content Headings */
+.woocommerce div.product .woocommerce-tabs .panel h1,
+.woocommerce div.product .woocommerce-tabs .panel h2,
+.woocommerce div.product .woocommerce-tabs .panel h3,
+.woocommerce div.product .woocommerce-tabs .panel h4,
+.woocommerce div.product .woocommerce-tabs .panel h5,
+.woocommerce div.product .woocommerce-tabs .panel h6 {
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--dark-color);
+}
+
+.woocommerce div.product .woocommerce-tabs .panel h1 {
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.woocommerce div.product .woocommerce-tabs .panel h2 {
+    font-size: 1.75rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.woocommerce div.product .woocommerce-tabs .panel h3 {
+    font-size: 1.5rem;
+    margin-top: 1.25rem;
+    margin-bottom: 0.875rem;
+}
+
+.woocommerce div.product .woocommerce-tabs .panel h4 {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.woocommerce div.product .woocommerce-tabs .panel h5 {
+    font-size: 1.1rem;
+    margin-top: 0.875rem;
+    margin-bottom: 0.625rem;
+    color: var(--dark-color);
+}
+
+.woocommerce div.product .woocommerce-tabs .panel h6 {
+    font-size: 0.95rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--gray-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.875rem;
 }
 
 /* Related & Upsell Products */
@@ -3711,6 +3811,47 @@ ul.products li.product {
     font-size: 1.5rem;
     color: #111827;
     margin-bottom: 1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-top: 1.5rem;
+}
+
+.woocommerce div.product .woocommerce-tabs .panel h3 {
+    font-size: 1.3rem;
+    color: #111827;
+    margin-bottom: 0.875rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-top: 1.25rem;
+}
+
+.woocommerce div.product .woocommerce-tabs .panel h4 {
+    font-size: 1.15rem;
+    color: #111827;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-top: 1rem;
+}
+
+.woocommerce div.product .woocommerce-tabs .panel h5 {
+    font-size: 1.05rem;
+    color: #1F2937;
+    margin-bottom: 0.625rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-top: 0.875rem;
+}
+
+.woocommerce div.product .woocommerce-tabs .panel h6 {
+    font-size: 0.95rem;
+    color: #374151;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-top: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* Prevent ALL scroll behaviors on product page */
